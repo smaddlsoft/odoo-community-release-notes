@@ -3,7 +3,7 @@
   title: Activities
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_18
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - mail
   ee_modules: []
@@ -11,6 +11,7 @@
   - 'UI string "Schedule Activity" -> CE: mail | EE: account_followup'
   - 'code /Schedule Activity/ -> CE: mail, calendar | EE-only: account_followup'
   - 'module license (CE runbot): mail=LGPL-3'
+  - 'CE screenshot (20.0 test database): Role field in the Schedule Activity dialog'
   notes: ''
   flags: []
   tags: []
@@ -50,13 +51,14 @@
   title: Chatter filter
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_18
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - mail
   ee_modules: []
   evidence:
   - 'code /chatter.*filter|filter.*chatter/ -> CE: - | EE-only: hr_payroll, ai'
   - 'module license (CE runbot): mail=LGPL-3'
+  - 'CE screenshot (20.0 test database): chatter filter (All / Messages / Notes / Activities / Changes)'
   notes: ''
   flags: []
   tags: []
@@ -98,12 +100,13 @@
   title: Dialog design
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_18
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - web
   ee_modules: []
   evidence:
   - 'module license (CE runbot): web=LGPL-3'
+  - 'CE screenshot (20.0 test database): new Schedule Activity dialog'
   notes: ''
   flags: []
   tags: []
@@ -459,6 +462,7 @@
   evidence:
   - 'code /pinned_at/ -> CE: mail | EE-only: -'
   - 'module license (CE runbot): mail=LGPL-3'
+  - 'CE screenshot (20.0 test database): pinned-messages button in the chatter'
   notes: ''
   flags: []
   tags: []
@@ -561,6 +565,7 @@
   - 'CE source: odoo/addons/base/models/ir_access.py; 226 CE modules ship security/ir.access.csv, 0 ship ir.model.access.csv'
   - 'code /_name = .ir\.access./ -> CE: mail, base | EE-only: web_studio'
   - 'module license (CE runbot): base=LGPL-3'
+  - 'CE screenshot (20.0 test database): ir.access form with operations and domain'
   notes: '`ir.model.access` and `ir.rule` are replaced by one `ir.access` model (model, group, operation, domain); modules ship `security/ir.access.csv`.
     Odoo provides `odoo/upgrade_code/19.4-00-ir-access.py` to convert module sources'
   flags: []
@@ -585,7 +590,7 @@
   title: Tax included/excluded on orders and invoices
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_18
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - account
   - sale
@@ -595,6 +600,7 @@
   - 'code /tax_calculation|price_include_override|Tax Included/ -> CE: account, website_sale, point_of_sale, sale, l10n_account_withholding_tax,
     l10n_sa (+22) | EE-only: l10n_br_edi, account_avatax, l10n_br_edi_pos, l10n_ch_hr_payroll, l10n_do_edi, l10n_gt_edi (+7)'
   - 'module license (CE runbot): account=LGPL-3, sale=LGPL-3, purchase=LGPL-3'
+  - 'CE screenshot (20.0 test database): ''Tax Excl.'' switch on a sales order'
   notes: ''
   flags: []
   tags: []
@@ -1544,6 +1550,7 @@
   - 'runbot CE (API): account.payment.state selection = draft, paid, reconciled, canceled, rejected'
   - 'UI string "Mark as Reconciled" -> CE: account'
   - 'module license (CE runbot): account=LGPL-3'
+  - 'CE screenshot (20.0 test database): ''Reconciled'' payment status'
   notes: '`account.payment.state` values are now draft / paid / reconciled / canceled / rejected'
   flags: []
   tags:
@@ -1601,6 +1608,7 @@
   - 'UI string "Exchange Rate Difference" -> CE: account | EE: l10n_mn_reports'
   - 'module license (EE runbot ir.module.module): account_accountant=OEEL-1'
   - 'module license (CE runbot): account=LGPL-3'
+  - 'CE screenshot (20.0 test database): ''Payment Reconciliation'' column in the chart of accounts'
   notes: Checkbox/logic in CE `account`; bank reconciliation view is EE
   flags: []
   tags:
@@ -1709,6 +1717,7 @@
   - 'runbot CE (API): account.account.parent_id many2one(account.account) from module account; account.account.code required=False'
   - 'code /parent_id.*account\.account|account\.account.*parent_id/ -> CE: account | EE-only: account_reports'
   - 'module license (CE runbot): account=LGPL-3'
+  - 'CE screenshot (20.0 test database): parent-account tree in the chart of accounts'
   notes: '`account.group` is gone; `account.account.parent_id` structures the chart and `code` is no longer required'
   flags: []
   tags:
@@ -4345,13 +4354,14 @@
   title: Manage pending activities
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_87
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - calendar
   - mail
   ee_modules: []
   evidence:
   - 'module license (CE runbot): calendar=LGPL-3, mail=LGPL-3'
+  - 'CE screenshot (20.0 test database): pending activities in the calendar''s all-day row'
   notes: ''
   flags: []
   tags: []
@@ -4383,6 +4393,7 @@
   - 'code /calendar\.calendar/ -> CE: calendar, google_calendar, hr_calendar, calendar_sms, resource, microsoft_calendar (+2) | EE-only: appointment,
     l10n_be_hr_payroll'
   - 'module license (CE runbot): calendar=LGPL-3'
+  - 'CE screenshot (20.0 test database): ''+ Add a calendar'' in the Calendar side panel'
   notes: New `calendar.calendar` model in CE `calendar`
   flags: []
   tags: []
@@ -4436,13 +4447,14 @@
   title: Hierarchical view
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_88
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - web_hierarchy
   - contacts
   ee_modules: []
   evidence:
   - 'module license (CE runbot): web_hierarchy=LGPL-3, contacts=LGPL-3'
+  - 'CE screenshot (20.0 test database): hierarchy view button in Contacts'
   notes: ''
   flags: []
   tags: []
@@ -5996,13 +6008,14 @@
   title: Product replenishment
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_104
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - stock
   ee_modules: []
   evidence:
   - 'UI string "To reorder" -> CE: account, digest, stock, website_sale'
   - 'module license (CE runbot): stock=LGPL-3'
+  - 'CE screenshot (20.0 test database): single ''Order'' button with ''Automate'' and ''Snooze'''
   notes: ''
   flags: []
   tags: []
@@ -6350,12 +6363,13 @@
   title: Manufacturing order Kanban view
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_108
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - mrp
   ee_modules: []
   evidence:
   - 'module license (CE runbot): mrp=LGPL-3'
+  - 'CE screenshot (20.0 test database): MO Kanban grouped by week'
   notes: ''
   flags: []
   tags: []
@@ -6772,13 +6786,14 @@
   title: Pay on Invoice provider
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_111
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - payment
   ee_modules: []
   evidence:
   - 'UI string "Pay on Invoice" -> CE: payment, payment_custom'
   - 'module license (CE runbot): payment=LGPL-3'
+  - 'CE screenshot (20.0 test database): ''Pay on Invoice'' provider card'
   notes: ''
   flags: []
   tags: []
@@ -6889,13 +6904,14 @@
   title: Toss Payments
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_111
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - payment
   ee_modules: []
   evidence:
   - 'UI string "Toss Payments" -> CE: payment, payment_toss_payments'
   - 'module license (CE runbot): payment=LGPL-3'
+  - 'CE screenshot (20.0 test database): Toss Payments provider card'
   notes: ''
   flags: []
   tags: []
@@ -7795,12 +7811,13 @@
   title: Multiple currencies
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_116
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - point_of_sale
   ee_modules: []
   evidence:
   - 'module license (CE runbot): point_of_sale=LGPL-3'
+  - 'CE source: addons/point_of_sale/models/pos_payment_method.py — new ''Currencies'' field (currency_ids) on cash/bank payment methods; pos.payment.foreign_currency_id'
   notes: ''
   flags: []
   tags: []
@@ -8468,12 +8485,13 @@
   title: Dashboard
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_124
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - sale
   ee_modules: []
   evidence:
   - 'module license (CE runbot): sale=LGPL-3'
+  - 'CE screenshot (20.0 test database): dashboard strip on the quotations list'
   notes: ''
   flags: []
   tags: []
@@ -8655,13 +8673,14 @@
   title: Product images
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_124
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - sale
   ee_modules: []
   evidence:
   - 'UI string "Product images" -> CE: point_of_sale, sale, website_sale'
   - 'module license (CE runbot): sale=LGPL-3'
+  - 'CE screenshot (20.0 test database): product image on the sales order PDF'
   notes: ''
   flags: []
   tags: []
@@ -10009,13 +10028,14 @@
   title: Age verification popup
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_133
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - website
   ee_modules: []
   evidence:
   - 'UI string "Age verification popup" -> CE: website'
   - 'module license (CE runbot): website=LGPL-3'
+  - 'CE source: addons/website/static/src/builder/plugins/options/age_verification_popup_option.xml — age verification option of the Popup block'
   notes: ''
   flags: []
   tags: []
@@ -10483,13 +10503,14 @@
   title: llms.txt
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_133
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - website
   ee_modules: []
   evidence:
   - 'UI string "llms.txt" -> CE: website'
   - 'module license (CE runbot): website=LGPL-3'
+  - 'CE screenshot (20.0 test database): llms.txt setting in Website settings'
   notes: ''
   flags: []
   tags: []

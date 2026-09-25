@@ -46,12 +46,12 @@ Every item carries one of three levels. The per-item reasons are listed in [odoo
 
 | Level | Exact meaning | Items |
 |---|---|---:|
-| **Verified** (`H`) | At least one direct check backs the status: (a) a distinctive UI text of the item occurs only in the named module(s) (at most four modules match); (b) a code search written for this item hits the named module; (c) a test-database check or a CE screenshot confirms it; (d) the item belongs to an app that exists **only** as Enterprise module(s), so nothing of it can be in Community (125 items: AI, Appointments, Sign, Payroll, …); (e) an industry package's dependencies include Enterprise modules. | 248 |
-| **Module-level** (`M`) | We know which module the feature lives in and verified that module's edition, but found no direct match for this particular item. Main risk: a Community app item whose UI actually comes from an Enterprise extension module. | 382 |
+| **Verified** (`H`) | At least one direct check backs the status: (a) a distinctive UI text of the item occurs only in the named module(s) (at most four modules match); (b) a code search written for this item hits the named module; (c) a test-database check or a CE screenshot confirms it; (d) the item belongs to an app that exists **only** as Enterprise module(s), so nothing of it can be in Community (125 items: AI, Appointments, Sign, Payroll, …); (e) an industry package's dependencies include Enterprise modules. | 263 |
+| **Module-level** (`M`) | We know which module the feature lives in and verified that module's edition, but found no direct match for this particular item. Main risk: a Community app item whose UI actually comes from an Enterprise extension module. | 367 |
 | **Needs review** (`L`) | A judgement call without direct evidence: the item likely spans Community and Enterprise and we could not pin down which parts, or it bundles many changes (most localizations: one item covers accounting, payroll and point of sale of a country). | 57 |
 
-By status: ✅ Community 341 (41 verified, 293 module-level, 7 needs review) · 🟡 partly 90 (44 module-level, 46 needs
-review) · 🔒 Enterprise 256 (207 verified, 45 module-level, 4 needs review).
+By status: ✅ Community 341 (56 verified, 278 module-level, 7 needs review) · 🟡 partly 90 (0 verified, 44 module-level, 46 needs review) ·
+🔒 Enterprise 256 (207 verified, 45 module-level, 4 needs review).
 
 ## How to correct or extend
 
@@ -66,9 +66,9 @@ only by module name), and only publish screenshots of Community.
 
 ## Known limitations of this draft
 
-- 57 items still need review (mostly localizations) and 382 are module-level only.
+- 57 items still need review (mostly localizations) and 367 are module-level only.
 - "Partly" is coarse. The note says which part is Enterprise, but may be incomplete.
-- UI behaviour was verified through the API, source code and 10 screenshots, not by testing each feature.
+- UI behaviour was verified through the API, source code and 14 screenshots, not by testing each feature.
 - OCA alternatives are pointers, not parity claims; none of the listed repositories had a 20.0 branch yet.
 - Open checks that need a look at the Community and Enterprise user interface (all marked *needs review*):
   `calendar/manage-and-share-availabilities` (no "Share availabilities" button seen in CE Calendar),
