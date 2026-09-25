@@ -145,8 +145,8 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
 
 <div class="wrap">
   <header class="top">
-    <div class="eyebrow">Independent draft · Odoo 20</div>
-    <h1>Odoo 20 for Community users <span class="draft">Draft</span></h1>
+    <div class="eyebrow">EE vs CE Feature Comparison - Odoo 20</div>
+    <h1>Odoo 20 Community Edition Release Notes [Unofficial] <span class="draft">Draft</span></h1>
     <p class="lede" id="lede"></p>
     <div class="overview">
       <div class="bar" id="bar" role="img"></div>
@@ -222,7 +222,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
 
   // header
   var all = count(D.items), N = D.items.length;
-  document.getElementById('lede').innerHTML = 'What Odoo 20 brings to Community users: each feature marked as Community, partly Community or Enterprise only. Informed by Odoo’s <a href="' + esc(D.meta.official) + '" target="_blank" rel="noopener">official release notes</a> and checked against the Community source code, Enterprise module names and 20.0 test databases. Summaries and classifications are our own.';
+  document.getElementById('lede').innerHTML = 'What Odoo 20 brings to Community users: each feature marked as Community, partly Community or Enterprise only. Informed by Odoo’s <a href="' + esc(D.meta.official) + '" target="_blank" rel="noopener">official release notes</a> and checked against the Community source code, Enterprise module names and 20.0 test databases.';
   var barEl = document.getElementById('bar');
   barEl.innerHTML = bar(all, N);
   barEl.setAttribute('aria-label', all.ce + ' Community, ' + all.partial + ' partly, ' + all.ee + ' Enterprise-only of ' + N + ' items');

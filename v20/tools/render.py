@@ -83,7 +83,7 @@ mixed = [s for s in sections if s not in ee_apps]
 
 L = []
 w = L.append
-w(f"# Odoo 20 — Community Edition release notes (DRAFT)\n")
+w(f"# Odoo 20 Community Edition Release Notes [Unofficial] (draft)\n")
 w("> **Independent draft, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA).**  ")
 w(f"> Informed by Odoo's official [Odoo 20 release notes]({OFFICIAL}) (September 2026, {len(recs)} items). Each item was "
   "classified as available in Odoo Community (CE), partly available, or Enterprise-only (EE), and checked against the CE source "
