@@ -10,7 +10,7 @@ module maintainers need to know before migrating.
 
 | File | What it is |
 |---|---|
-| [index.html](index.html) | Filterable page (Community / partly / Enterprise, app, search) — served via GitHub Pages |
+| [**Filterable page**](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html) | Filter by Community / partly / Enterprise, app and text (served by GitHub Pages from `index.html`) |
 | [odoo-20-community-release-notes.md](odoo-20-community-release-notes.md) | The same notes as Markdown (generated) |
 | [odoo-20-evidence.md](odoo-20-evidence.md) | Per-item evidence behind each classification (generated) |
 | [data/odoo-20.0.yaml](data/odoo-20.0.yaml) | **Source of truth**: one record per official item |

@@ -15,6 +15,7 @@ import yaml
 
 VERSION = "20.0"
 OFFICIAL = "https://www.odoo.com/odoo-20-release-notes"
+PAGES_URL = "https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html"  # update if the repository moves
 ICON = {"ce": "✅", "partial": "🟡", "ee": "🔒"}
 LABEL = {"ce": "Community", "partial": "Partly Community", "ee": "Enterprise only"}
 CONF = {"H": "verified", "M": "module-level", "L": "needs review"}
@@ -88,7 +89,8 @@ w(f"> Built from the official [Odoo 20 release notes]({OFFICIAL}) (September 202
   "classified as available in Odoo Community (CE), partly available, or Enterprise-only (EE), and checked against the CE source "
   "([odoo/odoo@20.0](https://github.com/odoo/odoo/tree/20.0)), the EE 20.0 source (licensed copy, used locally only — "
   "no EE code is reproduced here) and CE/EE 20.0 runbot databases.  ")
-w("> Section headers link back to the official text; item notes are our own wording. Please report errors (see README).\n")
+w("> Section headers link back to the official text; item notes are our own wording. Please report errors (see README).  ")
+w(f"> **Filterable version:** {PAGES_URL}\n")
 
 w("## At a glance\n")
 w(f"| | Items | Share |\n|---|---:|---:|")
