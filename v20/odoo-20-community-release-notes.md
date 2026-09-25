@@ -38,7 +38,7 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
 - **Hierarchical view** (Contacts) — a hierarchy view shows companies with their contacts and sub-companies as a tree.
 
   ![Hierarchical view in Odoo 20 Community](img/contacts__hierarchical-view.png)
-  <sub>Screenshot (CE test database): Contacts — the new hierarchy view button next to the list, Kanban and activity views.</sub>
+  <sub>Screenshot (CE test database): Contacts in the new hierarchy view — a company with its contacts and sub-companies as a tree (Acme Corporation; Azure Interior expands to its 3 contacts). The view is selected with the button top right.</sub>
 
 - **Tax included/excluded on orders and invoices** (General) — switch tax-included/excluded prices per sales order, purchase order and invoice.
 
