@@ -17,6 +17,8 @@
   caption: Sales order form — the new “Tax Excl.” switch above the order lines toggles between tax-excluded and tax-included prices.
 - id: general/multiple-partner-identifiers
   why: typed, validated partner identifiers (DUNS, national IDs) on the contact form.
+  caption: Contact form — the “+” next to the tax ID adds further typed identifiers (multi-ID); the chatter logs the routing identifiers used
+    for e-invoicing.
 - id: general/translation
   why: in-context "Translation Mode", plus import/export of translatable fields via CSV/Excel.
 - id: general/multi-record-drag-and-drop
@@ -29,14 +31,16 @@
   caption: Calendar — “+ Add a calendar” in the side panel for extra or shared calendars, and pending activities in the all-day row.
 - id: accounting/parent-accounts
   why: parent accounts replace account groups and account codes become optional — structural change for charts of accounts and reporting modules.
-  caption: Chart of accounts — the side panel browses the new parent accounts (1 … 9); the column “Payment Reconciliation” replaces “Allow Reconciliation”.
+  caption: Chart of accounts — the new “Parent Account” column (optional, shown via the column selector). The panel on the left is the existing
+    grouping by code prefix, not the parent accounts.
 - id: accounting/intuitive-payment-status
   why: payment states renamed (In Process → Paid → Reconciled); check custom reports and filters.
   caption: Customer payments — matched payments now show the status “Reconciled” (formerly “Paid”).
+- id: accounting/employee-expenses-menu-item
+  why: 'the separate Employee Expenses menu is gone: approved expenses become draft vendor bills and are handled with the other bills.'
+  caption: Invoicing dashboard — approved expenses show up with the vendor bills in the Purchases card (“1 Expense”).
 - id: accounting/withholding-tax-on-payment-improvements
   why: amount due / withhold due / net due split, and pay-only-withholding option in the payment wizard.
-- id: accounting/valuation-without-inventory
-  why: stock on hand and valuation without installing Inventory (also usable from eCommerce, POS and Sales).
 - id: sales/dashboard
   why: key figures and quick filters (to confirm, to deliver, to invoice, revenue) on top of the quotations list.
   caption: Quotations list — the new dashboard strip with To Confirm / To Deliver / To Invoice filters and revenue for the chosen period.
@@ -45,8 +49,6 @@
   caption: 'Sales order PDF — the product image is printed next to the order line (here: Screw Driver).'
 - id: sales/description-only-sales-order-lines
   why: sales order lines no longer need a product (optional "Mandatory Product" setting).
-- id: sales/periodic-pricing
-  why: pricelist rules per period or weekday, price rules per packaging, loyalty point expiry, single-use codes.
 - id: manufacturing/manufacturing-order-kanban-view
   why: MO Kanban grouped by week with component availability, deadlines and remaining time.
   caption: Manufacturing orders Kanban — grouped by week with a workload bar, component availability and remaining time per order.
@@ -58,6 +60,7 @@
 - id: point-of-sale/multiple-currencies
   why: cash and bank payment methods accept several currencies (new “Currencies” field on the payment method); also service fees, snoozed products,
     simplified receipts and printer selection.
+  caption: Point of Sale → Configuration → Payment Methods → Cash — the new “Currencies” field (here EUR and USD).
 - id: online-payments/pay-on-invoice-provider
   why: confirm orders without immediate payment; new Toss Payments provider, more Stripe/Mollie methods, wire transfers auto-confirmed from bank
     transactions.
@@ -65,5 +68,8 @@
 - id: website/llms-txt
   why: llms.txt, structured data by default, GTM field, banners, age verification and a reworked website builder.
   caption: Website settings, Tracking & SEO — the new llms.txt setting with “Edit llms.txt”.
+- id: website/age-verification-popup
+  why: a ready-made popup asks visitors to confirm their age and blocks access if they don't.
+  caption: Website editor — the age verification popup (“Are you 18 years or older?”), listed under Invisible Elements.
 - id: technical/mail-in-body-tracking
   why: tracking values are no longer stored — tracking messages are generated on the fly; affects modules that read mail.tracking.value.
