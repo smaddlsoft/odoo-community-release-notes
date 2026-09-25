@@ -2,6 +2,8 @@
 # A screenshot at img/<id with "/" replaced by "__">.png is embedded automatically; "caption" says what it shows.
 - id: general/offline-mode
   why: records can be created/edited/archived while offline, and past searches replayed — in the CE web client.
+  caption: Offline mode on a German user interface — the orange “Offline arbeiten” (working offline) indicator in the top bar while the record
+    stays open; its tooltip lists the changes still waiting to be sent.
 - id: general/simplified-access-rights
   why: ir.model.access and ir.rule merge into one ir.access model (group, operation, domain) and security/ir.access.csv; affects every module
     that ships security files.
@@ -17,8 +19,8 @@
   caption: Sales order form — the new “Tax Excl.” switch above the order lines toggles between tax-excluded and tax-included prices.
 - id: general/multiple-partner-identifiers
   why: typed, validated partner identifiers (DUNS, national IDs) on the contact form.
-  caption: Contact form — the “+” next to the tax ID adds further typed identifiers (multi-ID); the chatter logs the routing identifiers used
-    for e-invoicing.
+  caption: Contact form on a German user interface — the “+” next to the tax ID (TIN) offers further identifier types, here DUNS and company ID
+    (Unternehmens-ID).
 - id: general/translation
   why: an in-context translation mode (module “Translation Mode”) shows every text on the screen with its translation and links to Weblate; translatable
     fields can also be imported/exported via CSV/Excel.
@@ -26,6 +28,8 @@
     highlighted entry is the app title marked on the left, and “Translate” opens the term in Odoo’s Weblate project.
 - id: general/multi-record-drag-and-drop
   why: reorder or move several records at once in list and Kanban views.
+  caption: CRM pipeline on a German user interface — two selected opportunities (“2 ausgewählt”) dragged together to another stage; the placeholder
+    reads “Move 2 records”. Select cards with Alt+click (Shift+click for a range).
 - id: general/pin-messages-in-the-chatter
   why: pin, filter and CC in the chatter; activities can be assigned to roles.
   caption: Chatter — the new filter (All / Messages / Notes / Activities / Changes) and the pinned-messages button (pin icon).

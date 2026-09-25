@@ -381,6 +381,7 @@
   evidence:
   - 'module license (CE runbot): web=LGPL-3'
   - 'CE source: addons/web/static/src/views/multi_drag.js (used by list and kanban renderers)'
+  - 'CE screenshot (20.0 test database): two selected CRM opportunities dragged together (''Move 2 records'')'
   notes: ''
   flags: []
   tags: []
@@ -401,6 +402,7 @@
   - 'CE screenshot (20.0 test database): ''+'' next to the tax ID on the contact form; routing identifiers logged in the chatter'
   - 'CE source: odoo/addons/base/views/res_partner_views.xml — field additional_identifiers (widgets additional_identifiers_button / _list); odoo/tools/partner_identifiers;
     identifier schemes incl. DUNS (0060) in account_edi_ubl_cii'
+  - 'CE screenshot (20.0 test database): ''+'' next to the tax ID opens identifier types (DUNS, company ID)'
   notes: Multi-ID on the contact form is CE (`base`); identifier schemes for e-invoicing in `account_edi_ubl_cii`
   flags: []
   tags: []
@@ -434,6 +436,7 @@
     product_unspsc (+3)'
   - 'module license (CE runbot): web=LGPL-3'
   - 'CE source: addons/web/static/src/core/offline/ (offline plugin, disabled-offline styles)'
+  - 'CE screenshot (20.0 test database): ''Working offline'' indicator in the top bar with the record still open'
   notes: ''
   flags: []
   tags: []

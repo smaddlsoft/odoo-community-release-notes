@@ -21,6 +21,10 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
 ## Highlights for Community users
 
 - **Offline mode** (General) — records can be created/edited/archived while offline, and past searches replayed — in the CE web client.
+
+  ![Offline mode in Odoo 20 Community](img/general__offline-mode.png)
+  <sub>Screenshot (CE test database): Offline mode on a German user interface — the orange “Offline arbeiten” (working offline) indicator in the top bar while the record stays open; its tooltip lists the changes still waiting to be sent.</sub>
+
 - **Simplified access rights** (General) — ir.model.access and ir.rule merge into one ir.access model (group, operation, domain) and security/ir.access.csv; affects every module that ships security files.
 
   ![Simplified access rights in Odoo 20 Community](img/general__simplified-access-rights.png)
@@ -44,7 +48,7 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
 - **Multiple partner identifiers** (General) — typed, validated partner identifiers (DUNS, national IDs) on the contact form.
 
   ![Multiple partner identifiers in Odoo 20 Community](img/general__multiple-partner-identifiers.png)
-  <sub>Screenshot (CE test database): Contact form — the “+” next to the tax ID adds further typed identifiers (multi-ID); the chatter logs the routing identifiers used for e-invoicing.</sub>
+  <sub>Screenshot (CE test database): Contact form on a German user interface — the “+” next to the tax ID (TIN) offers further identifier types, here DUNS and company ID (Unternehmens-ID).</sub>
 
 - **Translation** (General) — an in-context translation mode (module “Translation Mode”) shows every text on the screen with its translation and links to Weblate; translatable fields can also be imported/exported via CSV/Excel.
 
@@ -52,6 +56,10 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   <sub>Screenshot (CE test database): Translation Mode on a German user interface — the side panel lists the texts of the screen (English source, German translation); the highlighted entry is the app title marked on the left, and “Translate” opens the term in Odoo’s Weblate project.</sub>
 
 - **Multi-record drag and drop** (General) — reorder or move several records at once in list and Kanban views.
+
+  ![Multi-record drag and drop in Odoo 20 Community](img/general__multi-record-drag-and-drop.png)
+  <sub>Screenshot (CE test database): CRM pipeline on a German user interface — two selected opportunities (“2 ausgewählt”) dragged together to another stage; the placeholder reads “Move 2 records”. Select cards with Alt+click (Shift+click for a range).</sub>
+
 - **Pin messages in the chatter** (General) — pin, filter and CC in the chatter; activities can be assigned to roles.
 
   ![Pin messages in the chatter in Odoo 20 Community](img/general__pin-messages-in-the-chatter.png)
