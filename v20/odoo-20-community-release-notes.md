@@ -14,7 +14,7 @@
 | 🔒 Enterprise only | 256 | 37% |
 | **Total** | **687** | |
 
-Confidence: **263** items verified (a direct check, or the item belongs to an Enterprise-only app), **367** module-level, **57** need review. Exact definitions: see [Method](#method) at the end.
+Confidence: **267** items verified (a direct check, or the item belongs to an Enterprise-only app), **362** module-level, **58** need review. Exact definitions: see [Method](#method) at the end.
 
 Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise only · ⚠️ change = removal/rename/behaviour change worth a look before migrating · IAP = needs Odoo paid in-app services · backported = also shipped in an earlier version · [H]/[M]/[L] = confidence (verified / module-level / needs review).
 
@@ -42,6 +42,10 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   <sub>Screenshot (CE test database): Sales order form — the new “Tax Excl.” switch above the order lines toggles between tax-excluded and tax-included prices.</sub>
 
 - **Multiple partner identifiers** (General) — typed, validated partner identifiers (DUNS, national IDs) on the contact form.
+
+  ![Multiple partner identifiers in Odoo 20 Community](img/general__multiple-partner-identifiers.png)
+  <sub>Screenshot (CE test database): Contact form — the “+” next to the tax ID adds further typed identifiers (multi-ID); the chatter logs the routing identifiers used for e-invoicing.</sub>
+
 - **Translation** (General) — in-context "Translation Mode", plus import/export of translatable fields via CSV/Excel.
 - **Multi-record drag and drop** (General) — reorder or move several records at once in list and Kanban views.
 - **Pin messages in the chatter** (General) — pin, filter and CC in the chatter; activities can be assigned to roles.
@@ -57,15 +61,19 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
 - **Parent accounts** (Accounting) — parent accounts replace account groups and account codes become optional — structural change for charts of accounts and reporting modules.
 
   ![Parent accounts in Odoo 20 Community](img/accounting__parent-accounts.png)
-  <sub>Screenshot (CE test database): Chart of accounts — the side panel browses the new parent accounts (1 … 9); the column “Payment Reconciliation” replaces “Allow Reconciliation”.</sub>
+  <sub>Screenshot (CE test database): Chart of accounts — the new “Parent Account” column (optional, shown via the column selector). The panel on the left is the existing grouping by code prefix, not the parent accounts.</sub>
 
 - **Intuitive payment status** (Accounting) — payment states renamed (In Process → Paid → Reconciled); check custom reports and filters.
 
   ![Intuitive payment status in Odoo 20 Community](img/accounting__intuitive-payment-status.png)
   <sub>Screenshot (CE test database): Customer payments — matched payments now show the status “Reconciled” (formerly “Paid”).</sub>
 
+- **Employee Expenses menu item** (Accounting) — the separate Employee Expenses menu is gone: approved expenses become draft vendor bills and are handled with the other bills.
+
+  ![Employee Expenses menu item in Odoo 20 Community](img/accounting__employee-expenses-menu-item.png)
+  <sub>Screenshot (CE test database): Invoicing dashboard — approved expenses show up with the vendor bills in the Purchases card (“1 Expense”).</sub>
+
 - **Withholding tax on payment improvements** (Accounting) — amount due / withhold due / net due split, and pay-only-withholding option in the payment wizard.
-- **Valuation without Inventory** (Accounting) — stock on hand and valuation without installing Inventory (also usable from eCommerce, POS and Sales).
 - **Dashboard** (Sales) — key figures and quick filters (to confirm, to deliver, to invoice, revenue) on top of the quotations list.
 
   ![Dashboard in Odoo 20 Community](img/sales__dashboard.png)
@@ -77,7 +85,6 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   <sub>Screenshot (CE test database): Sales order PDF — the product image is printed next to the order line (here: Screw Driver).</sub>
 
 - **Description-only sales order lines** (Sales) — sales order lines no longer need a product (optional "Mandatory Product" setting).
-- **Periodic pricing** (Sales) — pricelist rules per period or weekday, price rules per packaging, loyalty point expiry, single-use codes.
 - **Manufacturing order Kanban view** (Manufacturing) — MO Kanban grouped by week with component availability, deadlines and remaining time.
 
   ![Manufacturing order Kanban view in Odoo 20 Community](img/manufacturing__manufacturing-order-kanban-view.png)
@@ -90,6 +97,10 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   <sub>Screenshot (CE test database): Replenishment — a single “Order” button per line, next to “Automate” and “Snooze”.</sub>
 
 - **Multiple currencies** (Point of Sale) — cash and bank payment methods accept several currencies (new “Currencies” field on the payment method); also service fees, snoozed products, simplified receipts and printer selection.
+
+  ![Multiple currencies in Odoo 20 Community](img/point-of-sale__multiple-currencies.png)
+  <sub>Screenshot (CE test database): Point of Sale → Configuration → Payment Methods → Cash — the new “Currencies” field (here EUR and USD).</sub>
+
 - **Pay on Invoice provider** (Online Payments) — confirm orders without immediate payment; new Toss Payments provider, more Stripe/Mollie methods, wire transfers auto-confirmed from bank transactions.
 
   ![Pay on Invoice provider in Odoo 20 Community](img/online-payments__pay-on-invoice-provider.png)
@@ -99,6 +110,11 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
 
   ![llms.txt in Odoo 20 Community](img/website__llms-txt.png)
   <sub>Screenshot (CE test database): Website settings, Tracking & SEO — the new llms.txt setting with “Edit llms.txt”.</sub>
+
+- **Age verification popup** (Website) — a ready-made popup asks visitors to confirm their age and blocks access if they don't.
+
+  ![Age verification popup in Odoo 20 Community](img/website__age-verification-popup.png)
+  <sub>Screenshot (CE test database): Website editor — the age verification popup (“Are you 18 years or older?”), listed under Invisible Elements.</sub>
 
 - **Mail: in-body tracking** (Technical) — tracking values are no longer stored — tracking messages are generated on the fly; affects modules that read mail.tracking.value.
 
@@ -117,7 +133,7 @@ Items in Community apps that remove, rename or replace existing behaviour (check
 - 🟡 **Push notifications** — Push notifications no longer go through Firebase but through Odoo's own push service.  
   <sub>Browser web-push is CE; mobile-app push (formerly Firebase/OCN) is EE `mail_mobile`; CE `mail`, `web` · EE `mail_mobile`; ⚠️ change [M]</sub>
 - ✅ **Employee Expenses menu item** — The separate 'Employee Expenses' menu is gone: approved expenses create draft bills in the expense journal.  
-  <sub>Standalone 'Employee Expenses' menu removed; approved expenses create draft vendor bills in the expense journal; CE `hr_expense`; ⚠️ change [M]</sub>
+  <sub>Standalone 'Employee Expenses' menu removed; approved expenses create draft vendor bills in the expense journal; CE `hr_expense`; ⚠️ change [H]</sub>
 - ✅ **Intuitive payment status** — Payment statuses renamed ('In Process' → 'Paid', 'Paid' → 'Reconciled'); 'Mark as Reconciled' moved to the action menu.  
   <sub>`account.payment.state` values are now draft / paid / reconciled / canceled / rejected; CE `account`; ⚠️ change [H]</sub>
 - 🟡 **Manual reconciliation** — Manual reconciliation on any account; 'Allow Reconciliation' renamed 'Payment Reconciliation'.  
@@ -343,13 +359,13 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Material Symbols** — Icons switch from Font Awesome to Google Material Symbols.  
   <sub>Font Awesome replaced by Material Symbols in the web client — custom views/templates using `fa fa-*` icons need checking; CE `web`; ⚠️ change [H]</sub>
 - ✅ **Multi-record drag and drop** — Drag and drop several selected records at once in list and Kanban views.  
-  <sub>CE `web`; [M]</sub>
+  <sub>CE `web`; [H]</sub>
 - ✅ **Multiple partner identifiers** — Store several typed, validated identifiers per partner (e.g. DUNS or national IDs).  
-  <sub>CE `base`, `account`; [M]</sub>
+  <sub>Multi-ID on the contact form is CE (`base`); identifier schemes for e-invoicing in `account_edi_ubl_cii`; CE `base`, `account`; [H]</sub>
 - ✅ **My Subscription page** — New 'My Subscription' page in the user menu with plan, IAP services and database management.  
   <sub>Module is LGPL in CE but only meaningful for databases with an odoo.com subscription; CE `mysubscription`; IAP [M]</sub>
 - ✅ **Offline mode** — Create, edit, archive and delete records while offline, and re-run earlier searches.  
-  <sub>CE `web`; [M]</sub>
+  <sub>CE `web`; [H]</sub>
 - ✅ **Partner autocomplete** — Partner autocomplete no longer turns industry data into partner tags; it stays in the chatter.  
   <sub>IAP service; industry no longer written as partner tags; CE `partner_autocomplete`; ⚠️ change IAP backported [M]</sub>
 - ✅ **Pin messages in the chatter** — Pin important messages in the chatter.  
@@ -417,7 +433,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Download invoice attachments** — Download a zip with all generated attachments (PDF, XML…) of selected invoices.  
   <sub>CE `account`; [L]</sub>
 - ✅ **Employee Expenses menu item** — The separate 'Employee Expenses' menu is gone: approved expenses create draft bills in the expense journal.  
-  <sub>Standalone 'Employee Expenses' menu removed; approved expenses create draft vendor bills in the expense journal; CE `hr_expense`; ⚠️ change [M]</sub>
+  <sub>Standalone 'Employee Expenses' menu removed; approved expenses create draft vendor bills in the expense journal; CE `hr_expense`; ⚠️ change [H]</sub>
 - ✅ **Exchange entries** — Exchange differences are grouped into one line per invoice, with expandable details.  
   <sub>CE `account`; [M]</sub>
 - ✅ **Improved duplicate detection** — Two-level duplicate warnings on invoices and bills (red: likely duplicate, yellow: check).  
@@ -1090,7 +1106,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Mark orders as fully invoiced** — Mark an order as fully invoiced.  
   <sub>CE `sale`; [M]</sub>
 - ✅ **Periodic pricing** — Pricelist rules and surcharges for periods or weekdays.  
-  <sub>CE `sale`; [M]</sub>
+  <sub>Date-range rules and surcharges exist in CE `product`; the 'days of the week' part was not found in the 20.0 source (CE or EE) — needs review; CE `sale`; [L]</sub>
 - ✅ **Price rules per packaging type** — Price rules per packaging type.  
   <sub>CE `sale`; [M]</sub>
 - ✅ **Pricelist report improvements** — Pricelist report grouped by category, with reference and barcode, and a date filter.  

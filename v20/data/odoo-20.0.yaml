@@ -374,12 +374,13 @@
   title: Multi-record drag and drop
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_18
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - web
   ee_modules: []
   evidence:
   - 'module license (CE runbot): web=LGPL-3'
+  - 'CE source: addons/web/static/src/views/multi_drag.js (used by list and kanban renderers)'
   notes: ''
   flags: []
   tags: []
@@ -388,7 +389,7 @@
   title: Multiple partner identifiers
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_18
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - base
   - account
@@ -397,7 +398,10 @@
   - 'code /partner.*identifier|identifier_type/ -> CE: account_edi_ubl_cii, l10n_dk, account_peppol, l10n_fr_pdp, account, l10n_ar (+40) | EE-only:
     l10n_co_edi, l10n_ec_edi, sale_shopee, whatsapp, account_saft, l10n_ar_edi (+38)'
   - 'module license (CE runbot): base=LGPL-3, account=LGPL-3'
-  notes: ''
+  - 'CE screenshot (20.0 test database): ''+'' next to the tax ID on the contact form; routing identifiers logged in the chatter'
+  - 'CE source: odoo/addons/base/views/res_partner_views.xml — field additional_identifiers (widgets additional_identifiers_button / _list); odoo/tools/partner_identifiers;
+    identifier schemes incl. DUNS (0060) in account_edi_ubl_cii'
+  notes: Multi-ID on the contact form is CE (`base`); identifier schemes for e-invoicing in `account_edi_ubl_cii`
   flags: []
   tags: []
 - id: general/my-subscription-page
@@ -421,7 +425,7 @@
   title: Offline mode
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_18
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - web
   ee_modules: []
@@ -429,6 +433,7 @@
   - 'code /offline/ -> CE: web, mail, point_of_sale, website_event_track, bus, hr (+31) | EE-only: obox, iot, l10n_ec_edi, social_youtube, voip,
     product_unspsc (+3)'
   - 'module license (CE runbot): web=LGPL-3'
+  - 'CE source: addons/web/static/src/core/offline/ (offline plugin, disabled-offline styles)'
   notes: ''
   flags: []
   tags: []
@@ -1481,13 +1486,15 @@
   title: Employee Expenses menu item
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_79
   status: ce
-  confidence: M
+  confidence: H
   ce_modules:
   - hr_expense
   ee_modules: []
   evidence:
   - 'UI string "Employee Expenses" -> CE: hr, hr_expense'
   - 'module license (CE runbot): hr_expense=LGPL-3'
+  - 'CE screenshot (20.0 test database): ''1 Expense'' line in the Purchases card of the Invoicing dashboard'
+  - 'CE source: addons/hr_expense/models/account_journal.py — journal dashboard counts moves linked to expenses (number_expense)'
   notes: Standalone 'Employee Expenses' menu removed; approved expenses create draft vendor bills in the expense journal
   flags: []
   tags:
@@ -1717,7 +1724,9 @@
   - 'runbot CE (API): account.account.parent_id many2one(account.account) from module account; account.account.code required=False'
   - 'code /parent_id.*account\.account|account\.account.*parent_id/ -> CE: account | EE-only: account_reports'
   - 'module license (CE runbot): account=LGPL-3'
-  - 'CE screenshot (20.0 test database): parent-account tree in the chart of accounts'
+  - 'CE screenshot (20.0 test database): optional ''Parent Account'' column in the chart of accounts list'
+  - 'CE source: addons/account/views/account_account_views.xml — list js_class ''account_hierarchy_list'', field parent_id (optional column);
+    the left search panel is the existing code-prefix panel (account_root), not the parent accounts'
   notes: '`account.group` is gone; `account.account.parent_id` structures the chart and `code` is no longer required'
   flags: []
   tags:
@@ -7818,6 +7827,7 @@
   evidence:
   - 'module license (CE runbot): point_of_sale=LGPL-3'
   - 'CE source: addons/point_of_sale/models/pos_payment_method.py — new ''Currencies'' field (currency_ids) on cash/bank payment methods; pos.payment.foreign_currency_id'
+  - 'CE screenshot (20.0 test database): ''Currencies'' field on the Cash payment method (EUR, USD)'
   notes: ''
   flags: []
   tags: []
@@ -8630,13 +8640,16 @@
   title: Periodic pricing
   source: https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_124
   status: ce
-  confidence: M
+  confidence: L
   ce_modules:
   - sale
   ee_modules: []
   evidence:
   - 'module license (CE runbot): sale=LGPL-3'
-  notes: ''
+  - 'code search: no weekday/day-of-week pricing field found in CE product/sale/point_of_sale or in EE modules; only validity dates (date_start/date_end)
+    and surcharges exist in CE product'
+  notes: Date-range rules and surcharges exist in CE `product`; the 'days of the week' part was not found in the 20.0 source (CE or EE) — needs
+    review
   flags: []
   tags: []
 - id: sales/price-rules-per-packaging-type
@@ -10036,6 +10049,7 @@
   - 'UI string "Age verification popup" -> CE: website'
   - 'module license (CE runbot): website=LGPL-3'
   - 'CE source: addons/website/static/src/builder/plugins/options/age_verification_popup_option.xml — age verification option of the Popup block'
+  - 'CE screenshot (20.0 test database): age verification popup in the website editor (Invisible Elements: Age Verification Popup)'
   notes: ''
   flags: []
   tags: []

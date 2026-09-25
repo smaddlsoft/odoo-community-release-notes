@@ -100,20 +100,24 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - module license (EE runbot ir.module.module): web_enterprise=OEEL-1
   - module license (CE runbot): web=LGPL-3
 
-**✅ Multi-record drag and drop** `general/multi-record-drag-and-drop` — confidence M (module-level)  
+**✅ Multi-record drag and drop** `general/multi-record-drag-and-drop` — confidence H (verified)  
   - module license (CE runbot): web=LGPL-3
+  - CE source: addons/web/static/src/views/multi_drag.js (used by list and kanban renderers)
 
-**✅ Multiple partner identifiers** `general/multiple-partner-identifiers` — confidence M (module-level)  
+**✅ Multiple partner identifiers** `general/multiple-partner-identifiers` — confidence H (verified)  
   - code /partner.*identifier|identifier_type/ -> CE: account_edi_ubl_cii, l10n_dk, account_peppol, l10n_fr_pdp, account, l10n_ar (+40) | EE-only: l10n_co_edi, l10n_ec_edi, sale_shopee, whatsapp, account_saft, l10n_ar_edi (+38)
   - module license (CE runbot): base=LGPL-3, account=LGPL-3
+  - CE screenshot (20.0 test database): '+' next to the tax ID on the contact form; routing identifiers logged in the chatter
+  - CE source: odoo/addons/base/views/res_partner_views.xml — field additional_identifiers (widgets additional_identifiers_button / _list); odoo/tools/partner_identifiers; identifier schemes incl. DUNS (0060) in account_edi_ubl_cii
 
 **✅ My Subscription page** `general/my-subscription-page` — confidence M (module-level)  
   - UI string "My Subscription" -> CE: mysubscription | EE: sale_subscription
   - module license (CE runbot): mysubscription=LGPL-3
 
-**✅ Offline mode** `general/offline-mode` — confidence M (module-level)  
+**✅ Offline mode** `general/offline-mode` — confidence H (verified)  
   - code /offline/ -> CE: web, mail, point_of_sale, website_event_track, bus, hr (+31) | EE-only: obox, iot, l10n_ec_edi, social_youtube, voip, product_unspsc (+3)
   - module license (CE runbot): web=LGPL-3
+  - CE source: addons/web/static/src/core/offline/ (offline plugin, disabled-offline styles)
 
 **✅ Partner autocomplete** `general/partner-autocomplete` — confidence M (module-level)  
   - UI string "Partner autocomplete" -> CE: base_setup, partner_autocomplete, pos_partner_autocomplete
@@ -363,9 +367,11 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - code /download.*zip|zip.*download/ -> CE: account, iot_drivers, l10n_th, l10n_ro_edi, pos_self_order, website | EE-only: documents, sign, account_reports, iot, l10n_be_reports, whatsapp_sign
   - module license (CE runbot): account=LGPL-3
 
-**✅ Employee Expenses menu item** `accounting/employee-expenses-menu-item` — confidence M (module-level)  
+**✅ Employee Expenses menu item** `accounting/employee-expenses-menu-item` — confidence H (verified)  
   - UI string "Employee Expenses" -> CE: hr, hr_expense
   - module license (CE runbot): hr_expense=LGPL-3
+  - CE screenshot (20.0 test database): '1 Expense' line in the Purchases card of the Invoicing dashboard
+  - CE source: addons/hr_expense/models/account_journal.py — journal dashboard counts moves linked to expenses (number_expense)
 
 **✅ Exchange entries** `accounting/exchange-entries` — confidence M (module-level)  
   - module license (CE runbot): account=LGPL-3
@@ -429,7 +435,8 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - runbot CE (API): account.account.parent_id many2one(account.account) from module account; account.account.code required=False
   - code /parent_id.*account\.account|account\.account.*parent_id/ -> CE: account | EE-only: account_reports
   - module license (CE runbot): account=LGPL-3
-  - CE screenshot (20.0 test database): parent-account tree in the chart of accounts
+  - CE screenshot (20.0 test database): optional 'Parent Account' column in the chart of accounts list
+  - CE source: addons/account/views/account_account_views.xml — list js_class 'account_hierarchy_list', field parent_id (optional column); the left search panel is the existing code-prefix panel (account_root), not the parent accounts
 
 **🔒 Pay bills from Odoo** `accounting/pay-bills-from-odoo` — confidence L (needs review)  
   - module license (EE runbot ir.module.module): account_online_payment=OEEL-1
@@ -1890,6 +1897,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Multiple currencies** `point-of-sale/multiple-currencies` — confidence H (verified)  
   - module license (CE runbot): point_of_sale=LGPL-3
   - CE source: addons/point_of_sale/models/pos_payment_method.py — new 'Currencies' field (currency_ids) on cash/bank payment methods; pos.payment.foreign_currency_id
+  - CE screenshot (20.0 test database): 'Currencies' field on the Cash payment method (EUR, USD)
 
 **✅ Print preparation tickets per product** `point-of-sale/print-preparation-tickets-per-product` — confidence M (module-level)  
   - UI string "Split per product" -> CE: point_of_sale
@@ -2093,8 +2101,9 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Mark orders as fully invoiced** `sales/mark-orders-as-fully-invoiced` — confidence M (module-level)  
   - module license (CE runbot): sale=LGPL-3
 
-**✅ Periodic pricing** `sales/periodic-pricing` — confidence M (module-level)  
+**✅ Periodic pricing** `sales/periodic-pricing` — confidence L (needs review)  
   - module license (CE runbot): sale=LGPL-3
+  - code search: no weekday/day-of-week pricing field found in CE product/sale/point_of_sale or in EE modules; only validity dates (date_start/date_end) and surcharges exist in CE product
 
 **✅ Price rules per packaging type** `sales/price-rules-per-packaging-type` — confidence M (module-level)  
   - module license (CE runbot): sale=LGPL-3
@@ -2454,6 +2463,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - UI string "Age verification popup" -> CE: website
   - module license (CE runbot): website=LGPL-3
   - CE source: addons/website/static/src/builder/plugins/options/age_verification_popup_option.xml — age verification option of the Popup block
+  - CE screenshot (20.0 test database): age verification popup in the website editor (Invisible Elements: Age Verification Popup)
 
 **🔒 AI Website Assistant** `website/ai-website-assistant` — confidence M (module-level)  
   - UI string "Select Elements" -> EE: ai_website
