@@ -85,7 +85,7 @@ L = []
 w = L.append
 w(f"# Odoo 20 — Community Edition release notes (DRAFT)\n")
 w("> **Independent draft, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA).**  ")
-w(f"> Built from the official [Odoo 20 release notes]({OFFICIAL}) (September 2026, {len(recs)} items). Each item was "
+w(f"> Informed by Odoo's official [Odoo 20 release notes]({OFFICIAL}) (September 2026, {len(recs)} items). Each item was "
   "classified as available in Odoo Community (CE), partly available, or Enterprise-only (EE), and checked against the CE source "
   "([odoo/odoo@20.0](https://github.com/odoo/odoo/tree/20.0)), the EE 20.0 source (licensed copy, used locally only — "
   "no EE code is reproduced here) and CE/EE 20.0 runbot databases.  ")
@@ -223,7 +223,7 @@ for s in ee_apps:
     w("")
 
 w("## Method\n")
-w("Every item of the official page was read and assigned by hand to the module(s) it belongs to. Each module's edition "
+w("The feature list follows the items of Odoo's official release notes. Each item was read and assigned by hand to the module(s) it belongs to. Each module's edition "
   "(LGPL-3 = Community, OEEL-1 = Enterprise) comes from the module lists of a CE and an EE 20.0 test database. Evidence was "
   "then collected per item: its UI texts in the modules' translation templates, targeted code searches (Community: public "
   "source; Enterprise: licensed copy searched locally, module names only), checks on the test databases, CE screenshots, "

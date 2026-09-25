@@ -1,8 +1,9 @@
 # Odoo Community release notes — 20.0 (draft)
 
-Which items of Odoo's official [Odoo 20 release notes](https://www.odoo.com/odoo-20-release-notes) you get in
-**Odoo Community (CE)**, which are **partly** in CE, and which are **Enterprise-only (EE)**, plus what integrators and
-module maintainers need to know before migrating.
+Which Odoo 20 features you get in **Odoo Community (CE)**, which are **partly** in CE, and which are
+**Enterprise-only (EE)**, plus what integrators and module maintainers need to know before migrating. Informed by Odoo's
+official [Odoo 20 release notes](https://www.odoo.com/odoo-20-release-notes); summaries, classifications and evidence
+are our own.
 
 > Status: **draft v0.4 (2026-09-25)**. Independent work, not affiliated with or endorsed by Odoo S.A. or the Odoo
 > Community Association (OCA). Item titles come from Odoo's release notes; summaries, classifications and evidence are
