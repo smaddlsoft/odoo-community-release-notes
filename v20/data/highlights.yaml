@@ -13,7 +13,8 @@
   caption: 'Schedule Activity dialog in the new dialog design — the new “Role” field assigns the activity to a team (here: Accounting Team).'
 - id: contacts/hierarchical-view
   why: a hierarchy view shows companies with their contacts and sub-companies as a tree.
-  caption: Contacts — the new hierarchy view button next to the list, Kanban and activity views.
+  caption: Contacts in the new hierarchy view — a company with its contacts and sub-companies as a tree (Acme Corporation; Azure Interior expands
+    to its 3 contacts). The view is selected with the button top right.
 - id: general/tax-included-excluded-on-orders-and-invoices
   why: switch tax-included/excluded prices per sales order, purchase order and invoice.
   caption: Sales order form — the new “Tax Excl.” switch above the order lines toggles between tax-excluded and tax-included prices.

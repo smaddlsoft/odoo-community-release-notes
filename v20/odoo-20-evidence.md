@@ -1048,7 +1048,8 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 
 **✅ Hierarchical view** `contacts/hierarchical-view` — confidence H (verified)  
   - module license (CE runbot): web_hierarchy=LGPL-3, contacts=LGPL-3
-  - CE screenshot (20.0 test database): hierarchy view button in Contacts
+  - CE screenshot (20.0 test database): Contacts hierarchy view (company with contacts and sub-companies as a tree)
+  - CE source: addons/contacts/views/contact_views.xml — res.partner hierarchy view (child_field child_ids)
 
 ## CRM
 
