@@ -3,14 +3,9 @@
 - id: general/offline-mode
   why: records can be created/edited/archived while offline, and past searches replayed — in the CE web client.
 - id: general/simplified-access-rights
-  why: ir.model.access and ir.rule merge into one ir.access model (group, operation, domain) and security/ir.access.csv; affects every module that ships security files.
+  why: ir.model.access and ir.rule merge into one ir.access model (group, operation, domain) and security/ir.access.csv; affects every module
+    that ships security files.
   caption: Access right form in developer mode — one record holds model, group, the Create/Read/Update/Delete operations and a domain.
-- id: general/material-symbols
-  why: the web client's icons move from Font Awesome to Material Symbols, part of the refreshed Odoo 20 look.
-  caption: Home screen with the new app icons.
-- id: general/dialog-design
-  why: redesigned dialogs across the web client.
-  caption: The new Schedule Activity dialog.
 - id: general/tax-included-excluded-on-orders-and-invoices
   why: switch tax-included/excluded prices per sales order, purchase order and invoice.
   caption: Sales order form — the new “Tax Excl.” switch above the order lines toggles between tax-excluded and tax-included prices.
@@ -40,7 +35,6 @@
   caption: Quotations list — the new dashboard strip with To Confirm / To Deliver / To Invoice filters and revenue for the chosen period.
 - id: sales/product-images
   why: product images on sales order lines and in the quotation/order PDF.
-  caption: Sales order with product images on the order lines.
 - id: sales/description-only-sales-order-lines
   why: sales order lines no longer need a product (optional "Mandatory Product" setting).
 - id: sales/periodic-pricing
@@ -56,7 +50,8 @@
 - id: point-of-sale/multiple-currencies
   why: several currencies at checkout, service fees, snoozed products, simplified receipts and printer selection.
 - id: online-payments/pay-on-invoice-provider
-  why: confirm orders without immediate payment; new Toss Payments provider, more Stripe/Mollie methods, wire transfers auto-confirmed from bank transactions.
+  why: confirm orders without immediate payment; new Toss Payments provider, more Stripe/Mollie methods, wire transfers auto-confirmed from bank
+    transactions.
   caption: Payment providers — the new “Pay on Invoice” provider (top left) and the new Toss Payments provider (bottom right).
 - id: website/llms-txt
   why: llms.txt, structured data by default, GTM field, banners, age verification and a reworked website builder.
