@@ -1,0 +1,13 @@
+# Never commit secrets or Enterprise source
+runbots.json
+*.env
+.env*
+ee/
+odoo-ce/
+industry/
+*.tar.gz
+# Python / local tooling
+__pycache__/
+*.pyc
+.venv/
+pwenv/

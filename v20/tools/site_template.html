@@ -1,0 +1,350 @@
+<title>Odoo 20 Community Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F6F5F8; --surface:#FFFFFF; --sunken:#EEEDF2; --ink:#1C1B22; --muted:#5E5B6B; --line:#DEDBE6;
+  --accent:#0F6E74; --accent-ink:#FFFFFF;
+  --ce:#1F7A4D; --ce-bg:#E3F2EA; --pt:#A86A00; --pt-bg:#FBEFD9; --ee:#5B4E8C; --ee-bg:#ECE9F6;
+  --warn:#9A3B1C;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#15141A; --surface:#1E1D25; --sunken:#26242F; --ink:#ECEAF2; --muted:#A5A1B3; --line:#34313F;
+    --accent:#4FB8BE; --accent-ink:#0B2527;
+    --ce:#5CC98E; --ce-bg:#173326; --pt:#E0A640; --pt-bg:#382A12; --ee:#A99BE0; --ee-bg:#28233D; --warn:#F08A66;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#15141A; --surface:#1E1D25; --sunken:#26242F; --ink:#ECEAF2; --muted:#A5A1B3; --line:#34313F;
+  --accent:#4FB8BE; --accent-ink:#0B2527;
+  --ce:#5CC98E; --ce-bg:#173326; --pt:#E0A640; --pt-bg:#382A12; --ee:#A99BE0; --ee-bg:#28233D; --warn:#F08A66;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.55 var(--body);padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code,.mono{font-family:var(--mono);font-size:.86em}
+h1,h2,h3{text-wrap:balance}
+
+/* header */
+header.top{padding-block:28px 18px;display:grid;gap:14px}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 clamp(34px,5.5vw,52px)/1 var(--display);margin:0;letter-spacing:.01em}
+.lede{margin:0;max-width:68ch;color:var(--muted)}
+.draft{display:inline-block;font:600 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--warn);border:1px solid currentColor;border-radius:3px;padding:4px 6px;vertical-align:middle;margin-left:8px}
+.overview{display:grid;gap:8px;max-width:760px}
+.bar{display:flex;height:14px;border-radius:3px;overflow:hidden;background:var(--sunken)}
+.bar span{display:block;height:100%}
+.bar .ce{background:var(--ce)} .bar .partial{background:var(--pt)} .bar .ee{background:var(--ee)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
+.legend b{color:var(--ink);font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:baseline}
+.dot.ce{background:var(--ce)} .dot.partial{background:var(--pt)} .dot.ee{background:var(--ee)}
+
+/* tabs + filters */
+.controls{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);padding-block:10px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{font:600 14px/1 var(--body);background:none;border:1px solid transparent;color:var(--muted);padding:9px 12px;border-radius:4px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
+.seg button{font:500 13px/1 var(--body);background:none;border:0;border-right:1px solid var(--line);color:var(--ink);padding:8px 10px;cursor:pointer;display:flex;gap:6px;align-items:center}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.seg button .n{font-variant-numeric:tabular-nums;opacity:.75}
+.chip{font:500 13px/1 var(--body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 11px;cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:var(--accent-ink)}
+select,input[type=search]{font:14px var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:7px 9px;max-width:100%}
+input[type=search]{flex:1 1 200px;min-width:0}
+.count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* items */
+section.app{margin-top:26px}
+.app-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.app-head h2{font:700 26px/1.1 var(--display);margin:0;letter-spacing:.01em}
+.app-head .mini{flex:0 0 120px;height:8px}
+.app-head .meta{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.app-head a{font-size:13px;margin-left:auto}
+.item{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding-block:12px;border-bottom:1px solid var(--line)}
+.pill{grid-row:span 3;align-self:start;font:600 11px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:5px 7px;border-radius:3px;white-space:nowrap;width:86px;text-align:center}
+.pill.ce{color:var(--ce);background:var(--ce-bg)} .pill.partial{color:var(--pt);background:var(--pt-bg)} .pill.ee{color:var(--ee);background:var(--ee-bg)}
+.item h3{font:600 15.5px/1.35 var(--body);margin:0}
+.item .sum{margin:0;max-width:78ch}
+.item .det{margin:0;font-size:13px;color:var(--muted);max-width:90ch}
+.item .det code{color:var(--ink)}
+.tags{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:4px;vertical-align:middle}
+.tag{font:600 10.5px/1 var(--body);letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);border-radius:3px;padding:3px 5px;color:var(--muted)}
+.tag.change{color:var(--warn);border-color:currentColor}
+.conf{font:500 11px/1 var(--mono);color:var(--muted)}
+details.ev{grid-column:2;font-size:13px}
+details.ev summary{cursor:pointer;color:var(--muted)}
+details.ev ul{margin:6px 0 0;padding-left:18px;color:var(--muted);overflow-wrap:anywhere}
+.empty{padding:40px 0;color:var(--muted)}
+
+/* highlights */
+.hl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:22px}
+.hl{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.hl figure{margin:0;border-bottom:1px solid var(--line);background:var(--sunken)}
+.hl img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top left}
+.hl .body{padding:12px 14px 14px;display:grid;gap:6px}
+.hl .sec{font:600 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hl h3{font:700 21px/1.1 var(--display);margin:0;letter-spacing:.01em}
+.hl p{margin:0;font-size:14px}
+.hl .why{color:var(--muted);font-size:13.5px}
+.lightbox{position:fixed;inset:0;z-index:20;background:rgba(10,10,14,.82);display:grid;place-items:center;padding:24px;cursor:zoom-out}
+.lightbox img{max-height:90vh;border-radius:4px}
+.hl figure{cursor:zoom-in}
+
+/* developers */
+.dev{display:grid;gap:26px;margin-top:22px}
+.dev h2{font:700 26px/1.1 var(--display);margin:0 0 8px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.callout{background:var(--pt-bg);border:1px solid var(--pt);border-radius:6px;padding:12px 14px}
+.callout strong{color:var(--pt)}
+.tc{display:grid;gap:4px;padding-block:10px;border-bottom:1px solid var(--line)}
+.tc h3{margin:0;font:600 15.5px/1.35 var(--body)}
+.tc p{margin:0;max-width:80ch}
+.tc .aff{font-size:13px;color:var(--muted)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px/1.2 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:var(--sunken)}
+.modlist{display:flex;flex-wrap:wrap;gap:6px}
+.modlist code{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:3px 6px}
+.hl figcaption{padding:7px 10px;font-size:12.5px;color:var(--muted);background:var(--surface);border-top:1px solid var(--line)}
+.method{margin-top:40px;display:grid;gap:10px;max-width:880px}
+.method h2{font:700 26px/1.1 var(--display);margin:0;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.method p,.method ul{margin:0;max-width:80ch}
+.method ul{padding-left:20px;display:grid;gap:4px}
+footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;max-width:80ch}
+@media (max-width:560px){
+  .item{grid-template-columns:1fr}
+  .pill{grid-row:auto;justify-self:start;width:auto}
+  details.ev{grid-column:1}
+  .app-head a{margin-left:0}
+}
+@media (prefers-reduced-motion:no-preference){.chip,.seg button,.tab{transition:background-color .12s,color .12s,border-color .12s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">Independent draft · built from the official Odoo 20 release notes</div>
+    <h1>Odoo 20 for Community users <span class="draft">Draft</span></h1>
+    <p class="lede" id="lede"></p>
+    <div class="overview">
+      <div class="bar" id="bar" role="img"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-highlights" data-view="highlights">Highlights</button>
+      <button class="tab" role="tab" id="tab-items" data-view="items">All items</button>
+      <button class="tab" role="tab" id="tab-developers" data-view="developers">For developers</button>
+    </div>
+    <div class="filters" id="filters">
+      <div class="seg" id="f-status" aria-label="Availability"></div>
+      <select id="f-app" aria-label="App"></select>
+      <button class="chip" id="f-change" aria-pressed="false">Changes &amp; removals</button>
+      <button class="chip" id="f-iap" aria-pressed="false">Needs IAP</button>
+      <select id="f-conf" aria-label="Confidence">
+        <option value="all">Any confidence</option>
+        <option value="H">Verified</option>
+        <option value="M">Module-level</option>
+        <option value="L">Needs review</option>
+      </select>
+      <input type="search" id="f-q" placeholder="Search titles, summaries, modules" aria-label="Search">
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <main id="view"></main>
+
+  <section class="method" id="method">
+    <h2>How items were classified</h2>
+    <p>Every item of the official page was read and assigned by hand to the module(s) it belongs to. Each module’s edition comes from the module lists of a Community and an Enterprise 20.0 test database: LGPL-3 means Community, OEEL-1 means Enterprise. Evidence was then collected per item and conflicts were reviewed:</p>
+    <ul>
+      <li><b>UI text:</b> distinctive phrases of the item (its title, quoted labels) looked up in each module’s translation template, which holds all user-visible texts of the module;</li>
+      <li><b>Code:</b> a search pattern written for the item, run over the public Community source and over a licensed Enterprise copy searched locally (only module names are reported);</li>
+      <li><b>Test database:</b> checks on the 20.0 test databases (models, fields, selection values, removed modules) and screenshots of the Community interface;</li>
+      <li><b>Dependencies:</b> for industry packages, whether their dependency tree contains Enterprise modules.</li>
+    </ul>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Confidence</th><th>Exact meaning</th></tr></thead>
+      <tbody>
+        <tr><td><b>Verified</b></td><td>A direct check backs the status: a distinctive UI text of the item occurs only in the named module(s) (at most four match); a code search written for this item hits the named module; a test-database check or a Community screenshot confirms it; the item belongs to an app that exists only as Enterprise module(s), so nothing of it can be in Community; or an industry package depends on Enterprise modules.</td></tr>
+        <tr><td><b>Module-level</b></td><td>The module the feature lives in is known and its edition verified, but no direct match was found for this particular item. Main risk: a Community app item whose screen actually comes from an Enterprise extension module.</td></tr>
+        <tr><td><b>Needs review</b></td><td>A judgement call without direct evidence: the item probably spans Community and Enterprise and the parts could not be pinned down, or it bundles many changes (most localizations cover accounting, payroll and point of sale of a country in one item).</td></tr>
+      </tbody>
+    </table></div>
+    <p>Each item’s “Evidence” list shows the exact checks behind its status.</p>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script type="application/json" id="rn-data">/*__DATA__*/</script>
+<script>
+(function(){
+  var D = JSON.parse(document.getElementById('rn-data').textContent);
+  var LABEL = {ce:'Community', partial:'Partly', ee:'Enterprise'};
+  var CONF = {H:'verified', M:'module-level', L:'needs review'};
+  var KEY = 'rn20-view';
+  var S = {view:'highlights', status:'all', app:'all', conf:'all', q:'', change:false, iap:false};
+  try { var saved = JSON.parse(localStorage.getItem(KEY) || 'null'); if (saved) for (var k in saved) if (k in S) S[k] = saved[k]; } catch(e) {}
+  var h = (location.hash || '').replace('#','');
+  if (['highlights','items','developers'].indexOf(h) >= 0) S.view = h;
+
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e) {} }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function code(list){ return list.map(function(m){ return '<code>' + esc(m) + '</code>'; }).join(', '); }
+  function md(s){ return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>'); }
+  function count(rs){ var c = {ce:0, partial:0, ee:0}; rs.forEach(function(r){ c[r.status]++; }); return c; }
+  function bar(c, total){ return ['ce','partial','ee'].map(function(k){ return '<span class="' + k + '" style="width:' + (100 * c[k] / (total || 1)).toFixed(2) + '%"></span>'; }).join(''); }
+
+  // header
+  var all = count(D.items), N = D.items.length;
+  document.getElementById('lede').innerHTML = 'Every item of Odoo’s official <a href="' + esc(D.meta.official) + '" target="_blank" rel="noopener">Odoo 20 release notes</a>, marked by where it lives: Community, partly Community, or Enterprise only. Checked against the Community source, the Enterprise source (module names only) and 20.0 test databases. Summaries are our own wording.';
+  var barEl = document.getElementById('bar');
+  barEl.innerHTML = bar(all, N);
+  barEl.setAttribute('aria-label', all.ce + ' Community, ' + all.partial + ' partly, ' + all.ee + ' Enterprise-only of ' + N + ' items');
+  document.getElementById('legend').innerHTML = ['ce','partial','ee'].map(function(k){
+    return '<span><i class="dot ' + k + '"></i>' + LABEL[k] + ' <b>' + all[k] + '</b> (' + Math.round(100 * all[k] / N) + '%)</span>';
+  }).join('') + '<span>' + N + ' items · ' + D.meta.conf.H + ' verified · <a href="#method" id="method-link">how we classified</a></span>';
+
+  // filter controls
+  var appSel = document.getElementById('f-app');
+  appSel.innerHTML = '<option value="all">All apps</option>' + D.sections.map(function(s){ return '<option value="' + esc(s) + '">' + esc(s) + '</option>'; }).join('');
+  appSel.value = S.app; document.getElementById('f-conf').value = S.conf; document.getElementById('f-q').value = S.q;
+
+  function base(r){
+    if (S.app !== 'all' && r.section !== S.app) return false;
+    if (S.conf !== 'all' && r.confidence !== S.conf) return false;
+    if (S.change && r.tags.indexOf('change') < 0) return false;
+    if (S.iap && r.tags.indexOf('iap') < 0) return false;
+    if (S.q) {
+      var hay = (r.title + ' ' + r.summary + ' ' + r.notes + ' ' + r.ce.join(' ') + ' ' + r.ee.join(' ') + ' ' + r.section).toLowerCase();
+      var words = S.q.toLowerCase().split(/\s+/).filter(Boolean);
+      for (var i = 0; i < words.length; i++) if (hay.indexOf(words[i]) < 0) return false;
+    }
+    return true;
+  }
+  function visible(r){ return base(r) && (S.status === 'all' || r.status === S.status); }
+
+  function renderStatus(){
+    var c = count(D.items.filter(base)), tot = c.ce + c.partial + c.ee;
+    var opts = [['all','All',tot],['ce','Community',c.ce],['partial','Partly',c.partial],['ee','Enterprise only',c.ee]];
+    document.getElementById('f-status').innerHTML = opts.map(function(o){
+      return '<button type="button" data-status="' + o[0] + '" aria-pressed="' + (S.status === o[0]) + '">' + o[1] + ' <span class="n">' + o[2] + '</span></button>';
+    }).join('');
+    document.getElementById('f-change').setAttribute('aria-pressed', S.change);
+    document.getElementById('f-iap').setAttribute('aria-pressed', S.iap);
+  }
+
+  function itemHTML(r){
+    var det = [];
+    if (r.notes) det.push(md(r.notes));
+    if (r.ce.length) det.push('CE: ' + code(r.ce.slice(0, 5)));
+    if (r.ee.length) det.push('EE: ' + code(r.ee.slice(0, 5)));
+    if (r.status !== 'ce' && r.oca.length) det.push('OCA: ' + r.oca.map(esc).join(', '));
+    var tags = '';
+    if (r.tags.indexOf('downside') >= 0) tags += '<span class="tag change">Lost in CE</span>';
+    else if (r.tags.indexOf('change') >= 0) tags += '<span class="tag change">Change</span>';
+    if (r.tags.indexOf('iap') >= 0) tags += '<span class="tag">IAP</span>';
+    if (r.tags.indexOf('backport') >= 0) tags += '<span class="tag">Backported</span>';
+    var ev = r.evidence.length ? '<details class="ev"><summary>Evidence (' + r.evidence.length + ') · <span class="conf">' + CONF[r.confidence] + '</span></summary><ul>' +
+      r.evidence.map(function(e){ return '<li>' + esc(e) + '</li>'; }).join('') + '</ul></details>' : '';
+    return '<article class="item"><span class="pill ' + r.status + '">' + LABEL[r.status] + '</span>' +
+      '<h3>' + esc(r.title) + (tags ? '<span class="tags">' + tags + '</span>' : '') + '</h3>' +
+      '<p class="sum">' + esc(r.summary) + '</p>' +
+      (det.length ? '<p class="det">' + det.join(' · ') + '</p>' : '<p class="det"></p>') + ev + '</article>';
+  }
+
+  function renderItems(){
+    var rs = D.items.filter(visible);
+    document.getElementById('count').textContent = rs.length + ' of ' + N + ' items';
+    if (!rs.length) return '<p class="empty">No item matches these filters. Clear the search or pick another app.</p>';
+    return D.sections.map(function(s){
+      var group = rs.filter(function(r){ return r.section === s; });
+      if (!group.length) return '';
+      var full = D.items.filter(function(r){ return r.section === s; }), c = count(full);
+      return '<section class="app"><div class="app-head"><h2>' + esc(s) + '</h2><div class="bar mini">' + bar(c, full.length) + '</div>' +
+        '<span class="meta">' + c.ce + ' CE · ' + c.partial + ' partly · ' + c.ee + ' EE</span>' +
+        '<a href="' + esc(full[0].source) + '" target="_blank" rel="noopener">Official text</a></div>' +
+        group.map(itemHTML).join('') + '</section>';
+    }).join('');
+  }
+  function renderHighlights(){
+    document.getElementById('count').textContent = D.highlights.length + ' highlights';
+    var byId = {}; D.items.forEach(function(r){ byId[r.id] = r; });
+    var lost = D.items.filter(function(r){ return r.tags.indexOf('downside') >= 0; });
+    var cards = D.highlights.map(function(hl){
+      var r = byId[hl.id]; if (!r) return '';
+      var fig = hl.img ? '<figure data-img="' + esc(hl.img) + '"><img src="' + esc(hl.img) + '" alt="' + esc(hl.caption || (r.title + ' in Odoo 20 Community')) + '" loading="lazy">' +
+        (hl.caption ? '<figcaption>' + esc(hl.caption) + '</figcaption>' : '') + '</figure>' : '';
+      return '<article class="hl">' + fig + '<div class="body"><span class="sec">' + esc(r.section) + ' · <span class="pill ' + r.status + '" style="width:auto;padding:2px 5px">' + LABEL[r.status] + '</span></span>' +
+        '<h3>' + esc(r.title) + '</h3><p>' + esc(r.summary) + '</p><p class="why">' + esc(hl.why) + '</p></div></article>';
+    }).join('');
+    var lostHTML = lost.length ? '<section class="app"><div class="app-head"><h2>Removed from Community or moved to Enterprise</h2><span class="meta">' + lost.length + ' items</span></div>' +
+      lost.map(itemHTML).join('') + '</section>' : '';
+    return '<div class="hl-grid">' + cards + '</div>' + lostHTML;
+  }
+
+  function renderDev(){
+    document.getElementById('count').textContent = '';
+    var t = D.technical, m = D.modules;
+    var tc = t.items.map(function(x){
+      var s = x.script ? ' <a href="' + esc(t.base + x.script) + '" target="_blank" rel="noopener">' + esc(x.script.split('/').pop()) + '</a>' : '';
+      return '<div class="tc"><h3>' + esc(x.title) + '</h3><p>' + md(x.what) + s + '</p><p class="aff">Affects: ' + esc(x.impact) + '</p></div>';
+    }).join('');
+    var col = m.new.filter(function(n){ return n.oca_name_collision.length; });
+    var colHTML = col.length ? '<div class="callout"><strong>Name collisions with OCA modules.</strong> ' + col.map(function(n){
+      return '<code>' + esc(n.module) + '</code> (' + esc(n.name) + ') also exists in OCA ' + n.oca_name_collision.map(esc).join(', ');
+    }).join('; ') + '. These OCA modules cannot be migrated to 20.0 under their current name.</div>' : '';
+    var rows = m.removed.map(function(r){
+      return '<tr><td><code>' + esc(r.module) + '</code></td><td>' + esc(r.now_in === '?' ? 'to check' : r.now_in) + (r.note ? ' — ' + esc(r.note) : '') + '</td><td>' + (r.oca_modules_with_prefix.slice(0, 4).map(function(x){ return '<code>' + esc(x) + '</code>'; }).join(' ') || '—') + '</td></tr>';
+    }).join('');
+    return '<div class="dev"><section><h2>Technical changes</h2><p class="aff">Where Odoo ships a source rewrite, run <code>odoo-bin upgrade_code --addons-path=&lt;repo&gt; --from 19.0 --dry-run</code> first.</p>' + tc + '</section>' +
+      '<section><h2>Module changes 19.0 → 20.0</h2>' + colHTML +
+      '<h3>Removed or merged (' + m.removed.length + ')</h3><div class="tablewrap"><table><thead><tr><th>Module (19.0)</th><th>Now in / status</th><th>OCA modules building on it</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      '<h3>New in Community (' + m.new.length + ')</h3><div class="modlist">' + m.new.map(function(n){ return '<code title="' + esc(n.name + ': ' + n.summary) + '">' + esc(n.module) + '</code>'; }).join('') + '</div></section></div>';
+  }
+
+  function render(){
+    document.querySelectorAll('.tab').forEach(function(b){ b.setAttribute('aria-selected', b.dataset.view === S.view); });
+    document.getElementById('filters').hidden = S.view !== 'items';
+    renderStatus();
+    var v = document.getElementById('view');
+    v.innerHTML = S.view === 'items' ? renderItems() : S.view === 'developers' ? renderDev() : renderHighlights();
+    save();
+  }
+
+  document.querySelectorAll('.tab').forEach(function(b){
+    b.addEventListener('click', function(){ S.view = b.dataset.view; try { history.replaceState(null, '', '#' + S.view); } catch(e) {} render(); });
+  });
+  document.getElementById('f-status').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) { S.status = b.dataset.status; render(); } });
+  appSel.addEventListener('change', function(){ S.app = appSel.value; render(); });
+  document.getElementById('f-conf').addEventListener('change', function(e){ S.conf = e.target.value; render(); });
+  document.getElementById('f-change').addEventListener('click', function(){ S.change = !S.change; render(); });
+  document.getElementById('f-iap').addEventListener('click', function(){ S.iap = !S.iap; render(); });
+  var qt; document.getElementById('f-q').addEventListener('input', function(e){ clearTimeout(qt); qt = setTimeout(function(){ S.q = e.target.value.trim(); render(); }, 150); });
+  document.getElementById('view').addEventListener('click', function(e){
+    var f = e.target.closest('figure[data-img]'); if (!f) return;
+    var lb = document.createElement('div'); lb.className = 'lightbox'; lb.innerHTML = '<img src="' + f.dataset.img + '" alt="">';
+    lb.addEventListener('click', function(){ lb.remove(); }); document.body.appendChild(lb);
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { var lb = document.querySelector('.lightbox'); if (lb) lb.remove(); } });
+
+  document.getElementById('foot').innerHTML = '<span>Draft ' + esc(D.meta.version) + ' · generated ' + esc(D.meta.generated) + ' from the repository data (<code>data/odoo-20.0.yaml</code>).</span>' +
+    '<span>Independent work, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA). Item titles come from Odoo’s release notes; summaries, classifications and evidence are our own. Screenshots show Odoo Community on a 20.0 test database.</span>';
+  render();
+})();
+</script>

@@ -1,0 +1,65 @@
+# Editorial pick of Community highlights (ids from odoo-20.0.yaml). "why" is our own wording.
+# A screenshot at img/<id with "/" replaced by "__">.png is embedded automatically; "caption" says what it shows.
+- id: general/offline-mode
+  why: records can be created/edited/archived while offline, and past searches replayed — in the CE web client.
+- id: general/simplified-access-rights
+  why: ir.model.access and ir.rule merge into one ir.access model (group, operation, domain) and security/ir.access.csv; affects every module that ships security files.
+  caption: Access right form in developer mode — one record holds model, group, the Create/Read/Update/Delete operations and a domain.
+- id: general/material-symbols
+  why: the web client's icons move from Font Awesome to Material Symbols, part of the refreshed Odoo 20 look.
+  caption: Home screen with the new app icons.
+- id: general/dialog-design
+  why: redesigned dialogs across the web client.
+  caption: The new Schedule Activity dialog.
+- id: general/tax-included-excluded-on-orders-and-invoices
+  why: switch tax-included/excluded prices per sales order, purchase order and invoice.
+  caption: Sales order form — the new “Tax Excl.” switch above the order lines toggles between tax-excluded and tax-included prices.
+- id: general/multiple-partner-identifiers
+  why: typed, validated partner identifiers (DUNS, national IDs) on the contact form.
+- id: general/translation
+  why: in-context "Translation Mode", plus import/export of translatable fields via CSV/Excel.
+- id: general/multi-record-drag-and-drop
+  why: reorder or move several records at once in list and Kanban views.
+- id: general/pin-messages-in-the-chatter
+  why: pin, filter and CC in the chatter; activities can be assigned to roles.
+- id: calendar/multiple-calendars-in-one-place
+  why: several calendars per user, shared team calendars, colleagues' calendars and pending activities in one view.
+  caption: Calendar — “+ Add a calendar” in the side panel for extra or shared calendars, and pending activities in the all-day row.
+- id: accounting/parent-accounts
+  why: parent accounts replace account groups and account codes become optional — structural change for charts of accounts and reporting modules.
+  caption: Chart of accounts — the side panel browses the new parent accounts (1 … 9); the column “Payment Reconciliation” replaces “Allow Reconciliation”.
+- id: accounting/intuitive-payment-status
+  why: payment states renamed (In Process → Paid → Reconciled); check custom reports and filters.
+  caption: Customer payments — matched payments now show the status “Reconciled” (formerly “Paid”).
+- id: accounting/withholding-tax-on-payment-improvements
+  why: amount due / withhold due / net due split, and pay-only-withholding option in the payment wizard.
+- id: accounting/valuation-without-inventory
+  why: stock on hand and valuation without installing Inventory (also usable from eCommerce, POS and Sales).
+- id: sales/dashboard
+  why: key figures and quick filters (to confirm, to deliver, to invoice, revenue) on top of the quotations list.
+  caption: Quotations list — the new dashboard strip with To Confirm / To Deliver / To Invoice filters and revenue for the chosen period.
+- id: sales/product-images
+  why: product images on sales order lines and in the quotation/order PDF.
+  caption: Sales order with product images on the order lines.
+- id: sales/description-only-sales-order-lines
+  why: sales order lines no longer need a product (optional "Mandatory Product" setting).
+- id: sales/periodic-pricing
+  why: pricelist rules per period or weekday, price rules per packaging, loyalty point expiry, single-use codes.
+- id: manufacturing/manufacturing-order-kanban-view
+  why: MO Kanban grouped by week with component availability, deadlines and remaining time.
+  caption: Manufacturing orders Kanban — grouped by week with a workload bar, component availability and remaining time per order.
+- id: manufacturing/continuous-production
+  why: record produced quantities per work order and start the next operations early; MOs can also be split and reset to draft.
+- id: inventory/product-replenishment
+  why: one "Order" button, snooze and automate in the replenishment view; min/max suggestions from demand history.
+  caption: Replenishment — a single “Order” button per line, next to “Automate” and “Snooze”.
+- id: point-of-sale/multiple-currencies
+  why: several currencies at checkout, service fees, snoozed products, simplified receipts and printer selection.
+- id: online-payments/pay-on-invoice-provider
+  why: confirm orders without immediate payment; new Toss Payments provider, more Stripe/Mollie methods, wire transfers auto-confirmed from bank transactions.
+  caption: Payment providers — the new “Pay on Invoice” provider (top left) and the new Toss Payments provider (bottom right).
+- id: website/llms-txt
+  why: llms.txt, structured data by default, GTM field, banners, age verification and a reworked website builder.
+  caption: Website settings, Tracking & SEO — the new llms.txt setting with “Edit llms.txt”.
+- id: technical/mail-in-body-tracking
+  why: tracking values are no longer stored — tracking messages are generated on the fly; affects modules that read mail.tracking.value.

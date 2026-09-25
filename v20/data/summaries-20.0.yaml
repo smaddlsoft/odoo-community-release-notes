@@ -1,0 +1,747 @@
+# Short item summaries in our own words (not Odoo's text). Keyed by item id of odoo-20.0.yaml.
+general/activities: Activities can be assigned to a role instead of a person; the Schedule Activity dialog and chatter got UX improvements, and
+  meeting activities show more context.
+general/calendar-view-side-panel: In calendar views with scheduling enabled, drag records into the side panel to unschedule them.
+general/cc-email-recipients: Add CC recipients when sending emails; the chatter shows who was in CC.
+general/chatter-filter: Filter the chatter to show only messages or only tracked changes.
+general/currency-aggregates-date: When totals are converted to another currency, the date of the exchange rate used is shown.
+general/decimal-separator: Both dot and comma are accepted as decimal separator when typing numbers, whatever the user's language.
+general/dialog-design: Redesigned dialogs.
+general/digest-email-kpis: More KPIs available in the periodic digest emails.
+general/download-attachments-in-bulk: Download many attachments at once from the Technical menu, across models and records.
+general/email-template-preview: Better email template preview, with navigation between sample records.
+general/favorited-searches: Saved favourite searches in list views remember the visible columns.
+general/file-sharing-on-mobiles: Share files from a phone to Odoo (e.g. a bill, expense receipt) to create records such as bills, expenses, tasks,
+  leads, to-dos or time off.
+general/gantt-view: Select a whole row/column in Gantt views, start/end buffers, and schedule/unschedule via a side panel (Studio option).
+general/import-product-variants: Import products with one line per variant, including attribute values, cost and on-hand quantity.
+general/incremental-edits-on-duration-fields: Type +=, -=, *= or /= in duration fields to adjust the current value (e.g. +=2 adds two hours).
+general/label-design: Redesigned product, manufacturing and packaging labels.
+general/link-previews: Links to an Odoo website shared on social platforms show a preview card.
+general/link-to-current-search: Share a link to the current view that keeps filters, search and grouping.
+general/list-view-expand-collapse-groups: Alt+click expands or collapses all groups of the same level in list views.
+general/mail-plugins: 'Gmail/Outlook plugins: search contacts, tasks or helpdesk tickets and log emails on them; pick recipients in multi-person
+  threads.'
+general/map-view-unlocated-records: Map view shows records without an address so they can be opened and fixed.
+general/material-symbols: Icons switch from Font Awesome to Google Material Symbols.
+general/mobile: 'Mobile: swipe down on the home screen for the command palette, date picker in a bottom sheet, better touch forms, new secure
+  login screen.'
+general/multi-record-drag-and-drop: Drag and drop several selected records at once in list and Kanban views.
+general/multiple-partner-identifiers: Store several typed, validated identifiers per partner (e.g. DUNS or national IDs).
+general/my-subscription-page: New 'My Subscription' page in the user menu with plan, IAP services and database management.
+general/offline-mode: Create, edit, archive and delete records while offline, and re-run earlier searches.
+general/partner-autocomplete: Partner autocomplete no longer turns industry data into partner tags; it stays in the chatter.
+general/pin-messages-in-the-chatter: Pin important messages in the chatter.
+general/portal-layout: Portal users can reorder the cards on their portal home.
+general/record-deletion: When a record cannot be deleted, Odoo offers to archive it instead.
+general/relative-range-tooltip: Relative date filters (e.g. 'Last 30 days') show the actual dates in a tooltip.
+general/rich-text-editor: Simplified media toolbar in the rich-text editor.
+general/product-catalog-units-of-measure: Choose the unit or packaging when adding products from the catalog.
+general/sendcloud-shipping-labels: Choose PDF, ZPL or PNG for Sendcloud shipping labels.
+general/simplified-access-rights: 'Access rights and record rules are unified: an access right can carry a domain that limits which records it
+  applies to.'
+general/tablets-bottom-sheets: Bottom sheets (panels sliding up from the bottom) also on tablets in touch mode.
+general/tax-included-excluded-on-orders-and-invoices: Switch between tax-included and tax-excluded prices on sales orders, purchase orders and
+  invoices; taxes can override the setting.
+general/text-messages: Schedule text messages and use dynamic placeholders in SMS templates.
+general/translation: Optional in-context 'Translation Mode' (via command palette) to translate modules with Weblate; import/export of translatable
+  fields in several languages via CSV/Excel.
+general/translation-wizard: New wizard to translate text and HTML fields.
+technical/mail-in-body-tracking: Tracking values are no longer stored; tracking messages are built on the fly. A separate module keeps stored
+  tracking values for those who need them.
+technical/many-to-one-field-improvements: Many2one fields sync with the server and handle adding/removing values better, also with large lists.
+technical/push-notifications: Push notifications no longer go through Firebase but through Odoo's own push service.
+technical/track-source-of-postings: Outgoing mail records record where their content came from, for auditing.
+technical/tracking-user-group-changes: Changes to a user's groups are logged in the user's chatter and in the server log.
+industries/accounting-firm: 'Accounting Firm package: identity documents, anti-money-laundering, and a Databases dashboard to manage client databases.'
+industries/agri-equipment-rental: New package for renting and maintaining agricultural machinery.
+industries/beauty-parlor: 'New package for beauty parlors: customers, appointments, treatment follow-up, invoicing.'
+industries/catering: New package for caterers, from first contact to on-site planning.
+industries/community-care: 'New package for community care organisations: staff planning and holidays, residents and their data, knowledge transfer.'
+industries/construction-builder: Construction Builder renamed General Contractor; quotes built from reusable section templates.
+industries/construction-developer: Construction Developer renamed Property Developer and rebuilt on standard Manufacturing and Inventory (BoMs,
+  MOs, routings, locations).
+industries/custom-industrial-equipment: New engineer-to-order package for EPC and turnkey projects, from design to manufacturing, procurement
+  and installation.
+industries/deposit-module: The Deposit Management module (from Beverage Distributor / Micro-Brewery) can be installed on its own.
+industries/electronic-refurbishment: New package for refurbishing electronics, with refurbishment grades and VAT margin scheme.
+industries/excise-module: Excise module separates production from inventory adjustments in the excise report.
+industries/hospitality-industries: 'Hotel, Holiday House, Guest House and Campsite packages: housekeeping, bar/restaurant charges on the final
+  bill, seasonal pricing.'
+industries/hotel: 'Hotel package: guest count, multiple companies and branches.'
+industries/interior-design: 'New package for interior designers: website inquiries, resource planning, purchasing, projects and profitability.'
+industries/machine-and-tool-rental: 'New package for machine and tool rental: contracts, quarantine on return, consumption-based down payments,
+  run-time monitoring, maintenance.'
+industries/mental-therapy: 'New package for mental health professionals: patients, sessions, notes, invoicing.'
+industries/nonprofit-organization: 'Nonprofit package: better donation receipts; petitions removed.'
+industries/pet-groomer: New package for pet groomers.
+industries/physical-therapy: 'New package for physical therapists: patients, sessions, treatment tracking, billing.'
+industries/property-management: Property Owner Association and Real Estate packages can be combined with Property Management in one database.
+industries/property-owner-association: 'Property Owner Association package: owner history, general meetings, cost distribution based on meter
+  readings.'
+industries/public-institution: 'New package for public institutions: citizen support, appointments, portal, facility rental, events.'
+industries/real-estate: 'Real Estate package: editable matchmaking criteria; combinable with Property Management.'
+industries/talent-acquisition: 'Talent Acquisition package: better link between applicants, talent pool and job positions.'
+industries/vineyard: New package for vineyards, from grape to wine.
+accounting/accounting-firms-mode-settings: More flexible 'Accounting Firms mode' settings.
+accounting/analytic-distribution-for-write-offs: Set an analytic distribution on write-offs during reconciliation.
+accounting/annual-report-layout: Annual reports use the company's document layout.
+accounting/asset-depreciation: Depreciation accepts rates and decimal numbers.
+accounting/bank-consistency: Journal entries on bank accounts must come from bank transactions; clearer feedback on statement balance inconsistencies.
+accounting/bank-reconciliation-summary-report: New bank reconciliation summary report (reconciled vs unreconciled at period end).
+accounting/bank-synchronization-syncfy: Syncfy added as bank synchronization provider for Latin America.
+accounting/bill-line-prediction: When encoding a bill, product, account, taxes, analytics and vehicle are suggested from bill history and the
+  label.
+accounting/bill-options-display: Bill line options (depreciation model, vehicle, deferral) are stacked under the account.
+accounting/bill-invoice-matching-rules: '''Matching Rules'' define payment tolerance and matching order for automatic bill/invoice reconciliation.'
+accounting/cash-journal-entry-hashing: Cash journals can be secured with entry hashing on reconciliation.
+accounting/conversion-rates: Conversion rates are shown when registering foreign-currency payments.
+accounting/cumulative-translation-adjustment-cta: Auditable Cumulative Translation Adjustment (CTA) line in balance sheet, trial balance and general
+  ledger.
+accounting/currency-exchange-rate-providers: 'New automatic currency rate providers: Azerbaijan, Georgia, Kazakhstan, Saudi Arabia, Uzbekistan.'
+accounting/customer-invoice-reminders: Send invoice reminders manually from the invoice list or form; automatic reminders configurable in settings.
+accounting/download-invoice-attachments: Download a zip with all generated attachments (PDF, XML…) of selected invoices.
+accounting/employee-expenses-menu-item: 'The separate ''Employee Expenses'' menu is gone: approved expenses create draft bills in the expense
+  journal.'
+accounting/exchange-entries: Exchange differences are grouped into one line per invoice, with expandable details.
+accounting/improved-duplicate-detection: 'Two-level duplicate warnings on invoices and bills (red: likely duplicate, yellow: check).'
+accounting/intercompany-purchase-order-matching: Synchronised inter-company vendor bills are matched with the synchronised purchase orders.
+accounting/intuitive-payment-status: Payment statuses renamed ('In Process' → 'Paid', 'Paid' → 'Reconciled'); 'Mark as Reconciled' moved to the
+  action menu.
+accounting/inventory-valuation: Accrual entries (bills to receive, billed not received, etc.) can be created from the inventory valuation closing
+  report.
+accounting/invoice-email-attachments: Add files from Documents or earlier chatter attachments when emailing an invoice.
+accounting/manual-reconciliation: Manual reconciliation on any account; 'Allow Reconciliation' renamed 'Payment Reconciliation'.
+accounting/multi-ledger-consolidation: Multi-ledger consolidation now includes (rather than excludes) journals.
+accounting/multiple-invoice-details: When sending several invoices at once, the dialog shows how each will be sent.
+accounting/new-currency-caribbean-guilder: Caribbean Guilder (XCG) added and set as default currency for Curaçao and Sint Maarten.
+accounting/onboarding-improvements: Easier accounting onboarding for e-invoicing and tax setup.
+accounting/optimized-data-entry: Faster bank statement encoding with reconciliation-model shortcuts and transaction batching.
+accounting/pain-version-setting: The PAIN (ISO 20022) version is set per payment method instead of per journal.
+accounting/parent-accounts: Parent accounts replace account groups to structure the chart of accounts; account codes become optional.
+accounting/pay-bills-from-odoo: Pay bills (single or batch) from Odoo with one signature via payment initiation (PISP).
+accounting/peppol-global-location-identifiers: Add GLN location identifiers to delivery contacts for Peppol.
+accounting/prevent-double-payments-in-the-payment-wizard: The payment wizard deducts pending payments to avoid paying twice, and sorts outstanding
+  payments by date.
+accounting/professional-percentage-for-receipts: The 'Professional' percentage column also exists on purchase receipts.
+accounting/purchase-order-matching: 'Better bill-to-PO matching: auto-complete checks existing lines first, shows a summary, warns on price/quantity
+  differences, and allows unmatching.'
+accounting/reconciliation-with-multiple-accounts: Split a bank transaction across several accounts more easily in reconciliation.
+accounting/reminder-workflow: Simpler workflow for automatic and manual payment reminders.
+accounting/reset-to-draft-action-in-list-views: '''Reset to Draft'' as a batch action in any journal entry list.'
+accounting/run-auto-reconciliation: Re-run automatic bank reconciliation on demand.
+accounting/simplification-of-asset-models: Asset models become depreciation models; asset settings live on the asset accounts.
+accounting/split-items-on-invoices: Split selected journal items of an invoice, e.g. across quantities, assets or accounts.
+accounting/taxes-in-fiscal-positions: Taxes outside the fiscal position of an invoice are dropped, even without a replacement tax.
+accounting/valuation-without-inventory: Track stock on hand and valuation without installing Inventory.
+accounting/withholding-tax-on-payment-improvements: Bills with withholding tax show amount due, withholding due and net due; the payment wizard
+  can pay either part or both.
+localizations/argentina: 'Accounting: VAT book PDF without headers/footers for official ledger books, ARCA daily currency rates, ''Payment on
+  Informed CBU'' legend, SICORE export, better third-party check handling, withholdings in foreign currency, daily book export to Excel. Inventory:
+  batch processing and manual vendor numbers for Remitos.'
+localizations/armenia: 'Accounting: ISO 3166-2 state names and codes.'
+localizations/australia: 'Accounting: open-banking bank synchronization through Basiq.'
+localizations/azerbaijan: 'Accounting: ISO 3166-2 state names and codes.'
+localizations/bahrain: 'Accounting: state codes updated to ISO 3166-2.'
+localizations/bangladesh: 'Accounting: old tax report removed, 2026 Finance Act rates, tax groups by nature (VAT, TDS, VDS), chart of accounts
+  with parent accounts.'
+localizations/belgium: 'Payroll: automated Dimona, joint committees, merged ''Regular Pay'' structure, directors'' pay, meal-voucher reporting,
+  flexi-jobs, holiday pay, earning caps, CP302 year-end bonus, profit-sharing bonus.'
+localizations/brazil: 'Accounting: NF-e/NFS-e for exports, OCR import of NFS-e, batch XML download, more fiscal fields on operation types, Avalara
+  options, alphanumeric CNPJ, streamlined fiscal workflow. Inventory: more fiscal fields, NF-e data on shipping labels. POS: cancel NFC-e.'
+localizations/canada: 'Accounting: detailed expense accounts, localized asset models, batch customer payments via CPA 005 pre-authorized debit
+  files.'
+localizations/chile: 'Accounting: expense accounts and asset models, XML import of customer invoices, commune data, non-billable amounts, CAF
+  sharing across branches, F29 report on tax tags. Inventory: delivery-guide copies per SII layout.'
+localizations/china: 'Accounting: improved chart of accounts and statements, asset models, parent accounts, voucher batch printing, VAT & surcharges
+  return, VAT differential taxation on invoice lines.'
+localizations/colombia: 'Accounting: expense accounts and asset models, e-invoicing of free samples, better fiscal PDFs, DIAN-only connection
+  (Carvajal dropped), contingency invoicing, CUFE-based duplicate detection, exogenous reports, mandate invoices for goods, discounts in XML,
+  ZIP import of vendor bills.'
+localizations/dominican-republic: 'Accounting: e-invoicing (e-CF 31–34) via Infile to DGII, 606 purchase report as TXT, updated IT-1 report, cédula
+  next to RNC for eCommerce e-invoicing.'
+localizations/ecuador: 'Accounting: custom legend on e-document PDFs, cleaner chart of accounts, better invoice layout, new withholding taxes,
+  provider RUC on documents. POS: blocks ''Consumidor Final'' sales above the legal limit.'
+localizations/egypt: 'Accounting: ETA sync in the Send wizard with demo mode and batch PDF fetch, 6-digit chart with parent accounts, updated
+  VAT/withholding reports, gross-up withholding, ETA unit codes, state changes. Payroll: calendar-day schedules, overtime, NOSI/ETA forms. POS:
+  e-receipts to ETA.'
+localizations/france: 'Accounting: PCG-compliant annual report templates (plaquettes); automatic detection of e-invoicing directory endpoints
+  from the SIREN.'
+localizations/georgia: 'Accounting: new base localization (chart of accounts, taxes, VAT report) and ISO state codes.'
+localizations/guatemala: 'Accounting: Factura Especial (FESP), FEL cancellation via Infile, E10 fuel tax, SAT VAT books. eCommerce and POS: FEL
+  e-invoicing requirements.'
+localizations/hong-kong: 'Accounting: HKFRS-compliant chart and statements. Payroll: many additions (MPF, IR56 forms, Autopay, rentals, leave
+  rules, pay schedules, casual/non-employee structures, termination rules).'
+localizations/hungary: 'Accounting: A60 EC sales list; received bills fetched from the NAV API.'
+localizations/india: 'Accounting: price-adjustment credit notes, bill of entry for imports with landed costs, flexible TDS, GST composition scheme
+  (CMP-08, GSTR-4), Schedule III financial statements.'
+localizations/indonesia: 'Accounting: updated chart and asset models, simpler contact tax fields, PPN Dipungut tax. Payroll: default accounts,
+  overtime rule. POS: QRIS kiosk payments.'
+localizations/iraq: 'Payroll: new base payroll localization (salary structure, social insurance, leaves, end of service, overtime).'
+localizations/italy: 'Accounting: notes (causale) and attachments (allegati) on e-invoices.'
+localizations/japan: 'Accounting: statements and chart per Chusho Kaikei Yoryou and e-Tax codes; consumption tax section in the tax return.'
+localizations/jordan: 'Accounting: better JoFotara error handling and credit-note sync, new invoice types, UX in the Send wizard. POS: JoFotara
+  refunds and receipts.'
+localizations/kazakhstan: 'Accounting: ISO 3166-2 state names and codes.'
+localizations/korea: 'Accounting: improved VAT reports; ''Issuance Type'' on invoices routes data to report lines.'
+localizations/kuwait: 'Accounting: ISO state codes. Payroll: new base localization.'
+localizations/kyrgyzstan: 'Accounting: ISO 3166-2 state names and codes.'
+localizations/lebanon: 'Accounting: ISO state codes, duplicates removed.'
+localizations/lithuania: 'Payroll: inputs converted to the new salary input flow.'
+localizations/luxembourg: 'Payroll: Decsal and Decmal reports.'
+localizations/malaysia: 'Accounting: consolidated invoices, MyInvois across branches and for sole proprietors. POS: self-service MyInvois e-invoicing.'
+localizations/mexico: 'Accounting: bimonthly global invoices, CFDI cancellation acknowledgment, services in foreign-trade invoices, updated rates,
+  factoring payments, NIF B-6/B-3 statements, complementary trial balance XML, SAT download of missing bills, smarter XML reader. Inventory: driver
+  on delivery order. Payroll: CFDI link in payslip email.'
+localizations/oman: 'Accounting: ISO state codes. Payroll: new base localization including WPS salary files.'
+localizations/pakistan: 'Accounting: reworked chart with parent accounts, streamlined taxes, dynamic statements, MRP tax, new partner ID fields,
+  FBR e-invoicing. Payroll: year-end tax adjustment. POS: FBR real-time reporting.'
+localizations/peru: 'Accounting: 19 SUNAT inventory-and-balances sub-books, GRE for internal transfers, electronic vendor withholding documents,
+  fixed-amount ISC. POS: SUNAT thermal receipts.'
+localizations/philippines: 'Accounting: BIR-compliant partner ledger and books of accounts, BIR 2306/2307 certificates, entity type, disbursement
+  voucher, BIR1600VT and 2551Q reports, senior/PWD discounts. Payroll: base package with BIR forms, loan deductions, annualization.'
+localizations/qatar: 'Accounting: ISO 3166-2 state names and codes.'
+localizations/romania: 'Accounting: CPV codes in eFactura, updated VAT, ANAF PDF retrieval, period sync, SAF-T with stock, D300 XML, resend rejected
+  invoices.'
+localizations/saudi-arabia: 'Accounting: reworked chart and asset models, many ZATCA improvements (Send wizard sync, batch, invoice/transaction
+  types, exemption reasons, address rules, multi-ID). Payroll: many additions (GOSI, end of service, leave rules). POS: better down payments,
+  on-demand ZATCA PDF.'
+localizations/singapore: 'Accounting: refined GST taxes, IRAS-compliant invoice PDFs, SFRS-compliant chart and statements.'
+localizations/sri-lanka: 'Accounting: new localization (chart, taxes, statements, VAT 001, WHT 001) and compliant tax invoice layout.'
+localizations/taiwan: 'Accounting: updated chart, statements and tax reports; ECPay details on quotations. eCommerce and POS: ECPay e-invoicing.'
+localizations/tajikistan: 'Accounting: ISO 3166-2 state names and codes.'
+localizations/thailand: 'Accounting: TFRS-compliant chart, RD Prep CSV exports, 50 Tawi certificate, withholding summary report, separate tax
+  invoices, updated debit/credit note PDFs.'
+localizations/t-rkiye: 'Accounting: many e-invoicing improvements (scenarios, types, Nilvera — now Enterprise-only), parent accounts per GIB chart,
+  multi-ID partner identifiers, stamp taxes, exchange rates. Inventory: e-Dispatch send/receive. Payroll: advanced structure, severance, 1003B,
+  incentives.'
+localizations/turkmenistan: 'Accounting: ISO 3166-2 state names and codes.'
+localizations/united-arab-emirates: 'Accounting: redesigned IFRS chart with parent accounts, asset models, FTA audit file. Payroll: GPSSA/ADPF
+  contributions, DEWS, Emiratization report, WPS, end of service, overtime, calendar-day schedules.'
+localizations/united-kingdom: 'Accounting: HMRC authorisation per company; VAT returns for several companies without re-authenticating.'
+localizations/united-states-of-america: 'Accounting: dedicated accounts per asset model, ''Avalara Included'' AvaTax option, redesigned sales
+  tax report. Payroll: NYC/Yonkers taxes, overtime deduction, new states, payment-date-based YTD. Time Off: better default leave types.'
+localizations/uruguay: 'Accounting: DGI taxpayer lookup via Uruware; non-billable products on e-invoices.'
+localizations/uzbekistan: 'Accounting: new base localization (chart, taxes, statements), so''m symbol, Russian reports, PINFL on B2C invoices.'
+localizations/vietnam: 'Accounting: chart and balance sheet per Circular 99/2025, 01/GTGT declaration with Appendix 142 and XML export, internal
+  transfer notes via SInvoice, parent accounts, new journals/ledgers. POS: SInvoice e-invoices.'
+ai/iap-credits-required: All AI features consume IAP credits.
+ai/agentic-automation: Agents can update their own configuration, run from automated/scheduled actions, and show automation chat logs; agents
+  get avatars.
+ai/ai-agents-ask-questions-about-a-file: Ask an agent questions about a file while previewing it.
+ai/ai-agents-create-records: Ask an agent to create records, including from an uploaded instruction file.
+ai/ai-agents-feedback: Agents show live progress instead of a generic 'thinking' message.
+ai/ai-agents-filter-by-time-period: Agents can filter by periods (weeks, quarters…) when building views.
+ai/ai-agents-image-generation: Agents generate images and buttons for websites and mailings.
+ai/ai-agents-reprocess-sources: Ask agents to reprocess their sources.
+ai/ai-agents-send-files: Upload files and link documents in agent chats.
+ai/ai-agents-update-records: Ask an agent to update records.
+ai/ai-chat-request-options: A '+' menu adds options to an AI request.
+ai/automatic-ai-model-selection: Pick a provider; Odoo chooses the best model per task.
+ai/connect-odoo-to-anything: Connect external tools to the database via MCP (Model Context Protocol).
+ai/default-prompts: Default prompts with context and dynamic values.
+ai/interactive-agent-responses: Answer agent questions and permission requests with buttons.
+ai/preview-cards-in-live-chat: Agents in live chat can show clickable record cards.
+ai/stored-conversations: Agent conversations are kept for 30 days.
+ai/tool-call-limit-confirmation: Agents ask for confirmation when they hit the tool-call limit.
+ai/topics-renamed-to-skills: '''Topics'' are renamed ''skills''.'
+ai/voice-interaction: Dictate requests to an agent.
+appointments/accessory-products-for-appointments: Sell accessory products during appointment checkout.
+appointments/appointment-booking-flow: Choosing a user/resource and a time slot happens on one page.
+appointments/appointment-names: Customer name, type and seats shown on bookings in Gantt and calendar.
+appointments/appointment-page-design: Refreshed appointment pages on mobile and desktop.
+appointments/appointment-rescheduling: Reschedule booked appointments in a few clicks.
+appointments/appointments-calendar-view: Create bookings and assign resources from any schedule calendar view.
+appointments/attendance-at-a-glance: Gantt view shows expected attendance per slot.
+appointments/automatic-resource-assignment: Automatic resource assignment considers the number of participants.
+appointments/availability-display: Accurate availability across appointment types, including private busy events.
+appointments/booking-capacity-control: Limit how many bookings can start in the same slot.
+appointments/booking-shortcuts: Kanban shortcuts to bookings to confirm, upcoming and today's.
+appointments/closed-days-management: Easier management of closed days.
+appointments/consistent-booking-page-design: Booking pages follow website styling even without the Website app.
+appointments/customer-feedback: Ask customers for feedback after appointments.
+appointments/default-party-size: Group bookings preselect two guests.
+appointments/maximum-capacity-override: Override maximum capacity manually.
+appointments/performance-improvements: Faster availability computation and booking.
+appointments/web-page-redesign: More consistent booking pages with clearer information.
+appointments/website-editor-blocks: Website editor blocks can be placed anywhere on appointment pages.
+appraisals/external-360-feedbacks: Send 360° feedback requests to any contact.
+appraisals/next-appraisal-date: Managers can edit the next appraisal date without extra rights.
+appraisals/parent-goal-progression: Parent goals show progress from their sub-goals.
+appraisals/smart-template-selection: New appraisals pick the department's template by default.
+attendances/automatic-check-out-time: Employees without fixed hours can set an automatic check-out time.
+attendances/overtime-analysis-report: New overtime analysis report showing which rule applied.
+attendances/overtime-rulesets: Smart button to link new employees to an overtime ruleset.
+attendances/photo-at-check-in: Take a photo at check-in when the device has a camera.
+attendances/prevent-app-use: Users without Attendances rights can no longer use the app.
+attendances/public-holiday-option-ruleset: Overtime rates for public holidays in rulesets.
+barcode/backorders: Choose whether to create a backorder from Barcode.
+barcode/barcode-product-creation: Scan an unknown barcode to create the product via Barcode Lookup.
+barcode/batch-receipts: Receipts from the same vendor are suggested as a batch.
+barcode/bulk-lot-serial-number-generation: Generate lots/serial numbers in bulk.
+barcode/fixed-button-positions: Buttons keep a fixed position to avoid mistakes.
+barcode/inventory-count: Enter the total counted quantity manually during inventory counts.
+barcode/light-users: Light users can be limited to the Barcode app.
+barcode/manual-entry: Enter lot numbers and quantities manually when scanning is impossible.
+barcode/manufacturing-operations: 'Manufacturing in Barcode: irrelevant settings removed, reserved lots only shown when enabled, mandatory scans
+  no longer block by-product edits.'
+barcode/mobile-user-login-button: Login button in the mobile view.
+barcode/packages-pre-encoded-contents: Pre-encode package contents announced by the vendor; scanning the package receives it with its contents.
+barcode/packages-untracked-goods: Untracked goods registered earlier stay in the package contents when scanned later.
+blog/blog-module-redesign: More styles and options for blog posts, blog home and category pages.
+blog/recommended-post: Show a 'Recommended Post' at the end of a blog post.
+blog/scheduled-blog-posts: Followers get an email when a scheduled post goes live.
+calendar/browse-other-calendars: Show colleagues' calendars from the sidebar.
+calendar/detection-of-times-in-all-day-event-titles: Events created in the 'All day' row pick up a time written in the title (e.g. '2 PM Meeting').
+calendar/google-and-outlook-synchronization: Much faster and more reliable Google/Outlook calendar sync.
+calendar/google-calendar-sync: Work locations set in Google Calendar are reflected in Odoo.
+calendar/linked-records: Link a calendar event to any Odoo record.
+calendar/manage-and-share-availabilities: Manage and share a link to your availabilities or appointments from Calendar.
+calendar/manage-pending-activities: See and handle pending activities in the calendar.
+calendar/mobile-calendar-redesign: Easier calendar navigation on mobile.
+calendar/multiple-calendars-in-one-place: Several calendars per user, including shared team calendars.
+calendar/non-recurring-appointments: Easier one-off (non-recurring) appointment openings from Appointments and Calendar.
+calendar/sync-multiple-google-calendars: Sync several Google calendars, both ways.
+contacts/contact-enrichment: Enrich one or many contacts with company data.
+contacts/hierarchical-view: New hierarchy view for contacts.
+crm/hidden-address-info: Address fields are hidden to push creating a proper contact.
+crm/lead-distribution: 'Per-salesperson lead assignment mode: always in rotation, in rotation with a limit, or out of rotation.'
+crm/lead-generation: Lead generation offers more sources and now uses Dun & Bradstreet data instead of Clearbit.
+crm/pipeline-switcher: Dropdown to switch between sales teams' pipelines.
+crm/upsells-from-lead: See a customer's subscriptions from the lead; create upsell/renewal quotes linked to the opportunity.
+dashboards/billing-targets-vs-billable-time: Compare billing targets with billable time in the Timesheets dashboard.
+dashboards/carousel-data-layer: Carousels can hold a cell range, making dashboards responsive on mobile.
+dashboards/favorite-filters: Save global filters as favourites and set a default one.
+dashboards/fiscal-year-date-filter: New 'Fiscal Year' date filter.
+dashboards/frozen-share-links: Menu to manage frozen (snapshot) share links.
+dashboards/private-dashboards: Private dashboards shared only with chosen users.
+dashboards/region-selector-for-geo-charts: Region selector on world geo charts.
+discuss/on-a-call-status: Discuss shows when a user is on a phone call.
+discuss/call-transcripts: Record Discuss calls and get summaries.
+discuss/channel-categories: Group channels into categories.
+discuss/favorite-channels: Mark channels as favourites.
+discuss/mark-notifications-as-unread: Mark notifications as unread.
+discuss/polls: Create polls in conversations.
+documents/access-right-management: User groups to manage file and folder access.
+documents/auto-sort-fleet-documents: Fleet documents are sorted and linked to vehicles by licence plate.
+documents/bank-statement-attachments: Bank statement attachments available in Accounting and Documents.
+documents/branch-management: Branches supported in the Accounting–Documents integration.
+documents/document-request-upload-notification: Requesters are notified when requested documents are uploaded.
+documents/employee-documents: Better Employees folder structure; payslips in a dedicated folder with shortcuts in each employee's drive.
+documents/markdown-previews-and-thumbnails: Previews and thumbnails for Markdown files.
+documents/multi-file-document-request: Request several files in one request.
+documents/rename-files-with-ai: Rename uploaded files with AI.
+ecommerce/ai-assisted-product-editing: Ask the AI assistant to generate product images or change name, price or description from the shop.
+ecommerce/attribute-filters: Attribute filters only show values relevant to the current page.
+ecommerce/automated-cross-sell-suggestions: Automatically generate accessory, optional and alternative products.
+ecommerce/automated-review-requests: Automated review-request emails with a configurable delay after the order.
+ecommerce/default-journal-for-ecommerce-orders: Default accounting journal for eCommerce orders.
+ecommerce/donations: Donations in the cart flow, including recurring donations via subscriptions.
+ecommerce/dynamic-product-building-block: Better layout of the dynamic products block.
+ecommerce/email-gift-card-directly-to-recipient: Customers can email a purchased gift card straight to the recipient.
+ecommerce/external-identifiers: External identifiers on attributes for data feeds and microdata.
+ecommerce/extra-step-granularity: Show the checkout's extra step only for products of selected categories.
+ecommerce/gelato-variant-images: Print images per variant for Gelato print-on-demand.
+ecommerce/google-analytics-events: Google Analytics 4 eCommerce events are more complete and spec-compliant.
+ecommerce/guest-orders-contact-creation: Contacts from guest orders are archived until the customer creates an account.
+ecommerce/location-selector-country-filter: Filter pickup points by country.
+ecommerce/loyalty-progress-bar: Progress bars towards loyalty rewards in cart notifications and summary.
+ecommerce/minimum-product-quantity: Minimum order quantity per product.
+ecommerce/mondial-relay-handled-via-sendcloud: Mondial Relay module removed; Mondial Relay remains available via Sendcloud.
+ecommerce/open-attribute-value-on-search: Searching by attribute value (e.g. 'black t-shirt') opens the product with that value selected.
+ecommerce/order-dashboard: Dashboard on top of the eCommerce order list.
+ecommerce/pay-now-button: Edit and translate the 'Pay now' buttons in checkout.
+ecommerce/preferred-delivery-date: Customers can choose a preferred delivery date.
+ecommerce/prevent-sales-by-category: Block sales for a whole category while still showing prices.
+ecommerce/pricelist-selector: Pricelist selector on every shop page.
+ecommerce/product-reference-price: Reference (unit) price shown on all shop pages by default.
+ecommerce/product-features: Ribbons, compare price, attributes and secondary images in dynamic product blocks.
+ecommerce/product-variant-thumbnails: '''Show Thumbnails'' on attributes uses variant images instead of value swatches.'
+ecommerce/products-grid-building-block: New grid layout for the Products block.
+ecommerce/range-filter-for-attribute-values: Range slider filter for numeric attributes.
+ecommerce/restrict-packagings-per-website: Restrict units and packagings per website.
+ecommerce/return-management: Customers can return products from the portal.
+ecommerce/ribbon-filters: New ribbon filters 'On Sale' and 'In Stock'.
+ecommerce/simplified-inventory-management: eCommerce works with simple stock tracking (one on-hand quantity, no transfers) without Inventory.
+ecommerce/standalone-categories: Hide chosen categories from the shop page to build curated sections.
+ecommerce/stock-based-product-publishing: Unpublish/republish products automatically based on stock.
+ecommerce/taxes-included-excluded-price-display: Tax-included or tax-excluded price display per pricelist (B2C and B2B on one site).
+ecommerce/variant-image-management: Manage variant images centrally in the product's eCommerce tab.
+ecommerce/whatsapp-abandoned-cart-follow-up: Follow up abandoned carts via WhatsApp.
+ecommerce/withdrawal-requests: New contact-form action to handle withdrawal requests.
+elearning/course-access-from-portal: Customers see and open their courses from the portal.
+email-marketing/click-tracking: See which recipient clicked which link.
+email-marketing/conditional-content: Show blocks conditionally per recipient.
+email-marketing/contact-management: Easier adding of contacts to mailing lists; recipients manage their own subscriptions.
+email-marketing/dynamic-mailing-lists: Dynamic mailing lists computed when the mailing is sent.
+email-marketing/employee-supplier-mailings: Send mailings to employees and suppliers.
+email-marketing/favorite-blocks: Save blocks as favourites for reuse.
+email-marketing/full-screen-editing: Mailing design is always edited full screen.
+email-marketing/link-tracking: Turn off link tracking directly in the editor.
+email-marketing/mailing-template-library: Save mailings as templates, available in a dedicated menu.
+email-marketing/new-fonts: New fonts with fallbacks for email clients.
+email-marketing/new-templates-and-blocks: New templates and blocks.
+email-marketing/product-and-event-snippets: Product and event snippets filled from selected records.
+email-marketing/social-media-accounts: Connect social media accounts and style them in mailings.
+email-marketing/utm-reference: UTM uses a new 'Reference' field instead of creating sources on the fly.
+employees/employee-directory: In multi-company databases all users can see employees of all companies.
+employees/salary-simulation: Simulate an employee's salary from their profile.
+employees/remote-work: Remote Work merged into Employees.
+employees/variable-working-schedule: Define variable working schedules from a calendar view.
+esg/assign-emission-factors-with-ai: AI picks the most suitable emission factor for emissions.
+events/event-combos: Combo tickets combining registration with food/drinks at different VAT rates.
+expenses/consolidated-expenses-report: Print several expenses in one consolidated report.
+expenses/expense-limits-per-job-position: Maximum expense amounts per job position; managers can cap before approval.
+expenses/salary-rules-for-expense-products: Expense products can be linked to a salary rule.
+field-service/field-service-merged-into-planning: Field Service app discontinued; its features move into Planning.
+fleet/driver-assignment: Changing an employee's car in Payroll updates the vehicle's driver.
+frontdesk/member-entry-management: Restrict check-in to members, optionally for specific stations.
+helpdesk/filter-unanswered-tickets: Filter tickets whose last message is from the customer.
+helpdesk/reminder-email-before-auto-closing-tickets: Remind customers by email before a ticket is auto-closed.
+helpdesk/similar-ticket-detection: AI finds similar tickets and suggests answers.
+inventory/allocation-report: Allocate from the forecast report; redesigned allocation report.
+inventory/cmr-document: Download a pre-filled CMR consignment note from deliveries.
+inventory/company-specific-customer-lead-times: Customer lead time per company.
+inventory/intercompany-flows: Inter-company resupply routes, delivery from another company's warehouse, correct valuation of transferred goods.
+inventory/inventory-at-a-past-date: Stock at a past date with a date/time picker that keeps filters.
+inventory/inventory-valuation-cogs-update: Cost changes after delivery (e.g. landed costs, price differences) update the delivery value and COGS.
+inventory/landed-costs-for-specific-products: Landed costs on specific products of a transfer.
+inventory/location-specific-push-routes: Push routes depending on the exact destination location.
+inventory/picking-notifications: Subscribe to transfer status notifications.
+inventory/preview-barcode-instructions-in-operation-type: Preview Barcode operator instructions from the operation type.
+inventory/product-packaging-barcodes: Manage packaging barcodes from the product form.
+inventory/product-replenishment: Single 'Order' button in replenishment; ordering ahead proposes sensible quantities.
+inventory/sendcloud-package-reference: Odoo's package reference is sent to Sendcloud for labels.
+inventory/sendcloud-pickup-points: Pick Sendcloud pickup points from sales orders or transfers, and correct them after eCommerce orders.
+inventory/simplified-returns: Return wizard removed; simpler returns.
+inventory/stock-aging-report: Stock aging report from the Moves Analysis pivot.
+inventory/suggested-stock-levels-for-reordering-rules: Reordering-rule min/max suggested from demand history, coverage days and order frequency.
+inventory/traceability-report: Traceability report shows upstream and downstream lots in one view.
+inventory/variant-specific-hs-codes: HS codes per product variant.
+inventory/variant-specific-packagings: Packagings per variant.
+inventory/vendor-purchase-reference: Vendor reference shown on receipts.
+inventory/zpl-location-barcodes: Location barcode labels in ZPL.
+knowledge/article-settings-quick-access: Right-click an article in the sidebar to change its settings.
+live-chat/connect-social-media-messaging: Answer Messenger and Instagram DMs from live chat.
+maintenance/maintenance-requests-gantt-views: Gantt views for equipment and work center maintenance requests.
+maintenance/maintenance-teams-on-stages: Maintenance stages per team.
+maintenance/ux-improvements: UX improvements including a new status widget.
+manufacturing/backorder-planning: Backorders of planned MOs are planned automatically.
+manufacturing/bill-of-materials: Compare BoMs by quantities, merged status/availability columns, extra costs on the BoM, better component management.
+manufacturing/component-replacement: '''Used In'' shows BoM component lines to ease component replacement.'
+manufacturing/continuous-production: Record produced quantities per work order; with 'Continuous Production' next operations start early.
+manufacturing/draft-versus-confirmed-manufacturing-orders: Procurement creates draft or confirmed MOs, set per operation type.
+manufacturing/flexible-consumption: Flexible consumption setting removed; all MOs consume flexibly.
+manufacturing/generate-lots-and-serials-when-closing-manufacturing-orders: Lots/serials are always generated when closing MOs.
+manufacturing/lot-serial-number-transfers: The Transfers button on lots shows delivery move lines for precise recalls.
+manufacturing/manufacturing-order-kanban-view: Redesigned MO Kanban grouped by week, with component status, work center, deadline and remaining
+  time.
+manufacturing/manufacturing-orders-planned-asap: MOs are planned as soon as possible by default; list order sets priority.
+manufacturing/mo-cost: '''MO Cost'' shows provisional cost during and real cost after production; subcontracting costs included.'
+manufacturing/produce-button: One 'Produce' button replaces 'Produce' and 'Produce All'.
+manufacturing/put-in-pack-from-mo: The finished product goes into the MO's destination package automatically.
+manufacturing/reset-mo-to-draft: Reset done or cancelled MOs to draft.
+manufacturing/shop-floor-demo-sheet: Download a Shop Floor demo sheet to test barcode features.
+manufacturing/split-manufacturing-orders: Split an ongoing MO to produce the rest later.
+manufacturing/subcontracting-reception-valuation: Without a PO, subcontractor cost is set at reception from the vendor pricelist.
+manufacturing/to-replenish-filter: '''To Replenish'' filter in the MO overview.'
+manufacturing/traceability-report-expiration-dates: Expiration dates in the traceability report.
+manufacturing/visualize-and-confirm-work-orders: Confirm work orders from the Work Order Planning Gantt, even with drafts.
+manufacturing/work-and-manufacturing-order-reporting: Better reporting on work orders and MOs.
+manufacturing/work-order-views: New work order Kanban and drag-and-drop Gantt planning (also by employee).
+manufacturing/work-center-overview: Work center overview with links to work orders and maintenance.
+manufacturing/work-orders-in-blocked-work-centers: Process work orders in blocked work centers.
+marketing-automation/ai-assisted-campaign-creation: AI helps set up campaigns.
+marketing-automation/event-based-triggers: Campaigns triggered by events such as page visits or list subscriptions.
+marketing-automation/mailing-template-library: Save mailings as templates in a dedicated menu.
+marketing-automation/new-triggers-and-actions: New triggers (event, date, anniversary, webhook, on demand) and actions.
+marketing-automation/webhook-integration: Webhooks add participants from external systems in real time.
+marketing-automation/workflow-builder: Visual drag-and-drop workflow builder.
+marketing-card/default-target-urls: Event URL suggested as default target for event campaigns.
+marketing-card/event-app-integration: '''Send cards'' from an event, with recipient conditions.'
+marketing-card/language-support: Choose the language a card is sent in.
+online-payments/ach-payments: ACH payments can be tokenized.
+online-payments/authorize-net: Authorize.net webhooks for delayed confirmations.
+online-payments/ecpay: New ECPay payment provider (Taiwan).
+online-payments/mollie: More Mollie methods (Apple Pay, Blik, in3, Google Pay, Klarna, MB WAY, Multibanco, Swish) and tokenization.
+online-payments/pay-on-invoice-provider: 'New ''Pay on Invoice'' provider: confirm orders without paying immediately.'
+online-payments/payment-provider-views: Simpler payment provider views.
+online-payments/paypal: 'PayPal: cards, alternative methods, tokenization, OAuth onboarding.'
+online-payments/payu: PayU provider for India.
+online-payments/pricelist-and-amount-restriction: Restrict providers by pricelist and min/max amount.
+online-payments/redsys: Redsys tokenization for recurring payments.
+online-payments/sofort: SOFORT removed from all providers.
+online-payments/stripe: More Stripe methods (Alma, Apple Pay, ACSS debit, Google Pay, Satispay, Swish).
+online-payments/toss-payments: New Toss Payments provider (South Korea).
+online-payments/wero: Wero via Buckaroo and Worldline.
+online-payments/wire-transfers: Wire transfers confirmed automatically from bank transactions.
+online-payments/xendit: Xendit for Malaysia, Thailand and Vietnam.
+payroll/chatter-on-pay-runs: Chatter on pay runs.
+payroll/contract-date-modification: Contract dates can't be changed if payslips exist; use a revision instead.
+payroll/dashboard: Payroll dashboard focused on setup and control warnings.
+payroll/driver-assignment: Car changes update the vehicle's driver.
+payroll/employee-type-per-company-or-branch: Employee types restricted per company or branch.
+payroll/net-to-gross-simulation: Simulate gross salary from a net amount.
+payroll/pay-run-workflow: Step-by-step pay run workflow.
+payroll/payslip-sending-options: Choose when payslips are sent (confirmation, payment, manual).
+payroll/payslip-ux: Cleaner 'Salary Computation' tab.
+payroll/salary-indexation: Index salaries by percentage and/or fixed amount.
+payroll/salary-rules: Salary rules can belong to several categories and structures.
+payroll/test-print-pay-runs: Test a pay run with printed payslips.
+payroll/time-entry-exports: Standard format for time entry exports.
+payroll/work-entries-removal: Work entries and the Planning–Payroll integration removed; work entry and time off types merged.
+payroll/working-schedules: Working schedules can define hours per day without start/end times.
+phone/audio-settings-during-a-call: Change microphone/speaker during a call.
+phone/auto-fill-and-auto-log: Softphone pre-fills the current record's number and logs the call.
+phone/call-flow-designer: Design incoming call flows (extensions, menus, time/location rules).
+phone/call-logging-in-chatter: Log calls in the chatter during or after the call.
+phone/call-transfer-to-another-device: Move an ongoing call to another device.
+phone/choose-outgoing-number: Choose the outgoing caller ID among several numbers.
+phone/floating-widget: Floating, draggable softphone.
+phone/linphone: Provision Linphone via QR code.
+phone/push-notifications: Push notifications for incoming calls.
+phone/simultaneous-calling: Start or take a second call during a call.
+planning/employee-specific-materials: Materials assigned to employees follow them onto their shifts.
+planning/field-service-auto-plan: Auto-planning considers customer locations.
+planning/field-service-customer-equipment: Track whether customer equipment is under a maintenance contract.
+planning/field-service-customer-ratings: Customer satisfaction ratings for on-site interventions.
+planning/field-service-intervention-confirmation-email: Optional confirmation email to the customer when a shift is published.
+planning/field-service-live-map: Live map of technicians.
+planning/field-service-map-view: Map view of shift locations and technician availability.
+planning/field-service-product-barcodes: Add products to a shift by scanning barcodes.
+planning/field-service-report: Studio fields appear on the field service report.
+planning/field-service-routing-preferences: Ordered or optimised routing on the map.
+planning/field-service-track-customer-history: Customer equipment and intervention history.
+planning/field-service-travel-fees: Invoice distance-based or fixed travel fees.
+planning/field-service-website-form: Collect service requests via a website form.
+planning/field-service-worksheets: Worksheet templates use property fields; worksheets on shift templates.
+planning/gantt-view-travel-times: Travel times in the Gantt view via Mapbox.
+planning/link-shifts-to-tasks: Link a shift to a specific task.
+planning/multiple-resource-assignment: Several resources on one shift.
+planning/priority-shifts: Shift priorities respected by auto-planning.
+planning/schedule-shifts-from-side-panel: Drag shifts from the side panel into calendar or Gantt.
+planning/send-shifts-via-whatsapp: Send schedules via WhatsApp.
+plm/bom-comparison: Compare bills of materials visually.
+plm/optional-eco-version-update: Version bump optional when applying an ECO.
+plm/product-updates: Introduce new products through ECOs and track product versions.
+plm/universal-eco-report: One report with all BoM changes and cost comparison.
+point-of-sale/base-unit-price-on-product-label: Reference (unit) price on product labels.
+point-of-sale/booking-kanban-and-pivot-views: Kanban and pivot views for bookings.
+point-of-sale/convert-order-lines-into-a-combo: POS suggests turning order lines into combos.
+point-of-sale/employee-access-levels: Employee access levels renamed, plus a restrictive 'Supervised' level.
+point-of-sale/end-of-session: Session closing posts one global sale instead of misc entries; payment entries at a set time.
+point-of-sale/expired-product-notification: Warning when selling expired products.
+point-of-sale/gofood-delivery-integration: GoFood orders and menu sync (Indonesia, Vietnam).
+point-of-sale/grabfood-delivery-integration: GrabFood orders and menu sync in several Southeast Asian countries.
+point-of-sale/mercado-pago-terminal: Mercado Pago terminal QR payments, refunds and cancellations, also for Chile.
+point-of-sale/multiple-currencies: Several currencies at checkout in one POS.
+point-of-sale/print-preparation-tickets-per-product: '''Split per product'' prints one preparation ticket per product.'
+point-of-sale/printer-management: Several printers per POS; choose which one prints.
+point-of-sale/receipt-printing: Configure receipt paper size (developer mode).
+point-of-sale/reorganizing-products-in-pos-interface: Reorder products in the POS by drag and drop.
+point-of-sale/self-ordering: 'Self-ordering: customer notes at checkout (shown in the kitchen), optional products on mobile/kiosk, and more.'
+point-of-sale/service-fees: Service fees via presets, shown on invoices.
+point-of-sale/simplified-inventory-management: POS works with simple stock tracking (one on-hand quantity, no transfers) without Inventory.
+point-of-sale/simplified-receipts: Simplified receipt with subtotals and taxes but no lines.
+point-of-sale/snooze-products: Snooze products to make them temporarily unavailable.
+point-of-sale/whatsapp-and-sms-self-order-receipt: Self-order receipts via WhatsApp or SMS.
+project/assign-project-roles: Assign team members to project roles.
+project/assign-tasks-to-portal-users: Assign tasks to portal users who follow the project.
+project/collaborators-separated-from-followers: Give customers portal access to a project without making them followers.
+project/mobile-improved-task-header-design: Nicer task header on mobile.
+project/printable-task-schedule: Print a task schedule from the Gantt view.
+project/profitability-report: Profitability panel removed from the project dashboard; new budget and margin reports.
+project/projects-from-opportunities: Create projects from opportunities.
+project/task-tracking-in-user-portal: Show task chatter changes in the portal.
+purchase/alternatives-comparison: Clearer comparison of alternative purchase offers.
+purchase/default-incoterm-per-vendor: Default Incoterm per vendor.
+purchase/end-customer-address-in-portal: End-customer address shown on POs in the vendor portal.
+purchase/expected-arrival-date: Edit the expected arrival while keeping the vendor's original date for on-time statistics.
+purchase/product-unit-cost-versus-purchase-unit-cost: Catalog shows cost per product unit next to cost per purchase unit.
+purchase/purchase-agreement-structure: Sections and notes in purchase agreements / blanket orders.
+purchase/recompute-expected-arrival-when-deadline-is-in-the-past: Recompute expected arrivals in one click when the order deadline has passed.
+purchase/total-amounts-on-purchase-order-sections: Totals on PO sections and subsections.
+purchase/vendor-quality-rate: Vendor quality rate based on quality checks.
+quality/bypass-quality-checks: Quality admins can validate transfers without doing the checks.
+quality/failure-location: Set the failure location on a failed quality check.
+recruitment/improved-integration: Better link between applicants, talent pool and jobs, with better matching.
+recruitment/job-form-visibility-conditions: Online application fields shown depending on the selected job(s).
+recruitment/matching-score-filter: Filter applicants by 'Matching Score'.
+recruitment/view-talents-from-job-position: See matching talents from a job position.
+referrals/contact-outreach-tracking: Track how many people were contacted to promote a job.
+rental/automatic-price-update: Changing pricelist or period updates prices on rental orders.
+rental/rental-order-creation: Add rental products to a normal sales order; a rental period field appears.
+rental/rental-orders-dashboard: Dashboard on top of rental orders.
+rental/simplified-and-unified-pricelists: Sales, subscription and rental prices unified in one 'Prices' tab using pricelists.
+rental/strikethrough-pricing: Shop shows original and discounted rental prices.
+rental/working-schedules: '''Unavailability days'' replaced by working schedules.'
+repairs/invoice-creation: Invoice repairs directly without a quotation.
+repairs/repair-order-status: The 'Under Repair' status is removed.
+repairs/repair-related-services: Add services to repair orders.
+sales/payment-based-commissions: Commissions based on the amount paid.
+sales/charge-overages: Charge overages on prepaid services from the invoicing wizard.
+sales/dashboard: Sales dashboard above quotations and orders with key figures and quick filters.
+sales/description-only-sales-order-lines: Order lines can be description-only; a 'Mandatory Product' setting enforces products.
+sales/editable-product-variant-price: Edit variant sales prices directly.
+sales/editable-margins: Edit the margin on a line to recompute the price.
+sales/fixed-prepayment-amounts: Fixed-amount prepayments.
+sales/fixed-price-pricelists: Attribute extra prices apply on top of 'Fixed Price' pricelist rules.
+sales/lazada: Lazada marketplace connector (orders, delivery slips, stock).
+sales/loyalty-point-expiration: Loyalty points can expire.
+sales/manager-commissions: Roll up team members' achievements into managers' commissions.
+sales/mark-orders-as-fully-invoiced: Mark an order as fully invoiced.
+sales/periodic-pricing: Pricelist rules and surcharges for periods or weekdays.
+sales/price-rules-per-packaging-type: Price rules per packaging type.
+sales/pricelist-report-improvements: Pricelist report grouped by category, with reference and barcode, and a date filter.
+sales/product-images: Show product images on sales orders and their PDFs.
+sales/quotation-sections: Section quantities/units update all lines; multi-line section descriptions; reusable section templates.
+sales/quotation-templates: Pick a quotation template when creating an order; sub-sections and options like 'Hide Price'; add products via the
+  catalog.
+sales/sales-order-creation-from-purchase-orders: Creating sales orders from customer POs reuses earlier corrections.
+sales/sales-order-email-template: The default order email includes the customer reference.
+sales/sales-order-line-numbering: Line numbers on the order, its PDF and the portal.
+sales/sales-order-portal-page: Redesigned sales order portal page.
+sales/services-material: Fixed-price and cost-based services and materials for re-invoicing.
+sales/ship-orders-without-inventory: Shipping confirmations and fulfilment without Inventory.
+sales/single-use-discount-codes: Discount codes usable once per customer.
+sales/stacked-fields-on-sales-order-lines: Margin, delivered % and tax columns stacked vertically on lines.
+sales/tiktok: TikTok Shop connector (orders, delivery slips, stock).
+shop-floor/html-note-field: HTML note on MOs in Manufacturing and Shop Floor.
+shop-floor/instruction-updates: Editing an instruction starts from the current text.
+shop-floor/work-center-barcode: Scan a work center barcode to select it.
+sign/automated-signature-requests: Send signature requests from automated actions with fixed or dynamic signers.
+sign/custom-fields-in-templates: Create custom Sign fields while building templates.
+sign/improved-progress-tracking: Full signer list and status for requests with many signers.
+sign/tag-management: View and edit tags on templates and requests.
+sign/itsme: itsme authentication available in 30+ countries.
+sign/mobile-and-touchscreen-support: Sign is fully responsive with touch support.
+sign/non-latin-alphabets: More alphabets (Cyrillic, Devanagari, Arabic…).
+sign/qualified-electronic-signatures: Qualified electronic signatures (eIDAS QES) via itsme.
+sign/record-updates: Sign fields can update the linked Odoo record.
+sign/reorder-signers: Reorder signers in the editor.
+sign/send-signature-requests-from-activities: Start signature requests from activities and activity plans.
+sign/sign-mode-options-menu: Signers can print, delegate or refuse from an options menu.
+sign/sign-templates: Predefined CC recipients and reassignable ownership on templates.
+sign/signed-pdfs-bookmarks-and-settings: Signed PDFs keep bookmarks and metadata.
+sign/touchscreen-support: Place and move Sign items with finger or stylus.
+social-marketing/add-mentions-in-social-media-posts: Mentions in social posts.
+social-marketing/ai-assistant: AI writes social posts.
+social-marketing/facebook-and-instagram-stories: Post Facebook and Instagram stories.
+social-marketing/image-display-order: Choose image order for multi-image posts.
+social-marketing/personal-linkedin-account: Post on a personal LinkedIn account.
+social-marketing/platform-specific-post-scheduling: Different schedule per platform.
+social-marketing/schedule-first-comment: Schedule a first comment on your own post.
+spreadsheet/bubble-charts: Bubble charts.
+spreadsheet/calculated-columns: Calculated columns in dynamic lists.
+spreadsheet/calendar-charts: Calendar charts.
+spreadsheet/cell-value-orientation: Rotate cell text.
+spreadsheet/charts: Chart annotations and chart suggestions from a selection.
+spreadsheet/column-statistics: Quick column statistics from the Data menu.
+spreadsheet/conditional-formatting-by-date: Date-based conditional formatting.
+spreadsheet/curly-brackets: Curly-brace array literals.
+spreadsheet/custom-format: Custom date and number formats.
+spreadsheet/data-cleanup: Remove unused data sources.
+spreadsheet/disable-automatic-recalculation: Turn off automatic recalculation (F9 to recalculate).
+spreadsheet/global-filters: Default operators for global filters; create filters from data-source properties.
+spreadsheet/list-insertion: Insert a dynamic list from the spreadsheet.
+spreadsheet/lock-sheets: Lock sheets.
+spreadsheet/mobile-pinch-to-zoom: Pinch to zoom on mobile.
+spreadsheet/multiple-selection-on-figures: Select and move several figures at once.
+spreadsheet/named-range: Named ranges usable in formulas.
+spreadsheet/new-functions: New functions (e.g. CHOOSE, DROP, TAKE, FORMULATEXT).
+spreadsheet/pivot-tables: Domain filters on pivot tables built from sheet data.
+spreadsheet/print-settings: Print settings with a print preview.
+spreadsheet/property-fields-in-inserted-lists: Property fields included when inserting a list.
+spreadsheet/reduced-json-file-size: Smaller exported JSON files.
+spreadsheet/regex-formulas: REGEXTEST and REGEXREPLACE.
+spreadsheet/scientific-notation: Scientific number format.
+spreadsheet/sheet-background-colors: Background colour for a whole sheet.
+spreadsheet/spill-range-operator: Spill range operator (#).
+spreadsheet/template-access: Restrict template visibility to groups.
+spreadsheet/top-menu-navigation: Keyboard navigation of the top menus.
+spreadsheet/top-bottom-ranking-conditional-formatting: '''Top/Bottom ranking'' conditional formatting.'
+spreadsheet/zoom-in-out: Zoom in and out.
+studio/automation-rules-activity-plans: Automation rules can launch activity plans.
+studio/form-view-customization: Reorder form buttons, smart buttons and tabs by drag and drop.
+studio/kanban-stage-cutomization: Customise Kanban stages from the form view.
+studio/list-view-column-width: Min/max column widths in list views.
+studio/many2many-fields-in-pdf-reports: Add many2many fields to PDF reports.
+studio/report-editor: New report editor UI with warnings.
+studio/report-translations: Translate report code in one block.
+studio/user-friendly-technical-names: Readable technical names for Studio fields.
+studio/warning-for-past-or-future-dates: Warning icon for past/future dates on date fields.
+subscriptions/loyalty-programs: Loyalty rules and rewards for subscriptions.
+time-off/calendar-day-vs-working-day-deductions: Count time off in working days or calendar days.
+time-off/minimal-amount-for-time-off-requests: Minimum duration for time-off requests.
+time-off/overview-all-employees: Overview shows all employees, even without leave.
+time-off/prevent-app-use: New 'No' access level blocks the app.
+timesheets/activitywatch-integration: ActivityWatch integration turns tracked device activity into timesheet suggestions, privately.
+timesheets/log-timesheets-from-anywhere: Timer in the top bar to log time from anywhere.
+timesheets/timesheet-assistant-sharing-rules: Share timesheet assistant rules with users or groups.
+timesheets/timesheet-assistant-side-activities: '''Side Activity'' rules for short interruptions.'
+timesheets/timesheet-assistant-time-thresholds: Minimum duration before an activity is suggested.
+website/accented-characters-in-urls: Accented characters in URLs.
+website/age-verification-popup: Age-verification popup that blocks under-age visitors.
+website/ai-website-assistant: AI website assistant can build pages from snippets, images and more.
+website/ai-generated-content-indicator: Editor marks blocks generated or changed by AI.
+website/animated-number-building-block: '''Animated Number'' block for key figures.'
+website/appointment-page-layout: Appointment page as list, cards or pictures.
+website/banners: Banner above the header for promotions or announcements.
+website/blurred-headers: Blur effect on transparent headers.
+website/breadcrumbs-on-static-pages: Breadcrumbs on static pages.
+website/card-and-column-anchors: Anchors on cards and columns.
+website/card-enhancements: Card animation on hover; whole card clickable.
+website/carousel-transition: Carousel transition speed.
+website/color-palette-preview: Preview colour palettes on demo content.
+website/column-content-selection: Ctrl+A selects a column's whole content.
+website/connection-shape-color: Shape dividers take the right background colour from context.
+website/cookies: Close button on the cookie bar; any page as cookie policy.
+website/countdown-snippets: Improved countdown snippets.
+website/customizable-portal-cards: Customise portal home cards in the website editor.
+website/dom-elements: Page-specific body classes for styling.
+website/donation-snippet-customization: Donation snippet can collect legally required data.
+website/dropzones-and-overlays: Modernised drop zones and overlays in the editor.
+website/dynamic-today-value: Dynamic 'Today' default for date fields in forms.
+website/dynamic-carousels: Dynamic carousels for all modules (blogs, events, appointments…).
+website/events-jobs-and-blog-pages: Standard 'Social Media' and 'Share' snippets in Events/Jobs/Blog sidebars.
+website/font-weight-selector: Set weights for light, normal and bold fonts.
+website/form-enhancements: 'Form options: ''no default'' dropdown value, styled terms checkbox, and more.'
+website/forum-notifications: Follow specific forum answers.
+website/fullscreen-images: Click images to see them full size.
+website/general-shadow-options: Global shadow styles for sections and cards.
+website/google-tag-manager-gtm: One identifier field for Google Analytics or Google Tag Manager.
+website/inner-content-blocks-icons-and-instagram: Icon and Instagram inner blocks.
+website/job-and-elearning-course-building-blocks: Dynamic blocks for jobs and courses (developer mode).
+website/link-and-button-styling: Edit theme-defined link/button styles from the Theme tab.
+website/link-tracker-qr-codes: Turn tracked links into QR codes.
+website/llms-txt: Create an llms.txt file from website settings.
+website/mega-menu: Mega menus accept blocks; new empty template.
+website/module-specific-search: Site search limited to all content or one module.
+website/multiple-websites-change-default-site: Change the default website by reordering websites.
+website/new-icon-list-inner-content-block: New 'Icon List' inner block.
+website/partners-page: New module to publish members and partners online.
+website/portal-users-profile-picture: Portal users can change their profile picture.
+website/property-fields-supported-in-website-forms: Property fields usable in website forms for customer creation or newsletter signup.
+website/publish-unpublish-partners: Publish/unpublish partners in batch.
+website/redirections: Easier creation of redirects.
+website/repositioning-text-over-cover-image: Drag text over a cover image to reposition it.
+website/search-results: Translated page names in results, results by category, fuzzy search.
+website/seo: Responsive images (srcset), no duplicate content on paginated pages, AI SEO help.
+website/sidebar-revamp: Sidebar folds secondary option groups.
+website/simplified-inner-content-blocks: Simpler 'Social Media' and 'Share' blocks.
+website/social-media-links: Uniform handling of social media URLs.
+website/sitemap-enhancements: Sitemaps only list indexable 2XX URLs within Google limits.
+website/block-preview-for-mobile-devices: Preview blocks on mobile.
+website/structured-data: Structured data added by default for rich results.
+website/theme-layout-and-background-options: Clearer theme layout and background options.
+website/translation: Translate form selection options, per-language static URLs, per-language media.
+website/vertical-video-format: Vertical videos.
+website/visitor-tracking: More efficient visitor tracking.
+website/website-configuration-wizard: Better industry list in the setup wizard and AI-suggested positioning.
+website/website-editor-ui-ux: Improved editor UI/UX.
+website/whatsapp-widget-snippet: WhatsApp chat button snippet.
+whatsapp/default-recipents-on-templates: Default recipients on WhatsApp templates.
+whatsapp/interactive-message-templates: Interactive WhatsApp templates.
+whatsapp/named-parameters-in-templates: Named parameters in templates.
+whatsapp/number-blocking: Block a number from Odoo.
+whatsapp/simplified-authentication-process: Simpler business account authentication.

@@ -1,0 +1,529 @@
+compared: odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
+new:
+- module: account_payment_custom
+  name: Payment Custom / Account Payment
+  summary: Bridge between payment_custom and account_payment.
+  auto_install: true
+  oca_name_collision: []
+- module: base_report_paper_muncher
+  name: 'Report Engine: Paper Muncher'
+  summary: Paper Muncher Engine
+  auto_install: false
+  oca_name_collision: []
+- module: base_report_wkhtmltox
+  name: 'Report Engine: wkhtmltopdf/wkhtmltoimage'
+  summary: wkhtmltopdf rendering engine
+  auto_install: true
+  oca_name_collision: []
+- module: crm_sale_project
+  name: CRM - Project
+  summary: Project Generation from Opportunities
+  auto_install: true
+  oca_name_collision: []
+- module: fleet_maintenance
+  name: Maintenance - Fleet
+  summary: Integrates Fleet and Maintenance
+  auto_install: true
+  oca_name_collision: []
+- module: hr_address_extended
+  name: HR Address Extended
+  summary: Centralize employee information
+  auto_install: false
+  oca_name_collision: []
+- module: hr_calendar_google
+  name: HR Calendar with Google Calendar
+  summary: ''
+  auto_install: true
+  oca_name_collision: []
+- module: iot_webserial
+  name: Web Serial IoT devices
+  summary: Interface with serial devices directly via the browser using Web Serial.
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_be_pos
+  name: BE POS Localization
+  summary: Link module between point_of_sale and l10n_be
+  auto_install: true
+  oca_name_collision: []
+- module: l10n_eg_edi_pos
+  name: Egypt E-Receipts (POS)
+  summary: Submit POS receipts to the Egyptian Tax Authority
+  auto_install: true
+  oca_name_collision: []
+- module: l10n_es_website_sale
+  name: Spain - ECommerce
+  summary: ''
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_eu_account_vies
+  name: VAT VIES Validation
+  summary: VAT validation for Partner's VAT numbers.
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_fr_payment
+  name: France - Worldline Payment Branding
+  summary: Applies CAWL/Worldline branding rules for French companies.
+  auto_install: true
+  oca_name_collision: []
+- module: l10n_gr_edi_delivery_note
+  name: Greece - myDATA Delivery Note
+  summary: Transmit Greece myDATA EDI for Delivery Notes
+  auto_install: true
+  oca_name_collision: []
+- module: l10n_id_pos_self_order_qris
+  name: Indonesia - POS Self Order QRIS
+  summary: Accept QRIS QR code payments in a kiosk.
+  auto_install: true
+  oca_name_collision: []
+- module: l10n_in_boe
+  name: Indian - Bill Of Entry
+  summary: '- Adds Bill of Entry (BOE) support for the Indian localization.'
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_kr_sale
+  name: Republic of Korea - Sales
+  summary: Bridge module between the Korean localization and Sales, exposing the proof of issuance
+  auto_install: true
+  oca_name_collision: []
+- module: l10n_mk
+  name: North Macedonia - Accounting
+  summary: Chart Of Account and Taxes for North Macedonia.
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_mm
+  name: Myanmar - Accounting
+  summary: Chart Of Account and Taxes for Myanmar.
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_ph_invoice
+  name: Philippines - Discount Privileges on Invoice
+  summary: Apply Philippine SC/PWD discount privileges on customer invoices and credit notes.
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_ph_sale
+  name: Philippines - Discount Privileges on Sale Orders
+  summary: Apply Philippine SC/PWD discount privileges on quotations and sale orders.
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_pk_edi
+  name: Pakistan - E-invoicing
+  summary: Electronic Invoicing for Pakistan FBR(v1.12)
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_pk_edi_pos
+  name: Pakistan - Point of Sale
+  summary: This module brings the technical requirement for the Pakistan regulation.
+  auto_install: false
+  oca_name_collision: []
+- module: l10n_tw_edi_ecpay_sale
+  name: Taiwan - E-invoicing Sales
+  summary: ECPay E-invoice bridge module for Sales
+  auto_install: true
+  oca_name_collision: []
+- module: l10n_vn_edi_viettel_stock
+  name: Vietnam - Delivery E-invoicing
+  summary: Delivery E-invoicing using SInvoice by Viettel
+  auto_install: true
+  oca_name_collision: []
+- module: mail_tracking
+  name: Discuss Tracking
+  summary: Technical tracking of discussion and message-related data
+  auto_install: false
+  oca_name_collision:
+  - mail@18.0
+  - mail@19.0
+- module: mail_tracking_mass_mailing
+  name: Mass Mailing Tracking
+  summary: Track source of messages by mass mailing
+  auto_install: true
+  oca_name_collision:
+  - mail@18.0
+  - mail@19.0
+- module: mail_tracking_sms
+  name: SMS Message Tracking
+  summary: Track source of messages by sms
+  auto_install: true
+  oca_name_collision: []
+- module: marketing_card_event
+  name: Marketing Card For Events
+  summary: Generate dynamic shareable cards for entities linked to events.
+  auto_install: true
+  oca_name_collision: []
+- module: mrp_delivery
+  name: Delivery and MRP Management
+  summary: Carrier with kits
+  auto_install: true
+  oca_name_collision: []
+- module: mysubscription
+  name: My Subscription
+  summary: Backend Subscription App
+  auto_install: true
+  oca_name_collision: []
+- module: populate
+  name: Populate
+  summary: Generate synthetic data for an Odoo database
+  auto_install: false
+  oca_name_collision: []
+- module: portal_discuss
+  name: Portal Discuss
+  summary: Bridge module adding Discuss access from portal.
+  auto_install: true
+  oca_name_collision: []
+- module: pos_bancontact_pay
+  name: POS Bancontact Pay & Wero
+  summary: Accept Bancontact Pay and Wero QR code payments in POS (Payconiq).
+  auto_install: false
+  oca_name_collision: []
+- module: pos_partner_autocomplete
+  name: POS Partner Autocomplete
+  summary: Link module between Partner Autocomplete and Point of Sale
+  auto_install: true
+  oca_name_collision: []
+- module: pos_sale_delivery
+  name: POS - Sales Delivery
+  summary: Link module between Point of Sale and Delivery
+  auto_install: true
+  oca_name_collision: []
+- module: pos_sale_stock
+  name: POS - Sales Stock
+  summary: Link module between PoS Stock and Sales
+  auto_install: true
+  oca_name_collision: []
+- module: pos_self_order_bancontact_pay
+  name: POS Self Order Bancontact Pay & Wero
+  summary: Accept Bancontact Pay and Wero QR code payments in a kiosk (Payconiq).
+  auto_install: true
+  oca_name_collision: []
+- module: pos_self_order_event
+  name: POS Self Order - Event
+  summary: Link module between PoS Self Order and PoS Event
+  auto_install: true
+  oca_name_collision: []
+- module: pos_self_order_sms
+  name: POS Self Order SMS
+  summary: Integrates POS Self Order with SMS to send customers order confirmation via SMS.
+  auto_install: true
+  oca_name_collision: []
+- module: pos_stock
+  name: PoS - Stock
+  summary: Stock integration for PoS
+  auto_install: true
+  oca_name_collision: []
+- module: printer
+  name: Printer
+  summary: Base module to manage external printers (e.g. ePOS, ZPL)
+  auto_install: false
+  oca_name_collision: []
+- module: purchase_alternative
+  name: Purchase Alternative
+  summary: This module allows you to manage your Purchase Alternative.
+  auto_install: false
+  oca_name_collision: []
+- module: purchase_alternative_sale
+  name: Purchase Alternative Sale
+  summary: Bridge module for Purchase Alternative and Sales.
+  auto_install: true
+  oca_name_collision: []
+- module: purchase_alternative_stock
+  name: Purchase Alternative Stock
+  summary: ''
+  auto_install: true
+  oca_name_collision: []
+- module: sale_project_margin
+  name: Sales Margins in Projects
+  summary: Bridge module between Sales Margin and Project
+  auto_install: true
+  oca_name_collision: []
+- module: test_translation_mode
+  name: Translation Mode
+  summary: In-context and interactive translation mode to streamline the module translation process using Weblate
+  auto_install: false
+  oca_name_collision: []
+- module: website_address_autocomplete
+  name: Website Address Autocomplete
+  summary: Assist your users with automatic completion & suggestions when filling their address
+  auto_install: true
+  oca_name_collision: []
+- module: website_mass_mailing_event
+  name: Mass mailing on website events
+  summary: Add pre-filled snippets in mass_mailing with an event snapshot
+  auto_install: true
+  oca_name_collision: []
+- module: website_partnership
+  name: Website Partnership
+  summary: Publish your partners on your website
+  auto_install: false
+  oca_name_collision: []
+- module: website_sale_project
+  name: Website Sale - Project
+  summary: Bridge module between website_sale and project
+  auto_install: true
+  oca_name_collision: []
+removed:
+- module: account_add_gln
+  now_in: account / account_edi_ubl_cii
+  note: GLN on partners
+  confidence: L
+  oca_modules_with_prefix: []
+- module: account_peppol_advanced_fields
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: account_peppol_response
+  now_in: account_peppol
+  note: ''
+  confidence: M
+  oca_modules_with_prefix: []
+- module: base_iban
+  now_in: base, account
+  note: IBAN handling in res.partner.bank (base/account)
+  confidence: M
+  oca_modules_with_prefix: []
+- module: base_vat
+  now_in: base, l10n_eu_account_vies
+  note: VAT check in base; VIES validation in new l10n_eu_account_vies
+  confidence: H
+  oca_modules_with_prefix: []
+- module: delivery_mondialrelay
+  now_in: (removed; EE delivery_sendcloud)
+  note: ''
+  confidence: H
+  oca_modules_with_prefix: []
+- module: delivery_stock_picking_batch
+  now_in: stock_delivery
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: hr_holidays_homeworking
+  now_in: hr / hr_holidays
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: hr_homeworking
+  now_in: hr
+  note: hr.employee.location + weekday locations now in hr
+  confidence: H
+  oca_modules_with_prefix: []
+- module: hr_homeworking_calendar
+  now_in: hr
+  note: ''
+  confidence: M
+  oca_modules_with_prefix: []
+- module: hr_hourly_cost
+  now_in: hr
+  note: hourly_cost field now in hr
+  confidence: H
+  oca_modules_with_prefix: []
+- module: hr_org_chart
+  now_in: hr
+  note: org chart controller now in hr
+  confidence: H
+  oca_modules_with_prefix: []
+- module: hr_work_entry_holidays
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: iot_base
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: iot_box_image
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_cn_city
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_dk_nemhandel
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_dk_nemhandel_response
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_dk_oioubl
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_ec_stock
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_fr_hr_work_entry_holidays
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_hu_edi_receive
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_latam_base
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_lk_invoice
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_pl_bank_verification
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_ro_cpv_code
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_ro_edi_stock_batch
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_sa_withholding_tax
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_tr_nilvera
+  now_in: moved to Enterprise
+  note: present in EE 20.0 tarball as OEEL
+  confidence: H
+  oca_modules_with_prefix: []
+- module: l10n_tr_nilvera_base_vat
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_tr_nilvera_edispatch
+  now_in: moved to Enterprise
+  note: ''
+  confidence: H
+  oca_modules_with_prefix: []
+- module: l10n_tr_nilvera_einvoice
+  now_in: moved to Enterprise
+  note: ''
+  confidence: H
+  oca_modules_with_prefix: []
+- module: l10n_tr_nilvera_einvoice_extended
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: l10n_uy_pos
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: pos_restaurant_adyen
+  now_in: pos_adyen
+  note: ''
+  confidence: M
+  oca_modules_with_prefix: []
+- module: pos_restaurant_stripe
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: pos_self_order_adyen
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: pos_self_order_stripe
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: pos_self_order_viva_com
+  now_in: '?'
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: purchase_requisition_sale
+  now_in: purchase_alternative_sale
+  note: ''
+  confidence: M
+  oca_modules_with_prefix: []
+- module: stock_picking_batch
+  now_in: stock
+  note: stock.picking.batch model now defined in stock
+  confidence: H
+  oca_modules_with_prefix:
+  - stock_picking_batch_account
+  - stock_picking_batch_account_sale_type
+  - stock_picking_batch_creation
+  - stock_picking_batch_creation_split_kit
+  - stock_picking_batch_extended
+  - stock_picking_batch_group_by_date
+  - stock_picking_batch_invoice_frequency
+  - stock_picking_batch_operation_quick_change
+  - stock_picking_batch_outgoing
+  - stock_picking_batch_packaging_qty
+  - stock_picking_batch_partner_enable
+  - stock_picking_batch_planner
+  - stock_picking_batch_print_invoices
+  - stock_picking_batch_print_pickings
+  - stock_picking_batch_report
+  - stock_picking_batch_substate
+  - stock_picking_batch_validate_confirm
+  - stock_picking_batch_weighing
+- module: transifex
+  now_in: (removed; translations via Weblate)
+  note: ''
+  confidence: M
+  oca_modules_with_prefix: []
+- module: website_sale_autocomplete
+  now_in: website_address_autocomplete
+  note: ''
+  confidence: M
+  oca_modules_with_prefix: []
+- module: website_sale_collect_wishlist
+  now_in: website_sale
+  note: ''
+  confidence: L
+  oca_modules_with_prefix: []
+- module: website_sale_comparison
+  now_in: website_sale
+  note: ''
+  confidence: M
+  oca_modules_with_prefix:
+  - website_sale_comparison_hide_price
+  - website_sale_comparison_specification_variant
+- module: website_sale_comparison_wishlist
+  now_in: website_sale
+  note: ''
+  confidence: M
+  oca_modules_with_prefix: []
+- module: website_sale_mondialrelay
+  now_in: (removed; EE delivery_sendcloud)
+  note: ''
+  confidence: H
+  oca_modules_with_prefix: []
+- module: website_sale_stock_wishlist
+  now_in: website_sale
+  note: ''
+  confidence: M
+  oca_modules_with_prefix: []
+- module: website_sale_wishlist
+  now_in: website_sale
+  note: product.wishlist model now in website_sale
+  confidence: H
+  oca_modules_with_prefix:
+  - website_sale_wishlist_hide_price
+  - website_sale_wishlist_keep

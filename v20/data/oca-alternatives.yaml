@@ -1,0 +1,95 @@
+# Community (OCA) modules covering functional areas that are Enterprise-only in Odoo.
+# Key = EE app/module area as used in odoo-20.0.yaml (ee_modules) or section name.
+# Availability checked on GitHub on 2026-09-25 (manifest present on the branch).
+# None of these repositories had a 20.0 branch yet on that date -> "latest" = newest branch found.
+# This is a pointer list, not a feature-parity claim: please correct/extend via PR.
+
+- area: Accounting reports (P&L, balance sheet, GL, trial balance, annual reports)
+  match: [account_reports, accountant]
+  oca: [{repo: account-financial-reporting, module: account_financial_report, latest: "19.0"},
+        {repo: mis-builder, module: mis_builder, latest: "19.0"}]
+- area: Fixed assets / depreciation
+  match: [account_asset]
+  oca: [{repo: account-financial-tools, module: account_asset_management, latest: "19.0"}]
+- area: Customer follow-ups / reminders
+  match: [account_followup]
+  oca: [{repo: credit-control, module: account_credit_control, latest: "19.0"}]
+- area: Bank reconciliation widget
+  match: [account_accountant]
+  oca: [{repo: account-reconcile, module: account_reconcile_oca, latest: "19.0"}]
+- area: Bank statement import / bank synchronization
+  match: [account_online_synchronization, account_bank_statement_import]
+  oca: [{repo: bank-statement-import, module: account_statement_import_file, latest: "19.0"}]
+- area: Budgets
+  match: [account_budget]
+  oca: [{repo: account-budgeting, module: account_budget_oca, latest: "19.0"}]
+- area: Automatic currency rates
+  match: [currency_rate_live]
+  oca: [{repo: currency, module: currency_rate_update, latest: "19.0"}]
+- area: SEPA / ISO 20022 payment files
+  match: [account_iso20022, account_sepa_direct_debit]
+  oca: [{repo: bank-payment, module: account_banking_sepa_credit_transfer, latest: "19.0"}]
+- area: Documents
+  match: [documents]
+  oca: [{repo: dms, module: dms, latest: "19.0"}]
+- area: Knowledge
+  match: [knowledge]
+  oca: [{repo: knowledge, module: document_page, latest: "19.0"}]
+- area: Helpdesk
+  match: [helpdesk, helpdesk_mail_plugin]
+  oca: [{repo: helpdesk, module: helpdesk_mgmt, latest: "19.0"}]
+- area: Field service
+  match: [planning]
+  oca: [{repo: field-service, module: fieldservice, latest: "19.0"}]
+- area: Sign
+  match: [sign]
+  oca: [{repo: sign, module: sign_oca, latest: "19.0"}]
+- area: Spreadsheet editing
+  match: [spreadsheet_edition, spreadsheet_dashboard_edition]
+  oca: [{repo: spreadsheet, module: spreadsheet_oca, latest: "19.0"}]
+- area: Gantt / timeline views
+  match: [web_gantt, project_enterprise]
+  oca: [{repo: web, module: web_timeline, latest: "19.0"}, {repo: project, module: project_timeline, latest: "19.0"}]
+- area: Map view
+  match: [web_map]
+  oca: [{repo: geospatial, module: web_view_leaflet_map, latest: "18.0"}]
+- area: Subscriptions / recurring invoicing
+  match: [sale_subscription]
+  oca: [{repo: contract, module: contract, latest: "19.0"}, {repo: contract, module: subscription_oca, latest: "19.0"}]
+- area: Payroll
+  match: [hr_payroll]
+  oca: [{repo: payroll, module: payroll, latest: "19.0"}]
+- area: Quality control
+  match: [quality_control]
+  oca: [{repo: manufacture, module: quality_control_oca, latest: "19.0"}]
+- area: Approvals / tier validation
+  match: [approvals]
+  oca: [{repo: server-ux, module: base_tier_validation, latest: "18.0"}]
+- area: Sales commissions
+  match: [sale_commission]
+  oca: [{repo: commission, module: sale_commission_oca, latest: "19.0"}]
+- area: Appointments / resource booking
+  match: [appointment, website_appointment]
+  oca: [{repo: calendar, module: resource_booking, latest: "19.0"}]
+- area: Timesheet grid / timer
+  match: [timesheet_grid, timer]
+  oca: [{repo: timesheet, module: hr_timesheet_sheet, latest: "18.0"},
+        {repo: project, module: project_timesheet_time_control, latest: "18.0"}]
+- area: Master production schedule / multi-level MRP
+  match: [mrp_mps]
+  oca: [{repo: manufacture, module: mrp_multi_level, latest: "19.0"}]
+- area: Telephony / VoIP
+  match: [voip]
+  oca: [{repo: connector-telephony, module: base_phone, latest: "18.0"}]
+- area: WhatsApp
+  match: [whatsapp]
+  oca: [{repo: social, module: mail_gateway_whatsapp, latest: "18.0"}]
+- area: Full-screen home menu / responsive backend
+  match: [web_enterprise]
+  oca: [{repo: web, module: web_responsive, latest: "19.0"}]
+- area: Sendcloud shipping
+  match: [delivery_sendcloud]
+  oca: [{repo: delivery-carrier, module: delivery_sendcloud_oca, latest: "18.0"}]
+- area: Appraisals
+  match: [hr_appraisal]
+  oca: [{repo: hr, module: hr_appraisal_oca, latest: "18.0"}]
