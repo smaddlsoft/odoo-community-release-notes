@@ -6,6 +6,12 @@
   why: ir.model.access and ir.rule merge into one ir.access model (group, operation, domain) and security/ir.access.csv; affects every module
     that ships security files.
   caption: Access right form in developer mode — one record holds model, group, the Create/Read/Update/Delete operations and a domain.
+- id: general/activities
+  why: activities can be assigned to a role (a team) instead of one person, in the redesigned dialogs.
+  caption: 'Schedule Activity dialog in the new dialog design — the new “Role” field assigns the activity to a team (here: Accounting Team).'
+- id: contacts/hierarchical-view
+  why: a hierarchy view shows companies with their contacts and sub-companies as a tree.
+  caption: Contacts — the new hierarchy view button next to the list, Kanban and activity views.
 - id: general/tax-included-excluded-on-orders-and-invoices
   why: switch tax-included/excluded prices per sales order, purchase order and invoice.
   caption: Sales order form — the new “Tax Excl.” switch above the order lines toggles between tax-excluded and tax-included prices.
@@ -17,6 +23,7 @@
   why: reorder or move several records at once in list and Kanban views.
 - id: general/pin-messages-in-the-chatter
   why: pin, filter and CC in the chatter; activities can be assigned to roles.
+  caption: Chatter — the new filter (All / Messages / Notes / Activities / Changes) and the pinned-messages button (pin icon).
 - id: calendar/multiple-calendars-in-one-place
   why: several calendars per user, shared team calendars, colleagues' calendars and pending activities in one view.
   caption: Calendar — “+ Add a calendar” in the side panel for extra or shared calendars, and pending activities in the all-day row.
@@ -35,6 +42,7 @@
   caption: Quotations list — the new dashboard strip with To Confirm / To Deliver / To Invoice filters and revenue for the chosen period.
 - id: sales/product-images
   why: product images on sales order lines and in the quotation/order PDF.
+  caption: 'Sales order PDF — the product image is printed next to the order line (here: Screw Driver).'
 - id: sales/description-only-sales-order-lines
   why: sales order lines no longer need a product (optional "Mandatory Product" setting).
 - id: sales/periodic-pricing
@@ -48,7 +56,8 @@
   why: one "Order" button, snooze and automate in the replenishment view; min/max suggestions from demand history.
   caption: Replenishment — a single “Order” button per line, next to “Automate” and “Snooze”.
 - id: point-of-sale/multiple-currencies
-  why: several currencies at checkout, service fees, snoozed products, simplified receipts and printer selection.
+  why: cash and bank payment methods accept several currencies (new “Currencies” field on the payment method); also service fees, snoozed products,
+    simplified receipts and printer selection.
 - id: online-payments/pay-on-invoice-provider
   why: confirm orders without immediate payment; new Toss Payments provider, more Stripe/Mollie methods, wire transfers auto-confirmed from bank
     transactions.

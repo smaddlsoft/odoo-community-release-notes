@@ -14,7 +14,7 @@
 | 🔒 Enterprise only | 256 | 37% |
 | **Total** | **687** | |
 
-Confidence: **248** items verified (a direct check, or the item belongs to an Enterprise-only app), **382** module-level, **57** need review. Exact definitions: see [Method](#method) at the end.
+Confidence: **263** items verified (a direct check, or the item belongs to an Enterprise-only app), **367** module-level, **57** need review. Exact definitions: see [Method](#method) at the end.
 
 Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise only · ⚠️ change = removal/rename/behaviour change worth a look before migrating · IAP = needs Odoo paid in-app services · backported = also shipped in an earlier version · [H]/[M]/[L] = confidence (verified / module-level / needs review).
 
@@ -26,6 +26,16 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   ![Simplified access rights in Odoo 20 Community](img/general__simplified-access-rights.png)
   <sub>Screenshot (CE test database): Access right form in developer mode — one record holds model, group, the Create/Read/Update/Delete operations and a domain.</sub>
 
+- **Activities** (General) — activities can be assigned to a role (a team) instead of one person, in the redesigned dialogs.
+
+  ![Activities in Odoo 20 Community](img/general__activities.png)
+  <sub>Screenshot (CE test database): Schedule Activity dialog in the new dialog design — the new “Role” field assigns the activity to a team (here: Accounting Team).</sub>
+
+- **Hierarchical view** (Contacts) — a hierarchy view shows companies with their contacts and sub-companies as a tree.
+
+  ![Hierarchical view in Odoo 20 Community](img/contacts__hierarchical-view.png)
+  <sub>Screenshot (CE test database): Contacts — the new hierarchy view button next to the list, Kanban and activity views.</sub>
+
 - **Tax included/excluded on orders and invoices** (General) — switch tax-included/excluded prices per sales order, purchase order and invoice.
 
   ![Tax included/excluded on orders and invoices in Odoo 20 Community](img/general__tax-included-excluded-on-orders-and-invoices.png)
@@ -35,6 +45,10 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
 - **Translation** (General) — in-context "Translation Mode", plus import/export of translatable fields via CSV/Excel.
 - **Multi-record drag and drop** (General) — reorder or move several records at once in list and Kanban views.
 - **Pin messages in the chatter** (General) — pin, filter and CC in the chatter; activities can be assigned to roles.
+
+  ![Pin messages in the chatter in Odoo 20 Community](img/general__pin-messages-in-the-chatter.png)
+  <sub>Screenshot (CE test database): Chatter — the new filter (All / Messages / Notes / Activities / Changes) and the pinned-messages button (pin icon).</sub>
+
 - **Multiple calendars in one place** (Calendar) — several calendars per user, shared team calendars, colleagues' calendars and pending activities in one view.
 
   ![Multiple calendars in one place in Odoo 20 Community](img/calendar__multiple-calendars-in-one-place.png)
@@ -58,6 +72,10 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   <sub>Screenshot (CE test database): Quotations list — the new dashboard strip with To Confirm / To Deliver / To Invoice filters and revenue for the chosen period.</sub>
 
 - **Product images** (Sales) — product images on sales order lines and in the quotation/order PDF.
+
+  ![Product images in Odoo 20 Community](img/sales__product-images.png)
+  <sub>Screenshot (CE test database): Sales order PDF — the product image is printed next to the order line (here: Screw Driver).</sub>
+
 - **Description-only sales order lines** (Sales) — sales order lines no longer need a product (optional "Mandatory Product" setting).
 - **Periodic pricing** (Sales) — pricelist rules per period or weekday, price rules per packaging, loyalty point expiry, single-use codes.
 - **Manufacturing order Kanban view** (Manufacturing) — MO Kanban grouped by week with component availability, deadlines and remaining time.
@@ -71,7 +89,7 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   ![Product replenishment in Odoo 20 Community](img/inventory__product-replenishment.png)
   <sub>Screenshot (CE test database): Replenishment — a single “Order” button per line, next to “Automate” and “Snooze”.</sub>
 
-- **Multiple currencies** (Point of Sale) — several currencies at checkout, service fees, snoozed products, simplified receipts and printer selection.
+- **Multiple currencies** (Point of Sale) — cash and bank payment methods accept several currencies (new “Currencies” field on the payment method); also service fees, snoozed products, simplified receipts and printer selection.
 - **Pay on Invoice provider** (Online Payments) — confirm orders without immediate payment; new Toss Payments provider, more Stripe/Mollie methods, wire transfers auto-confirmed from bank transactions.
 
   ![Pay on Invoice provider in Odoo 20 Community](img/online-payments__pay-on-invoice-provider.png)
@@ -287,19 +305,19 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 <sub>[Official section](https://www.odoo.com/odoo-20-release-notes#table_of_content_heading_1_18) · 36 ✅ · 2 🟡 · 3 🔒</sub>
 
 - ✅ **Activities** — Activities can be assigned to a role instead of a person; the Schedule Activity dialog and chatter got UX improvements, and meeting activities show more context.  
-  <sub>CE `mail`; [M]</sub>
+  <sub>CE `mail`; [H]</sub>
 - ✅ **Calendar view side panel** — In calendar views with scheduling enabled, drag records into the side panel to unschedule them.  
   <sub>Calendar view side panel (CE web); 'Scheduling' option of Gantt is EE; CE `web`; [M]</sub>
 - ✅ **CC email recipients** — Add CC recipients when sending emails; the chatter shows who was in CC.  
   <sub>CE `mail`; [M]</sub>
 - ✅ **Chatter filter** — Filter the chatter to show only messages or only tracked changes.  
-  <sub>CE `mail`; [M]</sub>
+  <sub>CE `mail`; [H]</sub>
 - ✅ **Currency aggregates: date** — When totals are converted to another currency, the date of the exchange rate used is shown.  
   <sub>CE `web`; [M]</sub>
 - ✅ **Decimal separator** — Both dot and comma are accepted as decimal separator when typing numbers, whatever the user's language.  
   <sub>CE `web`, `base`; [M]</sub>
 - ✅ **Dialog design** — Redesigned dialogs.  
-  <sub>CE `web`; [M]</sub>
+  <sub>CE `web`; [H]</sub>
 - ✅ **Digest email KPIs** — More KPIs available in the periodic digest emails.  
   <sub>CE `digest`; [M]</sub>
 - ✅ **Download attachments in bulk** — Download many attachments at once from the Technical menu, across models and records.  
@@ -351,7 +369,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Tablets: bottom sheets** — Bottom sheets (panels sliding up from the bottom) also on tablets in touch mode.  
   <sub>CE `web`; [M]</sub>
 - ✅ **Tax included/excluded on orders and invoices** — Switch between tax-included and tax-excluded prices on sales orders, purchase orders and invoices; taxes can override the setting.  
-  <sub>CE `account`, `sale`, `purchase`; [M]</sub>
+  <sub>CE `account`, `sale`, `purchase`; [H]</sub>
 - ✅ **Text messages** — Schedule text messages and use dynamic placeholders in SMS templates.  
   <sub>CE `sms`; [M]</sub>
 - ✅ **Translation** — Optional in-context 'Translation Mode' (via command palette) to translate modules with Weblate; import/export of translatable fields in several languages via CSV/Excel.  
@@ -551,7 +569,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Linked records** — Link a calendar event to any Odoo record.  
   <sub>CE `calendar`; [M]</sub>
 - ✅ **Manage pending activities** — See and handle pending activities in the calendar.  
-  <sub>CE `calendar`, `mail`; [M]</sub>
+  <sub>CE `calendar`, `mail`; [H]</sub>
 - ✅ **Mobile calendar redesign** — Easier calendar navigation on mobile.  
   <sub>CE `calendar`, `web`; [M]</sub>
 - ✅ **Multiple calendars in one place** — Several calendars per user, including shared team calendars.  
@@ -570,7 +588,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Contact enrichment** — Enrich one or many contacts with company data.  
   <sub>IAP enrichment service (credits); CE `partner_autocomplete`, `crm_iap_enrich`; IAP [H]</sub>
 - ✅ **Hierarchical view** — New hierarchy view for contacts.  
-  <sub>CE `web_hierarchy`, `contacts`; [M]</sub>
+  <sub>CE `web_hierarchy`, `contacts`; [H]</sub>
 
 ### CRM
 
@@ -800,7 +818,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Product packaging barcodes** — Manage packaging barcodes from the product form.  
   <sub>CE `stock`; [M]</sub>
 - ✅ **Product replenishment** — Single 'Order' button in replenishment; ordering ahead proposes sensible quantities.  
-  <sub>CE `stock`; [M]</sub>
+  <sub>CE `stock`; [H]</sub>
 - ✅ **Simplified returns** — Return wizard removed; simpler returns.  
   <sub>The `stock.return.picking` wizard model no longer exists; CE `stock`; ⚠️ change [H]</sub>
 - ✅ **Stock aging report** — Stock aging report from the Moves Analysis pivot.  
@@ -856,7 +874,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Lot/serial number transfers** — The Transfers button on lots shows delivery move lines for precise recalls.  
   <sub>CE `mrp`; [M]</sub>
 - ✅ **Manufacturing order Kanban view** — Redesigned MO Kanban grouped by week, with component status, work center, deadline and remaining time.  
-  <sub>CE `mrp`; [M]</sub>
+  <sub>CE `mrp`; [H]</sub>
 - ✅ **Manufacturing orders planned ASAP** — MOs are planned as soon as possible by default; list order sets priority.  
   <sub>CE `mrp`; [M]</sub>
 - ✅ **MO cost** — 'MO Cost' shows provisional cost during and real cost after production; subcontracting costs included.  
@@ -912,7 +930,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Mollie** — More Mollie methods (Apple Pay, Blik, in3, Google Pay, Klarna, MB WAY, Multibanco, Swish) and tokenization.  
   <sub>CE `payment`; [M]</sub>
 - ✅ **Pay on Invoice provider** — New 'Pay on Invoice' provider: confirm orders without paying immediately.  
-  <sub>CE `payment`; [M]</sub>
+  <sub>CE `payment`; [H]</sub>
 - ✅ **Payment provider views** — Simpler payment provider views.  
   <sub>CE `payment`; [M]</sub>
 - ✅ **PayPal** — PayPal: cards, alternative methods, tokenization, OAuth onboarding.  
@@ -928,7 +946,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Stripe** — More Stripe methods (Alma, Apple Pay, ACSS debit, Google Pay, Satispay, Swish).  
   <sub>CE `payment`; [M]</sub>
 - ✅ **Toss Payments** — New Toss Payments provider (South Korea).  
-  <sub>CE `payment`; [M]</sub>
+  <sub>CE `payment`; [H]</sub>
 - ✅ **Wero** — Wero via Buckaroo and Worldline.  
   <sub>CE `payment`; [M]</sub>
 - ✅ **Wire transfers** — Wire transfers confirmed automatically from bank transactions.  
@@ -953,7 +971,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Mercado Pago terminal** — Mercado Pago terminal QR payments, refunds and cancellations, also for Chile.  
   <sub>CE `pos_mercado_pago`; [M]</sub>
 - ✅ **Multiple currencies** — Several currencies at checkout in one POS.  
-  <sub>CE `point_of_sale`; [M]</sub>
+  <sub>CE `point_of_sale`; [H]</sub>
 - ✅ **Print preparation tickets per product** — 'Split per product' prints one preparation ticket per product.  
   <sub>CE `point_of_sale`; [M]</sub>
 - ✅ **Printer management** — Several printers per POS; choose which one prints.  
@@ -1056,7 +1074,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Charge overages** — Charge overages on prepaid services from the invoicing wizard.  
   <sub>CE `sale`; [L]</sub>
 - ✅ **Dashboard** — Sales dashboard above quotations and orders with key figures and quick filters.  
-  <sub>CE `sale`; [M]</sub>
+  <sub>CE `sale`; [H]</sub>
 - ✅ **Description-only sales order lines** — Order lines can be description-only; a 'Mandatory Product' setting enforces products.  
   <sub>`sale.order.line.product_id` is optional unless the 'Mandatory Product' setting is on; CE `sale`; ⚠️ change [H]</sub>
 - ✅ **Editable product variant price** — Edit variant sales prices directly.  
@@ -1078,7 +1096,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Pricelist report improvements** — Pricelist report grouped by category, with reference and barcode, and a date filter.  
   <sub>CE `sale`; [M]</sub>
 - ✅ **Product images** — Show product images on sales orders and their PDFs.  
-  <sub>CE `sale`; [M]</sub>
+  <sub>CE `sale`; [H]</sub>
 - ✅ **Quotation sections** — Section quantities/units update all lines; multi-line section descriptions; reusable section templates.  
   <sub>CE `sale`; [M]</sub>
 - ✅ **Quotation templates** — Pick a quotation template when creating an order; sub-sections and options like 'Hide Price'; add products via the catalog.  
@@ -1216,7 +1234,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Accented characters in URLs** — Accented characters in URLs.  
   <sub>CE `website`; [M]</sub>
 - ✅ **Age verification popup** — Age-verification popup that blocks under-age visitors.  
-  <sub>CE `website`; [M]</sub>
+  <sub>CE `website`; [H]</sub>
 - ✅ **Animated number building block** — 'Animated Number' block for key figures.  
   <sub>CE `website`; [M]</sub>
 - ✅ **Banners** — Banner above the header for promotions or announcements.  
@@ -1276,7 +1294,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Link tracker: QR codes** — Turn tracked links into QR codes.  
   <sub>CE `website`; [M]</sub>
 - ✅ **llms.txt** — Create an llms.txt file from website settings.  
-  <sub>CE `website`; [M]</sub>
+  <sub>CE `website`; [H]</sub>
 - ✅ **Mega menu** — Mega menus accept blocks; new empty template.  
   <sub>CE `website`; [M]</sub>
 - ✅ **Module-specific search** — Site search limited to all content or one module.  

@@ -4,10 +4,11 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 
 ## General
 
-**✅ Activities** `general/activities` — confidence M (module-level)  
+**✅ Activities** `general/activities` — confidence H (verified)  
   - UI string "Schedule Activity" -> CE: mail | EE: account_followup
   - code /Schedule Activity/ -> CE: mail, calendar | EE-only: account_followup
   - module license (CE runbot): mail=LGPL-3
+  - CE screenshot (20.0 test database): Role field in the Schedule Activity dialog
 
 **✅ Calendar view side panel** `general/calendar-view-side-panel` — confidence M (module-level)  
   - code /unschedul/ -> CE: web, website, website_event, maintenance, website_sale, mrp (+4) | EE-only: web_gantt, sale_planning, planning, project_enterprise
@@ -18,9 +19,10 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - code /partner_cc/ -> CE: mail, account, calendar, website_slides | EE-only: ai, web_studio
   - module license (CE runbot): mail=LGPL-3
 
-**✅ Chatter filter** `general/chatter-filter` — confidence M (module-level)  
+**✅ Chatter filter** `general/chatter-filter` — confidence H (verified)  
   - code /chatter.*filter|filter.*chatter/ -> CE: - | EE-only: hr_payroll, ai
   - module license (CE runbot): mail=LGPL-3
+  - CE screenshot (20.0 test database): chatter filter (All / Messages / Notes / Activities / Changes)
 
 **✅ Currency aggregates: date** `general/currency-aggregates-date` — confidence M (module-level)  
   - code /currency.*rate.*date|rate_date/ -> CE: account, spreadsheet, web, base, hr_expense, l10n_account_withholding_tax (+8) | EE-only: l10n_ar_edi, account_iso20022, l10n_mx_edi_pos, planning, sale_commission
@@ -31,8 +33,9 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - code /decimal.separator/ -> CE: web, base_import, l10n_es_edi_verifactu, spreadsheet, base | EE-only: l10n_ar_reports
   - module license (CE runbot): web=LGPL-3, base=LGPL-3
 
-**✅ Dialog design** `general/dialog-design` — confidence M (module-level)  
+**✅ Dialog design** `general/dialog-design` — confidence H (verified)  
   - module license (CE runbot): web=LGPL-3
+  - CE screenshot (20.0 test database): new Schedule Activity dialog
 
 **✅ Digest email KPIs** `general/digest-email-kpis` — confidence M (module-level)  
   - UI string "New KPIs" -> EE: databases
@@ -119,6 +122,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Pin messages in the chatter** `general/pin-messages-in-the-chatter` — confidence H (verified)  
   - code /pinned_at/ -> CE: mail | EE-only: -
   - module license (CE runbot): mail=LGPL-3
+  - CE screenshot (20.0 test database): pinned-messages button in the chatter
 
 **✅ Portal layout** `general/portal-layout` — confidence M (module-level)  
   - module license (CE runbot): portal=LGPL-3
@@ -144,13 +148,15 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - CE source: odoo/addons/base/models/ir_access.py; 226 CE modules ship security/ir.access.csv, 0 ship ir.model.access.csv
   - code /_name = .ir\.access./ -> CE: mail, base | EE-only: web_studio
   - module license (CE runbot): base=LGPL-3
+  - CE screenshot (20.0 test database): ir.access form with operations and domain
 
 **✅ Tablets: bottom sheets** `general/tablets-bottom-sheets` — confidence M (module-level)  
   - module license (CE runbot): web=LGPL-3
 
-**✅ Tax included/excluded on orders and invoices** `general/tax-included-excluded-on-orders-and-invoices` — confidence M (module-level)  
+**✅ Tax included/excluded on orders and invoices** `general/tax-included-excluded-on-orders-and-invoices` — confidence H (verified)  
   - code /tax_calculation|price_include_override|Tax Included/ -> CE: account, website_sale, point_of_sale, sale, l10n_account_withholding_tax, l10n_sa (+22) | EE-only: l10n_br_edi, account_avatax, l10n_br_edi_pos, l10n_ch_hr_payroll, l10n_do_edi, l10n_gt_edi (+7)
   - module license (CE runbot): account=LGPL-3, sale=LGPL-3, purchase=LGPL-3
+  - CE screenshot (20.0 test database): 'Tax Excl.' switch on a sales order
 
 **✅ Text messages** `general/text-messages` — confidence M (module-level)  
   - module license (CE runbot): sms=LGPL-3
@@ -375,6 +381,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - runbot CE (API): account.payment.state selection = draft, paid, reconciled, canceled, rejected
   - UI string "Mark as Reconciled" -> CE: account
   - module license (CE runbot): account=LGPL-3
+  - CE screenshot (20.0 test database): 'Reconciled' payment status
 
 **✅ Inventory valuation** `accounting/inventory-valuation` — confidence M (module-level)  
   - UI string "Bills To Receive" -> CE: account, purchase
@@ -393,6 +400,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - UI string "Exchange Rate Difference" -> CE: account | EE: l10n_mn_reports
   - module license (EE runbot ir.module.module): account_accountant=OEEL-1
   - module license (CE runbot): account=LGPL-3
+  - CE screenshot (20.0 test database): 'Payment Reconciliation' column in the chart of accounts
 
 **🔒 Multi-ledger consolidation** `accounting/multi-ledger-consolidation` — confidence M (module-level)  
   - module license (EE runbot ir.module.module): account_reports=OEEL-1
@@ -421,6 +429,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - runbot CE (API): account.account.parent_id many2one(account.account) from module account; account.account.code required=False
   - code /parent_id.*account\.account|account\.account.*parent_id/ -> CE: account | EE-only: account_reports
   - module license (CE runbot): account=LGPL-3
+  - CE screenshot (20.0 test database): parent-account tree in the chart of accounts
 
 **🔒 Pay bills from Odoo** `accounting/pay-bills-from-odoo` — confidence L (needs review)  
   - module license (EE runbot ir.module.module): account_online_payment=OEEL-1
@@ -1001,8 +1010,9 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **🔒 Manage and share availabilities** `calendar/manage-and-share-availabilities` — confidence L (needs review)  
   - module license (EE runbot ir.module.module): appointment=OEEL-1
 
-**✅ Manage pending activities** `calendar/manage-pending-activities` — confidence M (module-level)  
+**✅ Manage pending activities** `calendar/manage-pending-activities` — confidence H (verified)  
   - module license (CE runbot): calendar=LGPL-3, mail=LGPL-3
+  - CE screenshot (20.0 test database): pending activities in the calendar's all-day row
 
 **✅ Mobile calendar redesign** `calendar/mobile-calendar-redesign` — confidence M (module-level)  
   - module license (CE runbot): calendar=LGPL-3, web=LGPL-3
@@ -1010,6 +1020,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Multiple calendars in one place** `calendar/multiple-calendars-in-one-place` — confidence H (verified)  
   - code /calendar\.calendar/ -> CE: calendar, google_calendar, hr_calendar, calendar_sms, resource, microsoft_calendar (+2) | EE-only: appointment, l10n_be_hr_payroll
   - module license (CE runbot): calendar=LGPL-3
+  - CE screenshot (20.0 test database): '+ Add a calendar' in the Calendar side panel
 
 **🔒 Non-recurring appointments** `calendar/non-recurring-appointments` — confidence M (module-level)  
   - module license (EE runbot ir.module.module): appointment=OEEL-1
@@ -1023,8 +1034,9 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - code /action_enrich/ -> CE: partner_autocomplete, crm_iap_enrich | EE-only: -
   - module license (CE runbot): partner_autocomplete=LGPL-3, crm_iap_enrich=LGPL-3
 
-**✅ Hierarchical view** `contacts/hierarchical-view` — confidence M (module-level)  
+**✅ Hierarchical view** `contacts/hierarchical-view` — confidence H (verified)  
   - module license (CE runbot): web_hierarchy=LGPL-3, contacts=LGPL-3
+  - CE screenshot (20.0 test database): hierarchy view button in Contacts
 
 ## CRM
 
@@ -1419,9 +1431,10 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - UI string "Access and" -> CE: hr_attendance, website | EE: documents
   - module license (CE runbot): stock=LGPL-3
 
-**✅ Product replenishment** `inventory/product-replenishment` — confidence M (module-level)  
+**✅ Product replenishment** `inventory/product-replenishment` — confidence H (verified)  
   - UI string "To reorder" -> CE: account, digest, stock, website_sale
   - module license (CE runbot): stock=LGPL-3
+  - CE screenshot (20.0 test database): single 'Order' button with 'Automate' and 'Snooze'
 
 **🔒 Sendcloud: package reference** `inventory/sendcloud-package-reference` — confidence M (module-level)  
   - UI string "package reference" -> CE: stock
@@ -1510,8 +1523,9 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Lot/serial number transfers** `manufacturing/lot-serial-number-transfers` — confidence M (module-level)  
   - module license (CE runbot): mrp=LGPL-3
 
-**✅ Manufacturing order Kanban view** `manufacturing/manufacturing-order-kanban-view` — confidence M (module-level)  
+**✅ Manufacturing order Kanban view** `manufacturing/manufacturing-order-kanban-view` — confidence H (verified)  
   - module license (CE runbot): mrp=LGPL-3
+  - CE screenshot (20.0 test database): MO Kanban grouped by week
 
 **✅ Manufacturing orders planned ASAP** `manufacturing/manufacturing-orders-planned-asap` — confidence M (module-level)  
   - module license (CE runbot): mrp=LGPL-3
@@ -1614,9 +1628,10 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - UI string "Google Pay" -> CE: payment, payment_mollie, payment_stripe
   - module license (CE runbot): payment=LGPL-3
 
-**✅ Pay on Invoice provider** `online-payments/pay-on-invoice-provider` — confidence M (module-level)  
+**✅ Pay on Invoice provider** `online-payments/pay-on-invoice-provider` — confidence H (verified)  
   - UI string "Pay on Invoice" -> CE: payment, payment_custom
   - module license (CE runbot): payment=LGPL-3
+  - CE screenshot (20.0 test database): 'Pay on Invoice' provider card
 
 **✅ Payment provider views** `online-payments/payment-provider-views` — confidence M (module-level)  
   - module license (CE runbot): payment=LGPL-3
@@ -1642,9 +1657,10 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - UI string "Google Pay" -> CE: payment, payment_mollie, payment_stripe
   - module license (CE runbot): payment=LGPL-3
 
-**✅ Toss Payments** `online-payments/toss-payments` — confidence M (module-level)  
+**✅ Toss Payments** `online-payments/toss-payments` — confidence H (verified)  
   - UI string "Toss Payments" -> CE: payment, payment_toss_payments
   - module license (CE runbot): payment=LGPL-3
+  - CE screenshot (20.0 test database): Toss Payments provider card
 
 **✅ Wero** `online-payments/wero` — confidence M (module-level)  
   - module license (CE runbot): payment=LGPL-3
@@ -1871,8 +1887,9 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - UI string "Mercado Pago" -> CE: payment, payment_mercado_pago, point_of_sale, pos_mercado_pago
   - module license (CE runbot): pos_mercado_pago=LGPL-3
 
-**✅ Multiple currencies** `point-of-sale/multiple-currencies` — confidence M (module-level)  
+**✅ Multiple currencies** `point-of-sale/multiple-currencies` — confidence H (verified)  
   - module license (CE runbot): point_of_sale=LGPL-3
+  - CE source: addons/point_of_sale/models/pos_payment_method.py — new 'Currencies' field (currency_ids) on cash/bank payment methods; pos.payment.foreign_currency_id
 
 **✅ Print preparation tickets per product** `point-of-sale/print-preparation-tickets-per-product` — confidence M (module-level)  
   - UI string "Split per product" -> CE: point_of_sale
@@ -2043,8 +2060,9 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Charge overages** `sales/charge-overages` — confidence L (needs review)  
   - module license (CE runbot): sale=LGPL-3
 
-**✅ Dashboard** `sales/dashboard` — confidence M (module-level)  
+**✅ Dashboard** `sales/dashboard` — confidence H (verified)  
   - module license (CE runbot): sale=LGPL-3
+  - CE screenshot (20.0 test database): dashboard strip on the quotations list
 
 **✅ Description-only sales order lines** `sales/description-only-sales-order-lines` — confidence H (verified)  
   - runbot CE (API): sale.order.line.product_id required=False
@@ -2085,9 +2103,10 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - UI string "Product Reference" -> CE: point_of_sale, sale_edi_ubl, website_sale | EE: stock_barcode
   - module license (CE runbot): sale=LGPL-3
 
-**✅ Product images** `sales/product-images` — confidence M (module-level)  
+**✅ Product images** `sales/product-images` — confidence H (verified)  
   - UI string "Product images" -> CE: point_of_sale, sale, website_sale
   - module license (CE runbot): sale=LGPL-3
+  - CE screenshot (20.0 test database): product image on the sales order PDF
 
 **✅ Quotation sections** `sales/quotation-sections` — confidence M (module-level)  
   - module license (CE runbot): sale=LGPL-3
@@ -2431,9 +2450,10 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Accented characters in URLs** `website/accented-characters-in-urls` — confidence M (module-level)  
   - module license (CE runbot): website=LGPL-3
 
-**✅ Age verification popup** `website/age-verification-popup` — confidence M (module-level)  
+**✅ Age verification popup** `website/age-verification-popup` — confidence H (verified)  
   - UI string "Age verification popup" -> CE: website
   - module license (CE runbot): website=LGPL-3
+  - CE source: addons/website/static/src/builder/plugins/options/age_verification_popup_option.xml — age verification option of the Popup block
 
 **🔒 AI Website Assistant** `website/ai-website-assistant` — confidence M (module-level)  
   - UI string "Select Elements" -> EE: ai_website
@@ -2538,9 +2558,10 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Link tracker: QR codes** `website/link-tracker-qr-codes` — confidence M (module-level)  
   - module license (CE runbot): website=LGPL-3
 
-**✅ llms.txt** `website/llms-txt` — confidence M (module-level)  
+**✅ llms.txt** `website/llms-txt` — confidence H (verified)  
   - UI string "llms.txt" -> CE: website
   - module license (CE runbot): website=LGPL-3
+  - CE screenshot (20.0 test database): llms.txt setting in Website settings
 
 **✅ Mega menu** `website/mega-menu` — confidence M (module-level)  
   - UI string "Mega menu" -> CE: website | EE: ai_website
