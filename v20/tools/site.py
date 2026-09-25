@@ -7,6 +7,7 @@ Usage (from the version folder, e.g. v20/):
 import base64
 import collections
 import datetime
+import hashlib
 import json
 import os
 import sys
@@ -36,9 +37,10 @@ def img_ref(item_id):
     path = os.path.join(root, rel)
     if not os.path.exists(path):
         return None
+    data = open(path, "rb").read()
     if inline:
-        return "data:image/png;base64," + base64.b64encode(open(path, "rb").read()).decode()
-    return rel
+        return "data:image/png;base64," + base64.b64encode(data).decode()
+    return rel + "?v=" + hashlib.sha1(data).hexdigest()[:8]  # new URL whenever the image changes (no stale cache)
 
 
 def oca(r):
