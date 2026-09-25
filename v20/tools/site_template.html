@@ -86,6 +86,7 @@ section.app{margin-top:26px}
 .conf{font:500 11px/1 var(--mono);color:var(--muted)}
 details.ev{grid-column:2;font-size:13px}
 details.ev summary{cursor:pointer;color:var(--muted)}
+details.ev .fix{display:inline-block;margin-top:6px;font-size:12.5px}
 details.ev ul{margin:6px 0 0;padding-left:18px;color:var(--muted);overflow-wrap:anywhere}
 .empty{padding:40px 0;color:var(--muted)}
 
@@ -185,7 +186,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
         <tr><td><b>Needs review</b></td><td>A judgement call without direct evidence: the item probably spans Community and Enterprise and the parts could not be pinned down, or it bundles many changes (most localizations cover accounting, payroll and point of sale of a country in one item).</td></tr>
       </tbody>
     </table></div>
-    <p>Each item’s “Evidence” list shows the exact checks behind its status.</p>
+    <p>Each item’s “Evidence” list shows the exact checks behind its status, with a link to suggest a correction on GitHub.</p>
   </section>
 
   <footer id="foot"></footer>
@@ -218,7 +219,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
   barEl.setAttribute('aria-label', all.ce + ' Community, ' + all.partial + ' partly, ' + all.ee + ' Enterprise-only of ' + N + ' items');
   document.getElementById('legend').innerHTML = ['ce','partial','ee'].map(function(k){
     return '<span><i class="dot ' + k + '"></i>' + LABEL[k] + ' <b>' + all[k] + '</b> (' + Math.round(100 * all[k] / N) + '%)</span>';
-  }).join('') + '<span>' + N + ' items · ' + D.meta.conf.H + ' verified · <a href="#method" id="method-link">how we classified</a></span>';
+  }).join('') + '<span>' + N + ' items · ' + D.meta.conf.H + ' verified · <a href="#method" id="method-link">how we classified</a> · <a href="' + esc(D.meta.repo) + '" target="_blank" rel="noopener">GitHub (data &amp; corrections)</a></span>';
 
   // filter controls
   var appSel = document.getElementById('f-app');
@@ -260,8 +261,11 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
     else if (r.tags.indexOf('change') >= 0) tags += '<span class="tag change">Change</span>';
     if (r.tags.indexOf('iap') >= 0) tags += '<span class="tag">IAP</span>';
     if (r.tags.indexOf('backport') >= 0) tags += '<span class="tag">Backported</span>';
-    var ev = r.evidence.length ? '<details class="ev"><summary>Evidence (' + r.evidence.length + ') · <span class="conf">' + CONF[r.confidence] + '</span></summary><ul>' +
-      r.evidence.map(function(e){ return '<li>' + esc(e) + '</li>'; }).join('') + '</ul></details>' : '';
+    var fix = D.meta.issues + '?title=' + encodeURIComponent('Correction: ' + r.id) +
+      '&body=' + encodeURIComponent('Item: ' + r.title + ' (' + r.id + ')\nCurrent status: ' + LABEL[r.status] + ' · ' + CONF[r.confidence] + '\n\nWhat is wrong / evidence:\n');
+    var ev = '<details class="ev"><summary>Evidence (' + r.evidence.length + ') · <span class="conf">' + CONF[r.confidence] + '</span></summary><ul>' +
+      r.evidence.map(function(e){ return '<li>' + esc(e) + '</li>'; }).join('') + '</ul>' +
+      '<a class="fix" href="' + esc(fix) + '" target="_blank" rel="noopener">Suggest a correction on GitHub</a></details>';
     return '<article class="item"><span class="pill ' + r.status + '">' + LABEL[r.status] + '</span>' +
       '<h3>' + esc(r.title) + (tags ? '<span class="tags">' + tags + '</span>' : '') + '</h3>' +
       '<p class="sum">' + esc(r.summary) + '</p>' +
@@ -343,7 +347,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
   });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { var lb = document.querySelector('.lightbox'); if (lb) lb.remove(); } });
 
-  document.getElementById('foot').innerHTML = '<span>Draft ' + esc(D.meta.version) + ' · generated ' + esc(D.meta.generated) + ' from the repository data (<code>data/odoo-20.0.yaml</code>).</span>' +
+  document.getElementById('foot').innerHTML = '<span>Draft ' + esc(D.meta.version) + ' · generated ' + esc(D.meta.generated) + ' from the <a href="' + esc(D.meta.repo) + '" target="_blank" rel="noopener">GitHub repository</a> (data: <a href="' + esc(D.meta.data) + '" target="_blank" rel="noopener"><code>data/odoo-20.0.yaml</code></a>, method: <a href="' + esc(D.meta.readme) + '" target="_blank" rel="noopener">README</a>). Found an error? <a href="' + esc(D.meta.issues) + '" target="_blank" rel="noopener">Open an issue</a> or send a pull request.</span>' +
     '<span>Independent work, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA). Item titles come from Odoo’s release notes; summaries, classifications and evidence are our own. Screenshots show Odoo Community on a 20.0 test database.</span>';
   render();
 })();

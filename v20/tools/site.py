@@ -15,6 +15,8 @@ import sys
 import yaml
 
 VERSION = "20.0"
+REPO_URL = "https://github.com/smaddlsoft/odoo-community-release-notes"  # update if the repository moves
+VERSION_DIR = "v20"
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 
@@ -60,6 +62,8 @@ items = [{
 payload = {
     "meta": {"version": VERSION, "generated": datetime.date.today().isoformat(),
              "official": "https://www.odoo.com/odoo-20-release-notes",
+             "repo": REPO_URL, "data": f"{REPO_URL}/blob/main/{VERSION_DIR}/data/odoo-{VERSION}.yaml",
+             "readme": f"{REPO_URL}/blob/main/{VERSION_DIR}/README.md", "issues": f"{REPO_URL}/issues/new",
              "conf": dict(collections.Counter(r["confidence"] for r in recs))},
     "sections": list(dict.fromkeys(r["section"] for r in recs)),
     "items": items,
