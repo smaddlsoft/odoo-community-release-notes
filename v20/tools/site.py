@@ -31,6 +31,8 @@ alts = load("oca-alternatives.yaml")
 highlights = load("highlights.yaml")
 technical = load(f"technical-changes-{VERSION}.yaml")
 modules = load(f"module-changes-{VERSION}.yaml")
+precursors = load("oca-precursors.yaml")
+deja = {i: p for p in precursors for i in p["items"]}
 inline = "--inline" in sys.argv
 
 
@@ -58,6 +60,7 @@ items = [{
     "status": r["status"], "confidence": r["confidence"], "ce": r.get("ce_modules") or [], "ee": r.get("ee_modules") or [],
     "notes": r.get("notes") or "", "tags": r.get("tags") or [], "evidence": r.get("evidence") or [],
     "source": r.get("source") or "", "oca": oca(r),
+    "deja": {k: deja[r["id"]][k] for k in ("module", "repo", "since", "link", "wink")} if r["id"] in deja else None,
 } for r in recs]
 payload = {
     "meta": {"version": VERSION, "generated": datetime.date.today().isoformat(),
@@ -69,6 +72,7 @@ payload = {
     "items": items,
     "highlights": [dict(h, img=img_ref(h["id"])) for h in highlights],
     "technical": technical,
+    "precursors": precursors,
     "modules": modules,
 }
 data = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")

@@ -27,6 +27,9 @@ alts = yaml.safe_load(open(os.path.join(root, "data", "oca-alternatives.yaml"), 
 hl_path = os.path.join(root, "data", "highlights.yaml")
 highlights = yaml.safe_load(open(hl_path, encoding="utf-8")) if os.path.exists(hl_path) else []
 by_id = {r["id"]: r for r in recs}
+pre_path = os.path.join(root, "data", "oca-precursors.yaml")
+PRECURSORS = yaml.safe_load(open(pre_path, encoding="utf-8")) if os.path.exists(pre_path) else []
+DEJA = {i: p for p in PRECURSORS for i in p["items"]}
 sum_path = os.path.join(root, "data", f"summaries-{VERSION}.yaml")
 SUMMARY = yaml.safe_load(open(sum_path, encoding="utf-8")) if os.path.exists(sum_path) else {}
 
@@ -70,6 +73,9 @@ def line(r, show_icon=True):
     if "backport" in r.get("tags", []):
         tags.append("backported")
     tags.append(f"[{r['confidence']}]")
+    if r["id"] in DEJA:
+        p = DEJA[r["id"]]
+        detail.append(f"😉 déjà vu: OCA [`{p['module']}`]({p['link']}) since {p['since']}")
     sub = "; ".join(detail + [" ".join(tags)])
     return f"- {head}  \n  <sub>{sub}</sub>"
 
@@ -84,13 +90,13 @@ mixed = [s for s in sections if s not in ee_apps]
 L = []
 w = L.append
 w(f"# Odoo 20 Community Edition Release Notes [Unofficial] (draft)\n")
+w(f"**👉 This is the Markdown copy. The main version, with screenshots, filters and search, is here: [{PAGES_URL}]({PAGES_URL})**\n")
 w("> **Independent draft, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA).**  ")
 w(f"> Informed by Odoo's official [Odoo 20 release notes]({OFFICIAL}) (September 2026, {len(recs)} items). Each item was "
   "classified as available in Odoo Community (CE), partly available, or Enterprise-only (EE), and checked against the CE source "
   "([odoo/odoo@20.0](https://github.com/odoo/odoo/tree/20.0)), the EE 20.0 source (licensed copy, used locally only — "
   "no EE code is reproduced here) and CE/EE 20.0 runbot databases.  ")
-w("> Section headers link back to the official text; item notes are our own wording. Please report errors (see README).  ")
-w(f"> **Filterable version:** {PAGES_URL}\n")
+w("> Section headers link back to the official text; item notes are our own wording. Please report errors (see README).\n")
 
 w("## At a glance\n")
 w(f"| | Items | Share |\n|---|---:|---:|")
@@ -115,6 +121,17 @@ if highlights:
                 if h.get("caption"):
                     w(f"  <sub>Screenshot (CE test database): {h['caption']}</sub>")
                 w("")
+    w("")
+
+if PRECURSORS:
+    w("## Déjà vu 😉\n")
+    w("Good ideas travel. These Odoo 20 Community features have been around as OCA modules for a while. No claim that "
+      "anything was copied — but if you run one of these modules today, check whether you still need it in 20.0 "
+      "(overlap is not the same as full parity).\n")
+    w("| Odoo 20 feature | OCA module | Since | |\n|---|---|---|---|")
+    for p in PRECURSORS:
+        titles = " / ".join(by_id[i]["title"] for i in p["items"] if i in by_id) or p.get("feature", "")
+        w(f"| {titles} | [`{p['module']}`]({p['link']}) ({p['repo']}) | {p['since']} | {p['wink']} |")
     w("")
 
 w("## Heads-up for integrators and module maintainers\n")

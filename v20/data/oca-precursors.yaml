@@ -1,0 +1,102 @@
+# "Déjà vu": Odoo 20 Community features that OCA modules have offered for years.
+# No claim that anything was copied — good ideas travel. Practical point: if you run the OCA module today,
+# check whether you still need it in 20.0 (functional overlap is not the same as full parity).
+# since = oldest Odoo version with the module in the OCA (checked on GitHub, 2026-09-26; modules moved between
+# repositories count from their first repository). link = current home of the module.
+- items: [general/cc-email-recipients]
+  module: mail_composer_cc_bcc
+  repo: mail
+  since: "15.0"
+  link: https://github.com/OCA/mail/tree/19.0/mail_composer_cc_bcc
+  wink: CC made it into core. OCA users have been cc'ing since 15.0.
+- items: [general/download-attachments-in-bulk, accounting/download-invoice-attachments]
+  module: attachment_zipped_download
+  repo: knowledge
+  since: "14.0"
+  link: https://github.com/OCA/knowledge/tree/19.0/attachment_zipped_download
+  wink: Zipping attachments in one go — the OCA has been zipping since 14.0.
+- items: [general/multiple-partner-identifiers]
+  module: partner_identification
+  repo: partner-contact
+  since: "8.0"
+  link: https://github.com/OCA/partner-contact/tree/19.0/partner_identification
+  wink: Several typed IDs per partner — the OCA has been counting them since 8.0. Yes, eight.
+- items: [accounting/peppol-global-location-identifiers]
+  module: partner_identification_gln
+  repo: partner-contact
+  since: "8.0"
+  link: https://github.com/OCA/partner-contact/tree/19.0/partner_identification_gln
+  wink: GLN on partners, OCA-style since 8.0.
+- items: [sales/sales-order-line-numbering]
+  module: sale_order_line_sequence
+  repo: sale-workflow
+  since: "9.0"
+  link: https://github.com/OCA/sale-workflow/tree/19.0/sale_order_line_sequence
+  wink: Line numbers! OCA users have been able to count their order lines since 9.0.
+- items: [sales/mark-orders-as-fully-invoiced]
+  module: sale_force_invoiced
+  repo: sale-workflow
+  since: "9.0"
+  link: https://github.com/OCA/sale-workflow/tree/19.0/sale_force_invoiced
+  wink: '"Consider it invoiced" — the OCA has been saying that since 9.0.'
+- items: [sales/product-images]
+  module: sale_order_report_product_image
+  repo: sale-reporting
+  since: "11.0"
+  link: https://github.com/OCA/sale-reporting/tree/19.0/sale_order_report_product_image
+  wink: Pictures on quotations — framed by the OCA since 11.0.
+- items: [purchase/default-incoterm-per-vendor]
+  module: purchase_partner_incoterm
+  repo: purchase-workflow
+  since: "14.0"
+  link: https://github.com/OCA/purchase-workflow/tree/19.0/purchase_partner_incoterm
+  wink: A default Incoterm per vendor has been shipping from the OCA since 14.0.
+- items: [manufacturing/reset-mo-to-draft]
+  module: mrp_production_back_to_draft
+  repo: manufacture
+  since: "14.0"
+  link: https://github.com/OCA/manufacture/tree/19.0/mrp_production_back_to_draft
+  wink: An undo button for manufacturing orders — OCA since 14.0.
+- items: [email-marketing/dynamic-mailing-lists]
+  module: mass_mailing_list_dynamic
+  repo: mass-mailing
+  since: "10.0"
+  link: https://github.com/OCA/mass-mailing/tree/19.0/mass_mailing_list_dynamic
+  wink: Mailing lists that fill themselves — the OCA has been sending them since 10.0.
+- items: [website/google-tag-manager-gtm]
+  module: website_google_tag_manager
+  repo: website
+  since: "9.0"
+  link: https://github.com/OCA/website/tree/19.0/website_google_tag_manager
+  wink: Google Tag Manager in the settings — the OCA has been tagging along since 9.0.
+- items: [website/breadcrumbs-on-static-pages]
+  module: website_breadcrumb
+  repo: website
+  since: "8.0"
+  link: https://github.com/OCA/website/tree/18.0/website_breadcrumb
+  wink: The OCA has been leaving breadcrumbs on website pages since 8.0.
+- items: [website/llms-txt]
+  module: website_llms
+  repo: website
+  since: "16.0"
+  link: https://github.com/OCA/website/tree/18.0/website_llms
+  wink: Talking to LLMs — the OCA module is available from 16.0 on, well ahead of core.
+- items: [inventory/vendor-purchase-reference]
+  module: stock_picking_supplier_ref
+  repo: stock-logistics-warehouse
+  since: "14.0"
+  link: https://github.com/OCA/stock-logistics-warehouse/tree/18.0/stock_picking_supplier_ref
+  wink: The vendor's reference on the receipt — OCA since 14.0.
+- items: [ecommerce/return-management]
+  module: rma_sale
+  repo: rma
+  since: "12.0"
+  link: https://github.com/OCA/rma/tree/19.0/rma_sale
+  wink: Returns straight from the customer portal — the OCA RMA modules have handled them since 12.0.
+- items: []
+  feature: KPI banner on top of the new Invoicing dashboard (Invoices, Expenses, Receivable, Payable)
+  module: account_dashboard_banner
+  repo: account-financial-tools
+  since: "16.0"
+  link: https://github.com/OCA/account-financial-tools/tree/18.0/account_dashboard_banner
+  wink: That KPI banner on the new Invoicing dashboard looks familiar — OCA account_dashboard_banner, since 16.0.

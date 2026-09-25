@@ -86,6 +86,11 @@ section.app{margin-top:26px}
 .conf{font:500 11px/1 var(--mono);color:var(--muted)}
 details.ev{grid-column:2;font-size:13px}
 details.ev summary{cursor:pointer;color:var(--muted)}
+.deja{grid-column:2;margin:2px 0 0;font-size:13px;max-width:90ch;padding:5px 9px;border-radius:4px;background:var(--pt-bg);color:var(--ink)}
+.hl .deja{margin-top:2px}
+.muted{color:var(--muted)}
+.deja-intro{margin:10px 0 6px;max-width:80ch;color:var(--muted)}
+.deja-list{margin:0;padding-left:20px;display:grid;gap:6px;max-width:100ch}
 details.ev .fix{display:inline-block;margin-top:6px;font-size:12.5px}
 details.ev ul{margin:6px 0 0;padding-left:18px;color:var(--muted);overflow-wrap:anywhere}
 .empty{padding:40px 0;color:var(--muted)}
@@ -129,6 +134,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
   .item{grid-template-columns:1fr}
   .pill{grid-row:auto;justify-self:start;width:auto}
   details.ev{grid-column:1}
+  .deja{grid-column:1}
   .app-head a{margin-left:0}
 }
 @media (prefers-reduced-motion:no-preference){.chip,.seg button,.tab{transition:background-color .12s,color .12s,border-color .12s}}
@@ -250,6 +256,11 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
     document.getElementById('f-iap').setAttribute('aria-pressed', S.iap);
   }
 
+  function dejaHTML(d){
+    if (!d) return '';
+    return '<p class="deja">😉 ' + esc(d.wink) + ' <a href="' + esc(d.link) + '" target="_blank" rel="noopener"><code>' + esc(d.module) + '</code></a> <span class="muted">(OCA/' + esc(d.repo) + ')</span></p>';
+  }
+
   function itemHTML(r){
     var det = [];
     if (r.notes) det.push(md(r.notes));
@@ -269,7 +280,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
     return '<article class="item"><span class="pill ' + r.status + '">' + LABEL[r.status] + '</span>' +
       '<h3>' + esc(r.title) + (tags ? '<span class="tags">' + tags + '</span>' : '') + '</h3>' +
       '<p class="sum">' + esc(r.summary) + '</p>' +
-      (det.length ? '<p class="det">' + det.join(' · ') + '</p>' : '<p class="det"></p>') + ev + '</article>';
+      (det.length ? '<p class="det">' + det.join(' · ') + '</p>' : '<p class="det"></p>') + dejaHTML(r.deja) + ev + '</article>';
   }
 
   function renderItems(){
@@ -295,11 +306,17 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
       var fig = hl.img ? '<figure data-img="' + esc(hl.img) + '"><img src="' + esc(hl.img) + '" alt="' + esc(hl.caption || (r.title + ' in Odoo 20 Community')) + '" loading="lazy">' +
         (hl.caption ? '<figcaption>' + esc(hl.caption) + '</figcaption>' : '') + '</figure>' : '';
       return '<article class="hl"><div class="body"><span class="sec">' + esc(r.section) + ' · <span class="pill ' + r.status + '" style="width:auto;padding:2px 5px">' + LABEL[r.status] + '</span></span>' +
-        '<h3>' + esc(r.title) + '</h3><p>' + esc(r.summary) + '</p><p class="why">' + esc(hl.why) + '</p></div>' + fig + '</article>';
+        '<h3>' + esc(r.title) + '</h3><p>' + esc(r.summary) + '</p><p class="why">' + esc(hl.why) + '</p>' + dejaHTML(r.deja) + '</div>' + fig + '</article>';
     }).join('');
     var lostHTML = lost.length ? '<section class="app"><div class="app-head"><h2>Removed from Community or moved to Enterprise</h2><span class="meta">' + lost.length + ' items</span></div>' +
       lost.map(itemHTML).join('') + '</section>' : '';
-    return '<div class="hl-grid">' + cards + '</div>' + lostHTML;
+    var dejaList = D.precursors.map(function(p){
+      var titles = p.items.map(function(i){ return byId[i] ? esc(byId[i].title) : esc(i); }).join(' / ') || esc(p.feature);
+      return '<li><b>' + titles + '</b> — ' + esc(p.wink) + ' <a href="' + esc(p.link) + '" target="_blank" rel="noopener"><code>' + esc(p.module) + '</code></a> <span class="muted">(OCA/' + esc(p.repo) + ')</span></li>';
+    }).join('');
+    var dejaSection = '<section class="app deja-sec"><div class="app-head"><h2>Déjà vu 😉</h2><span class="meta">' + D.precursors.length + ' features the OCA has offered for years</span></div>' +
+      '<p class="deja-intro">Good ideas travel. These Odoo 20 Community features have been around as OCA modules for a while. No claim that anything was copied — but if you run one of these modules today, check whether you still need it in 20.0 (overlap is not the same as full parity).</p><ul class="deja-list">' + dejaList + '</ul></section>';
+    return '<div class="hl-grid">' + cards + '</div>' + dejaSection + lostHTML;
   }
 
   function renderDev(){
@@ -317,6 +334,12 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
       return '<tr><td><code>' + esc(r.module) + '</code></td><td>' + esc(r.now_in === '?' ? 'to check' : r.now_in) + (r.note ? ' — ' + esc(r.note) : '') + '</td><td>' + (r.oca_modules_with_prefix.slice(0, 4).map(function(x){ return '<code>' + esc(x) + '</code>'; }).join(' ') || '—') + '</td></tr>';
     }).join('');
     return '<div class="dev"><section><h2>Technical changes</h2><p class="aff">Where Odoo ships a source rewrite, run <code>odoo-bin upgrade_code --addons-path=&lt;repo&gt; --from 19.0 --dry-run</code> first.</p>' + tc + '</section>' +
+      '<section><h2>OCA modules that may become redundant</h2><p class="aff">Odoo 20 Community now covers what these OCA modules do (at least partly). Check before migrating them to 20.0.</p>' +
+      '<div class="tablewrap"><table><thead><tr><th>OCA module</th><th>Since</th><th>Odoo 20 feature</th></tr></thead><tbody>' +
+      D.precursors.map(function(p){
+        var titles = p.items.map(function(i){ var r = D.items.filter(function(x){ return x.id === i; })[0]; return r ? esc(r.title) : esc(i); }).join(' / ') || esc(p.feature);
+        return '<tr><td><a href="' + esc(p.link) + '" target="_blank" rel="noopener"><code>' + esc(p.module) + '</code></a> <span class="muted">(' + esc(p.repo) + ')</span></td><td>' + esc(p.since) + '</td><td>' + titles + '</td></tr>';
+      }).join('') + '</tbody></table></div></section>' +
       '<section><h2>Module changes 19.0 → 20.0</h2>' + colHTML +
       '<h3>Removed or merged (' + m.removed.length + ')</h3><div class="tablewrap"><table><thead><tr><th>Module (19.0)</th><th>Now in / status</th><th>OCA modules building on it</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
       '<h3>New in Community (' + m.new.length + ')</h3><div class="modlist">' + m.new.map(function(n){ return '<code title="' + esc(n.name + ': ' + n.summary) + '">' + esc(n.module) + '</code>'; }).join('') + '</div></section></div>';
