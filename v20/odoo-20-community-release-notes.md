@@ -2,6 +2,10 @@
 
 **👉 This is the Markdown copy. The main version, with screenshots, filters and search, is here: [https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html)**
 
+> [!WARNING]
+> **Early draft — please read with care.** The Community/Enterprise classification was produced with automated checks and hand review, but only part of it is verified in detail, so there are certainly errors and gaps. Each item shows its confidence level and evidence.  
+> **Corrections and contributions are very welcome:** open an issue or send a pull request to https://github.com/smaddlsoft/odoo-community-release-notes.
+
 > **Independent draft, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA).**  
 > Informed by Odoo's official [Odoo 20 release notes](https://www.odoo.com/odoo-20-release-notes) (September 2026, 687 items). Each item was classified as available in Odoo Community (CE), partly available, or Enterprise-only (EE), and checked against the CE source ([odoo/odoo@20.0](https://github.com/odoo/odoo/tree/20.0)), the EE 20.0 source (licensed copy, used locally only — no EE code is reproduced here) and CE/EE 20.0 runbot databases.  
 > Section headers link back to the official text; item notes are our own wording. Please report errors (see README).
@@ -147,7 +151,7 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
 
 ## Déjà vu 😉
 
-Good ideas travel. These Odoo 20 Community features have been around as OCA modules for a while. No claim that anything was copied — but if you run one of these modules today, check whether you still need it in 20.0 (overlap is not the same as full parity).
+Good ideas travel. These Odoo 20 Community features have been around as OCA modules for a while. If you run one of these modules today, check whether you still need it in 20.0 (overlap is not the same as full parity).
 
 | Odoo 20 feature | OCA module | Since | |
 |---|---|---|---|

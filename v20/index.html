@@ -96,6 +96,10 @@ details.ev summary{cursor:pointer;color:var(--muted)}
 .deja{grid-column:2;margin:2px 0 0;font-size:13px;max-width:90ch;padding:5px 9px;border-radius:4px;background:var(--pt-bg);color:var(--ink)}
 .hl .deja{margin-top:2px}
 .muted{color:var(--muted)}
+.notice{max-width:760px;border:1px solid var(--pt);border-left-width:5px;background:var(--pt-bg);border-radius:6px;padding:12px 16px;display:grid;gap:6px}
+.notice strong{font:700 17px/1.2 var(--body);color:var(--pt)}
+.notice p{margin:0;font-size:14px}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
 .deja-intro{margin:10px 0 6px;max-width:80ch;color:var(--muted)}
 .deja-list{margin:0;padding-left:20px;display:grid;gap:6px;max-width:100ch}
 details.ev .fix{display:inline-block;margin-top:6px;font-size:12.5px}
@@ -155,6 +159,11 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
     <div class="eyebrow">EE vs CE Feature Comparison - Odoo 20</div>
     <h1>Odoo 20 Community Edition Release Notes [Unofficial] <span class="draft">Draft</span></h1>
     <p class="lede" id="lede"></p>
+    <div class="notice" id="notice" role="note">
+      <strong>Early draft — please read with care.</strong>
+      <p>This is an early, independent draft. The Community/Enterprise classification was produced with automated checks and hand review, but only part of it is verified in detail, so there are certainly errors and gaps. Each item shows how confident we are (“verified”, “module-level”, “needs review”) and the evidence behind it.</p>
+      <p><b>Corrections and contributions are very welcome.</b> Spotted a mistake or know a localization better? Use “Suggest a correction on GitHub” under any item’s evidence, <a id="notice-issue" href="#" target="_blank" rel="noopener">open an issue</a> or send a pull request to the <a id="notice-repo" href="#" target="_blank" rel="noopener">repository</a>.</p>
+    </div>
     <div class="overview">
       <div class="bar" id="bar" role="img"></div>
       <div class="legend" id="legend"></div>
@@ -165,6 +174,8 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" id="tab-highlights" data-view="highlights">Highlights</button>
       <button class="tab" role="tab" id="tab-items" data-view="items">All items</button>
+      <button class="tab" role="tab" id="tab-deja" data-view="deja">Déjà vu 😉</button>
+      <button class="tab" role="tab" id="tab-removed" data-view="removed">Removed from CE</button>
       <button class="tab" role="tab" id="tab-developers" data-view="developers">For developers</button>
     </div>
     <div class="filters" id="filters">
@@ -172,6 +183,8 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
       <select id="f-app" aria-label="App"></select>
       <button class="chip" id="f-change" aria-pressed="false">Changes &amp; removals</button>
       <button class="chip" id="f-iap" aria-pressed="false">Needs IAP</button>
+      <button class="chip" id="f-deja" aria-pressed="false">Déjà vu (OCA had it) 😉</button>
+      <button class="chip" id="f-lost" aria-pressed="false">Removed from CE</button>
       <select id="f-conf" aria-label="Confidence">
         <option value="all">Any confidence</option>
         <option value="H">Verified</option>
@@ -215,10 +228,10 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
   var LABEL = {ce:'Community', partial:'Partly', ee:'Enterprise'};
   var CONF = {H:'verified', M:'module-level', L:'needs review'};
   var KEY = 'rn20-view';
-  var S = {view:'highlights', status:'all', app:'all', conf:'all', q:'', change:false, iap:false};
+  var S = {view:'highlights', status:'all', app:'all', conf:'all', q:'', change:false, iap:false, deja:false, lost:false};
   try { var saved = JSON.parse(localStorage.getItem(KEY) || 'null'); if (saved) for (var k in saved) if (k in S) S[k] = saved[k]; } catch(e) {}
   var h = (location.hash || '').replace('#','');
-  if (['highlights','items','developers'].indexOf(h) >= 0) S.view = h;
+  if (['highlights','items','deja','removed','developers'].indexOf(h) >= 0) S.view = h;
 
   function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e) {} }
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
@@ -230,6 +243,8 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
   // header
   var all = count(D.items), N = D.items.length;
   document.getElementById('lede').innerHTML = 'What Odoo 20 brings to Community users: each feature marked as Community, partly Community or Enterprise only. Informed by Odoo’s <a href="' + esc(D.meta.official) + '" target="_blank" rel="noopener">official release notes</a> and checked against the Community source code, Enterprise module names and 20.0 test databases.';
+  document.getElementById('notice-issue').href = D.meta.issues;
+  document.getElementById('notice-repo').href = D.meta.repo;
   var barEl = document.getElementById('bar');
   barEl.innerHTML = bar(all, N);
   barEl.setAttribute('aria-label', all.ce + ' Community, ' + all.partial + ' partly, ' + all.ee + ' Enterprise-only of ' + N + ' items');
@@ -247,6 +262,8 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
     if (S.conf !== 'all' && r.confidence !== S.conf) return false;
     if (S.change && r.tags.indexOf('change') < 0) return false;
     if (S.iap && r.tags.indexOf('iap') < 0) return false;
+    if (S.deja && !r.deja) return false;
+    if (S.lost && r.tags.indexOf('downside') < 0) return false;
     if (S.q) {
       var hay = (r.title + ' ' + r.summary + ' ' + r.notes + ' ' + r.ce.join(' ') + ' ' + r.ee.join(' ') + ' ' + r.section).toLowerCase();
       var words = S.q.toLowerCase().split(/\s+/).filter(Boolean);
@@ -264,6 +281,8 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
     }).join('');
     document.getElementById('f-change').setAttribute('aria-pressed', S.change);
     document.getElementById('f-iap').setAttribute('aria-pressed', S.iap);
+    document.getElementById('f-deja').setAttribute('aria-pressed', S.deja);
+    document.getElementById('f-lost').setAttribute('aria-pressed', S.lost);
   }
 
   function dejaHTML(d){
@@ -318,15 +337,39 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
       return '<article class="hl"><div class="body"><span class="sec">' + esc(r.section) + ' · <span class="pill ' + r.status + '" style="width:auto;padding:2px 5px">' + LABEL[r.status] + '</span></span>' +
         '<h3>' + esc(r.title) + '</h3><p>' + esc(r.summary) + '</p><p class="why">' + esc(hl.why) + '</p>' + dejaHTML(r.deja) + '</div>' + fig + '</article>';
     }).join('');
-    var lostHTML = lost.length ? '<section class="app"><div class="app-head"><h2>Removed from Community or moved to Enterprise</h2><span class="meta">' + lost.length + ' items</span></div>' +
-      lost.map(itemHTML).join('') + '</section>' : '';
-    var dejaList = D.precursors.map(function(p){
-      var titles = p.items.map(function(i){ return byId[i] ? esc(byId[i].title) : esc(i); }).join(' / ') || esc(p.feature);
-      return '<li><b>' + titles + '</b> — ' + esc(p.wink) + ' <a href="' + esc(p.link) + '" target="_blank" rel="noopener"><code>' + esc(p.module) + '</code></a> <span class="muted">(OCA/' + esc(p.repo) + ')</span></li>';
+    return '<div class="hl-grid">' + cards + '</div>';
+  }
+
+  function renderRemoved(){
+    var lost = D.items.filter(function(r){ return r.tags.indexOf('downside') >= 0; });
+    var gone = D.modules.removed.filter(function(m){ return /^\(removed|moved to Enterprise/.test(m.now_in); });
+    document.getElementById('count').textContent = lost.length + ' features · ' + gone.length + ' modules';
+    var rows = gone.map(function(m){
+      return '<tr><td><code>' + esc(m.module) + '</code></td><td>' + esc(m.now_in.replace(/^\(|\)$/g, '')) + (m.note ? ' — ' + esc(m.note) : '') + '</td></tr>';
     }).join('');
-    var dejaSection = '<section class="app deja-sec"><div class="app-head"><h2>Déjà vu 😉</h2><span class="meta">' + D.precursors.length + ' features the OCA has offered for years</span></div>' +
-      '<p class="deja-intro">Good ideas travel. These Odoo 20 Community features have been around as OCA modules for a while. No claim that anything was copied — but if you run one of these modules today, check whether you still need it in 20.0 (overlap is not the same as full parity).</p><ul class="deja-list">' + dejaList + '</ul></section>';
-    return '<div class="hl-grid">' + cards + '</div>' + dejaSection + lostHTML;
+    return '<section class="app"><div class="app-head"><h2>Removed from Community or moved to Enterprise</h2><span class="meta">' + lost.length + ' features</span>' +
+      '<a href="#items" id="lost-to-items">Show them in All items →</a></div>' +
+      '<p class="deja-intro">What Community users lose with Odoo 20: features removed from Community, or now only available with Enterprise. Missing something? Please tell us via GitHub.</p>' +
+      lost.map(itemHTML).join('') + '</section>' +
+      '<section class="app"><div class="app-head"><h2>Modules that left Community</h2><span class="meta">' + gone.length + ' modules (19.0 → 20.0)</span></div>' +
+      '<p class="deja-intro">Removed without a Community replacement, or moved to Enterprise. Modules that were merged into other Community modules are listed under “For developers”.</p>' +
+      '<div class="tablewrap"><table><thead><tr><th>Module (19.0)</th><th>What happened</th></tr></thead><tbody>' + rows + '</tbody></table></div></section>';
+  }
+
+  function renderDeja(){
+    document.getElementById('count').textContent = D.precursors.length + ' features';
+    var byId = {}; D.items.forEach(function(r){ byId[r.id] = r; });
+    var rows = D.precursors.map(function(p){
+      var titles = p.items.map(function(i){ return byId[i] ? esc(byId[i].title) : esc(i); }).join(' / ') || esc(p.feature);
+      var section = p.items.length && byId[p.items[0]] ? esc(byId[p.items[0]].section) : 'Invoicing dashboard';
+      return '<tr><td><span class="muted">' + section + '</span><br><b>' + titles + '</b></td><td class="num">' + esc(p.since) + '</td>' +
+        '<td><a href="' + esc(p.link) + '" target="_blank" rel="noopener"><code>' + esc(p.module) + '</code></a><br><span class="muted">OCA/' + esc(p.repo) + '</span></td>' +
+        '<td>' + esc(p.wink) + '</td></tr>';
+    }).join('');
+    return '<section class="app deja-sec"><div class="app-head"><h2>Déjà vu 😉</h2><span class="meta">' + D.precursors.length + ' Odoo 20 Community features the OCA has offered for years</span>' +
+      '<a href="#items" id="deja-to-items">Show them in All items →</a></div>' +
+      '<p class="deja-intro">Good ideas travel. These features have been around as OCA modules for a while. If you run one of these modules today, check whether you still need it in 20.0 (overlap is not the same as full parity).</p>' +
+      '<div class="tablewrap"><table><thead><tr><th>Odoo 20 feature</th><th>OCA since</th><th>OCA module</th><th></th></tr></thead><tbody>' + rows + '</tbody></table></div></section>';
   }
 
   function renderDev(){
@@ -360,7 +403,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
     document.getElementById('filters').hidden = S.view !== 'items';
     renderStatus();
     var v = document.getElementById('view');
-    v.innerHTML = S.view === 'items' ? renderItems() : S.view === 'developers' ? renderDev() : renderHighlights();
+    v.innerHTML = S.view === 'items' ? renderItems() : S.view === 'developers' ? renderDev() : S.view === 'deja' ? renderDeja() : S.view === 'removed' ? renderRemoved() : renderHighlights();
     save();
   }
 
@@ -372,8 +415,19 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
   document.getElementById('f-conf').addEventListener('change', function(e){ S.conf = e.target.value; render(); });
   document.getElementById('f-change').addEventListener('click', function(){ S.change = !S.change; render(); });
   document.getElementById('f-iap').addEventListener('click', function(){ S.iap = !S.iap; render(); });
+  document.getElementById('f-deja').addEventListener('click', function(){ S.deja = !S.deja; render(); });
+  document.getElementById('f-lost').addEventListener('click', function(){ S.lost = !S.lost; render(); });
   var qt; document.getElementById('f-q').addEventListener('input', function(e){ clearTimeout(qt); qt = setTimeout(function(){ S.q = e.target.value.trim(); render(); }, 150); });
   document.getElementById('view').addEventListener('click', function(e){
+    var jump = e.target.closest('#deja-to-items, #lost-to-items');
+    if (jump) {
+      e.preventDefault();
+      S.view = 'items'; S.status = 'all'; S.app = 'all'; S.conf = 'all'; S.change = false; S.iap = false; S.q = '';
+      S.deja = jump.id === 'deja-to-items'; S.lost = jump.id === 'lost-to-items';
+      appSel.value = 'all'; document.getElementById('f-conf').value = 'all'; document.getElementById('f-q').value = '';
+      try { history.replaceState(null, '', '#items'); } catch(err) {}
+      render(); window.scrollTo(0, 0); return;
+    }
     var f = e.target.closest('figure[data-img]'); if (!f) return;
     var lb = document.createElement('div'); lb.className = 'lightbox'; lb.innerHTML = '<img src="' + f.dataset.img + '" alt="">';
     lb.addEventListener('click', function(){ lb.remove(); }); document.body.appendChild(lb);
