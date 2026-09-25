@@ -1,18 +1,19 @@
 # Odoo 20 Community Edition Release Notes [Unofficial] (draft)
 
-Which Odoo 20 features you get in **Odoo Community (CE)**, which are **partly** in CE, and which are
-**Enterprise-only (EE)**, plus what integrators and module maintainers need to know before migrating. Informed by Odoo's
-official [Odoo 20 release notes](https://www.odoo.com/odoo-20-release-notes); summaries, classifications and evidence
-are our own.
+### 👉 [Open the release notes](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html)
 
-> Status: **draft v0.4 (2026-09-25)**. Independent work, not affiliated with or endorsed by Odoo S.A. or the Odoo
+This folder holds the data and tools behind that page. Which Odoo 20 features you get in **Odoo Community (CE)**, which
+are **partly** in CE, and which are **Enterprise-only (EE)**, plus what integrators and module maintainers need to know
+before migrating. Informed by Odoo's official [Odoo 20 release notes](https://www.odoo.com/odoo-20-release-notes).
+
+> Status: **draft v0.5 (2026-09-26)**. Independent work, not affiliated with or endorsed by Odoo S.A. or the Odoo
 > Community Association (OCA). Item titles come from Odoo's release notes; summaries, classifications and evidence are
 > our own.
 
 | File | What it is |
 |---|---|
-| [**Filterable page**](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html) | Filter by Community / partly / Enterprise, app and text (served by GitHub Pages from `index.html`) |
-| [odoo-20-community-release-notes.md](odoo-20-community-release-notes.md) | The same notes as Markdown (generated) |
+| [**Release notes (web page)**](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html) | The main view: highlights with screenshots, all items with filters and search, developer notes (generated from `data/` into `index.html`) |
+| [odoo-20-community-release-notes.md](odoo-20-community-release-notes.md) | The same content as Markdown, for diffs and offline reading (generated) |
 | [odoo-20-evidence.md](odoo-20-evidence.md) | Per-item evidence behind each classification (generated) |
 | [data/odoo-20.0.yaml](data/odoo-20.0.yaml) | **Source of truth**: one record per official item |
 | [data/summaries-20.0.yaml](data/summaries-20.0.yaml) | One-line summary per item, in our own words |
@@ -20,6 +21,7 @@ are our own.
 | [data/technical-changes-20.0.yaml](data/technical-changes-20.0.yaml) | Developer-facing changes (`ir.access`, OWL 3, `upgrade_code` scripts…) |
 | [data/oca-alternatives.yaml](data/oca-alternatives.yaml) | Pointers to OCA modules for Enterprise-only areas |
 | [data/highlights.yaml](data/highlights.yaml) | Editorial pick of CE highlights, with screenshot captions |
+| [data/oca-precursors.yaml](data/oca-precursors.yaml) | "Déjà vu": Odoo 20 CE features that OCA modules have offered for years (module, since which version) |
 | `img/` | Screenshots of Odoo Community (20.0 test database), cropped and marked; named after the highlight's id |
 | [tools/](tools/) | `render.py` (Markdown), `site.py` + `site_template.html` (page), `bootstrap/` (first-draft pipeline) |
 

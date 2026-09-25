@@ -1,9 +1,10 @@
 # Odoo 20 Community Edition Release Notes [Unofficial] (draft)
 
+**👉 This is the Markdown copy. The main version, with screenshots, filters and search, is here: [https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html)**
+
 > **Independent draft, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA).**  
 > Informed by Odoo's official [Odoo 20 release notes](https://www.odoo.com/odoo-20-release-notes) (September 2026, 687 items). Each item was classified as available in Odoo Community (CE), partly available, or Enterprise-only (EE), and checked against the CE source ([odoo/odoo@20.0](https://github.com/odoo/odoo/tree/20.0)), the EE 20.0 source (licensed copy, used locally only — no EE code is reproduced here) and CE/EE 20.0 runbot databases.  
-> Section headers link back to the official text; item notes are our own wording. Please report errors (see README).  
-> **Filterable version:** https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html
+> Section headers link back to the official text; item notes are our own wording. Please report errors (see README).
 
 ## At a glance
 
@@ -143,6 +144,29 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   <sub>Screenshot (CE test database): Website editor — the age verification popup (“Are you 18 years or older?”), listed under Invisible Elements.</sub>
 
 - **Mail: in-body tracking** (Technical) — tracking values are no longer stored — tracking messages are generated on the fly; affects modules that read mail.tracking.value.
+
+## Déjà vu 😉
+
+Good ideas travel. These Odoo 20 Community features have been around as OCA modules for a while. No claim that anything was copied — but if you run one of these modules today, check whether you still need it in 20.0 (overlap is not the same as full parity).
+
+| Odoo 20 feature | OCA module | Since | |
+|---|---|---|---|
+| CC email recipients | [`mail_composer_cc_bcc`](https://github.com/OCA/mail/tree/19.0/mail_composer_cc_bcc) (mail) | 15.0 | CC made it into core. OCA users have been cc'ing since 15.0. |
+| Download attachments in bulk / Download invoice attachments | [`attachment_zipped_download`](https://github.com/OCA/knowledge/tree/19.0/attachment_zipped_download) (knowledge) | 14.0 | Zipping attachments in one go — the OCA has been zipping since 14.0. |
+| Multiple partner identifiers | [`partner_identification`](https://github.com/OCA/partner-contact/tree/19.0/partner_identification) (partner-contact) | 8.0 | Several typed IDs per partner — the OCA has been counting them since 8.0. Yes, eight. |
+| Peppol global location identifiers | [`partner_identification_gln`](https://github.com/OCA/partner-contact/tree/19.0/partner_identification_gln) (partner-contact) | 8.0 | GLN on partners, OCA-style since 8.0. |
+| Sales order line numbering | [`sale_order_line_sequence`](https://github.com/OCA/sale-workflow/tree/19.0/sale_order_line_sequence) (sale-workflow) | 9.0 | Line numbers! OCA users have been able to count their order lines since 9.0. |
+| Mark orders as fully invoiced | [`sale_force_invoiced`](https://github.com/OCA/sale-workflow/tree/19.0/sale_force_invoiced) (sale-workflow) | 9.0 | "Consider it invoiced" — the OCA has been saying that since 9.0. |
+| Product images | [`sale_order_report_product_image`](https://github.com/OCA/sale-reporting/tree/19.0/sale_order_report_product_image) (sale-reporting) | 11.0 | Pictures on quotations — framed by the OCA since 11.0. |
+| Default Incoterm per vendor | [`purchase_partner_incoterm`](https://github.com/OCA/purchase-workflow/tree/19.0/purchase_partner_incoterm) (purchase-workflow) | 14.0 | A default Incoterm per vendor has been shipping from the OCA since 14.0. |
+| Reset MO to draft | [`mrp_production_back_to_draft`](https://github.com/OCA/manufacture/tree/19.0/mrp_production_back_to_draft) (manufacture) | 14.0 | An undo button for manufacturing orders — OCA since 14.0. |
+| Dynamic mailing lists | [`mass_mailing_list_dynamic`](https://github.com/OCA/mass-mailing/tree/19.0/mass_mailing_list_dynamic) (mass-mailing) | 10.0 | Mailing lists that fill themselves — the OCA has been sending them since 10.0. |
+| Google Tag Manager (GTM) | [`website_google_tag_manager`](https://github.com/OCA/website/tree/19.0/website_google_tag_manager) (website) | 9.0 | Google Tag Manager in the settings — the OCA has been tagging along since 9.0. |
+| Breadcrumbs on static pages | [`website_breadcrumb`](https://github.com/OCA/website/tree/18.0/website_breadcrumb) (website) | 8.0 | The OCA has been leaving breadcrumbs on website pages since 8.0. |
+| llms.txt | [`website_llms`](https://github.com/OCA/website/tree/18.0/website_llms) (website) | 16.0 | Talking to LLMs — the OCA module is available from 16.0 on, well ahead of core. |
+| Vendor purchase reference | [`stock_picking_supplier_ref`](https://github.com/OCA/stock-logistics-warehouse/tree/18.0/stock_picking_supplier_ref) (stock-logistics-warehouse) | 14.0 | The vendor's reference on the receipt — OCA since 14.0. |
+| Return management | [`rma_sale`](https://github.com/OCA/rma/tree/19.0/rma_sale) (rma) | 12.0 | Returns straight from the customer portal — the OCA RMA modules have handled them since 12.0. |
+| KPI banner on top of the new Invoicing dashboard (Invoices, Expenses, Receivable, Payable) | [`account_dashboard_banner`](https://github.com/OCA/account-financial-tools/tree/18.0/account_dashboard_banner) (account-financial-tools) | 16.0 | That KPI banner on the new Invoicing dashboard looks familiar — OCA account_dashboard_banner, since 16.0. |
 
 ## Heads-up for integrators and module maintainers
 
@@ -351,7 +375,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Calendar view side panel** — In calendar views with scheduling enabled, drag records into the side panel to unschedule them.  
   <sub>Calendar view side panel (CE web); 'Scheduling' option of Gantt is EE; CE `web`; [M]</sub>
 - ✅ **CC email recipients** — Add CC recipients when sending emails; the chatter shows who was in CC.  
-  <sub>CE `mail`; [M]</sub>
+  <sub>CE `mail`; 😉 déjà vu: OCA [`mail_composer_cc_bcc`](https://github.com/OCA/mail/tree/19.0/mail_composer_cc_bcc) since 15.0; [M]</sub>
 - ✅ **Chatter filter** — Filter the chatter to show only messages or only tracked changes.  
   <sub>CE `mail`; [H]</sub>
 - ✅ **Currency aggregates: date** — When totals are converted to another currency, the date of the exchange rate used is shown.  
@@ -363,7 +387,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Digest email KPIs** — More KPIs available in the periodic digest emails.  
   <sub>CE `digest`; [M]</sub>
 - ✅ **Download attachments in bulk** — Download many attachments at once from the Technical menu, across models and records.  
-  <sub>CE `base`, `web`; [M]</sub>
+  <sub>CE `base`, `web`; 😉 déjà vu: OCA [`attachment_zipped_download`](https://github.com/OCA/knowledge/tree/19.0/attachment_zipped_download) since 14.0; [M]</sub>
 - ✅ **Email template preview** — Better email template preview, with navigation between sample records.  
   <sub>CE `mail`; [M]</sub>
 - ✅ **Favorited searches** — Saved favourite searches in list views remember the visible columns.  
@@ -387,7 +411,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Multi-record drag and drop** — Drag and drop several selected records at once in list and Kanban views.  
   <sub>CE `web`; [H]</sub>
 - ✅ **Multiple partner identifiers** — Store several typed, validated identifiers per partner (e.g. DUNS or national IDs).  
-  <sub>Multi-ID on the contact form is CE (`base`); identifier schemes for e-invoicing in `account_edi_ubl_cii`; CE `base`, `account`; [H]</sub>
+  <sub>Multi-ID on the contact form is CE (`base`); identifier schemes for e-invoicing in `account_edi_ubl_cii`; CE `base`, `account`; 😉 déjà vu: OCA [`partner_identification`](https://github.com/OCA/partner-contact/tree/19.0/partner_identification) since 8.0; [H]</sub>
 - ✅ **My Subscription page** — New 'My Subscription' page in the user menu with plan, IAP services and database management.  
   <sub>Module is LGPL in CE but only meaningful for databases with an odoo.com subscription; CE `mysubscription`; IAP [M]</sub>
 - ✅ **Offline mode** — Create, edit, archive and delete records while offline, and re-run earlier searches.  
@@ -457,7 +481,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Conversion rates** — Conversion rates are shown when registering foreign-currency payments.  
   <sub>CE `account`; [M]</sub>
 - ✅ **Download invoice attachments** — Download a zip with all generated attachments (PDF, XML…) of selected invoices.  
-  <sub>CE `account`; [L]</sub>
+  <sub>CE `account`; 😉 déjà vu: OCA [`attachment_zipped_download`](https://github.com/OCA/knowledge/tree/19.0/attachment_zipped_download) since 14.0; [L]</sub>
 - ✅ **Employee Expenses menu item** — The separate 'Employee Expenses' menu is gone: approved expenses create draft bills in the expense journal.  
   <sub>Standalone 'Employee Expenses' menu removed; approved expenses create draft vendor bills in the expense journal; CE `hr_expense`; ⚠️ change [H]</sub>
 - ✅ **Exchange entries** — Exchange differences are grouped into one line per invoice, with expandable details.  
@@ -475,7 +499,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Parent accounts** — Parent accounts replace account groups to structure the chart of accounts; account codes become optional.  
   <sub>`account.group` is gone; `account.account.parent_id` structures the chart and `code` is no longer required; CE `account`; ⚠️ change [H]</sub>
 - ✅ **Peppol global location identifiers** — Add GLN location identifiers to delivery contacts for Peppol.  
-  <sub>CE `account_edi_ubl_cii`, `account_peppol`; backported [H]</sub>
+  <sub>CE `account_edi_ubl_cii`, `account_peppol`; 😉 déjà vu: OCA [`partner_identification_gln`](https://github.com/OCA/partner-contact/tree/19.0/partner_identification_gln) since 8.0; backported [H]</sub>
 - ✅ **Prevent double payments in the payment wizard** — The payment wizard deducts pending payments to avoid paying twice, and sorts outstanding payments by date.  
   <sub>CE `account`; [M]</sub>
 - ✅ **Professional percentage for receipts** — The 'Professional' percentage column also exists on purchase receipts.  
@@ -740,7 +764,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Restrict packagings per website** — Restrict units and packagings per website.  
   <sub>CE `website_sale`; [M]</sub>
 - ✅ **Return management** — Customers can return products from the portal.  
-  <sub>CE `website_sale`; [M]</sub>
+  <sub>CE `website_sale`; 😉 déjà vu: OCA [`rma_sale`](https://github.com/OCA/rma/tree/19.0/rma_sale) since 12.0; [M]</sub>
 - ✅ **Ribbon filters** — New ribbon filters 'On Sale' and 'In Stock'.  
   <sub>CE `website_sale`; [M]</sub>
 - ✅ **Simplified inventory management** — eCommerce works with simple stock tracking (one on-hand quantity, no transfers) without Inventory.  
@@ -782,7 +806,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Contact management** — Easier adding of contacts to mailing lists; recipients manage their own subscriptions.  
   <sub>CE `mass_mailing`; [M]</sub>
 - ✅ **Dynamic mailing lists** — Dynamic mailing lists computed when the mailing is sent.  
-  <sub>CE `mass_mailing`; [M]</sub>
+  <sub>CE `mass_mailing`; 😉 déjà vu: OCA [`mass_mailing_list_dynamic`](https://github.com/OCA/mass-mailing/tree/19.0/mass_mailing_list_dynamic) since 10.0; [M]</sub>
 - ✅ **Employee/supplier mailings** — Send mailings to employees and suppliers.  
   <sub>CE `mass_mailing`; [M]</sub>
 - ✅ **Favorite blocks** — Save blocks as favourites for reuse.  
@@ -874,7 +898,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Variant-specific packagings** — Packagings per variant.  
   <sub>CE `stock`; [M]</sub>
 - ✅ **Vendor purchase reference** — Vendor reference shown on receipts.  
-  <sub>CE `stock`; [M]</sub>
+  <sub>CE `stock`; 😉 déjà vu: OCA [`stock_picking_supplier_ref`](https://github.com/OCA/stock-logistics-warehouse/tree/18.0/stock_picking_supplier_ref) since 14.0; [M]</sub>
 - ✅ **ZPL location barcodes** — Location barcode labels in ZPL.  
   <sub>CE `stock`; [M]</sub>
 - 🔒 **Preview Barcode instructions in operation type** — Preview Barcode operator instructions from the operation type.  
@@ -924,7 +948,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Put in pack from MO** — The finished product goes into the MO's destination package automatically.  
   <sub>CE `mrp`; [M]</sub>
 - ✅ **Reset MO to draft** — Reset done or cancelled MOs to draft.  
-  <sub>CE `mrp`; [M]</sub>
+  <sub>CE `mrp`; 😉 déjà vu: OCA [`mrp_production_back_to_draft`](https://github.com/OCA/manufacture/tree/19.0/mrp_production_back_to_draft) since 14.0; [M]</sub>
 - ✅ **Split manufacturing orders** — Split an ongoing MO to produce the rest later.  
   <sub>CE `mrp`; [M]</sub>
 - ✅ **Subcontracting reception valuation** — Without a PO, subcontractor cost is set at reception from the vendor pricelist.  
@@ -1069,7 +1093,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Alternatives comparison** — Clearer comparison of alternative purchase offers.  
   <sub>Alternatives now in the new CE module `purchase_alternative` (split from `purchase_requisition`); CE `purchase_alternative`; [H]</sub>
 - ✅ **Default Incoterm per vendor** — Default Incoterm per vendor.  
-  <sub>CE `purchase`; [M]</sub>
+  <sub>CE `purchase`; 😉 déjà vu: OCA [`purchase_partner_incoterm`](https://github.com/OCA/purchase-workflow/tree/19.0/purchase_partner_incoterm) since 14.0; [M]</sub>
 - ✅ **End-customer address in portal** — End-customer address shown on POs in the vendor portal.  
   <sub>CE `purchase`; [M]</sub>
 - ✅ **Expected arrival date** — Edit the expected arrival while keeping the vendor's original date for on-time statistics.  
@@ -1130,7 +1154,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Loyalty point expiration** — Loyalty points can expire.  
   <sub>CE `sale`; [M]</sub>
 - ✅ **Mark orders as fully invoiced** — Mark an order as fully invoiced.  
-  <sub>CE `sale`; [M]</sub>
+  <sub>CE `sale`; 😉 déjà vu: OCA [`sale_force_invoiced`](https://github.com/OCA/sale-workflow/tree/19.0/sale_force_invoiced) since 9.0; [M]</sub>
 - ✅ **Periodic pricing** — Pricelist rules and surcharges for periods or weekdays.  
   <sub>Date-range rules and surcharges exist in CE `product`; the 'days of the week' part was not found in the 20.0 source (CE or EE) — needs review; CE `sale`; [L]</sub>
 - ✅ **Price rules per packaging type** — Price rules per packaging type.  
@@ -1138,7 +1162,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Pricelist report improvements** — Pricelist report grouped by category, with reference and barcode, and a date filter.  
   <sub>CE `sale`; [M]</sub>
 - ✅ **Product images** — Show product images on sales orders and their PDFs.  
-  <sub>CE `sale`; [H]</sub>
+  <sub>CE `sale`; 😉 déjà vu: OCA [`sale_order_report_product_image`](https://github.com/OCA/sale-reporting/tree/19.0/sale_order_report_product_image) since 11.0; [H]</sub>
 - ✅ **Quotation sections** — Section quantities/units update all lines; multi-line section descriptions; reusable section templates.  
   <sub>CE `sale`; [M]</sub>
 - ✅ **Quotation templates** — Pick a quotation template when creating an order; sub-sections and options like 'Hide Price'; add products via the catalog.  
@@ -1148,7 +1172,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Sales order email template** — The default order email includes the customer reference.  
   <sub>CE `sale`; [M]</sub>
 - ✅ **Sales order line numbering** — Line numbers on the order, its PDF and the portal.  
-  <sub>CE `sale`; [M]</sub>
+  <sub>CE `sale`; 😉 déjà vu: OCA [`sale_order_line_sequence`](https://github.com/OCA/sale-workflow/tree/19.0/sale_order_line_sequence) since 9.0; [M]</sub>
 - ✅ **Sales order portal page** — Redesigned sales order portal page.  
   <sub>CE `sale`; [M]</sub>
 - ✅ **Services & Material** — Fixed-price and cost-based services and materials for re-invoicing.  
@@ -1284,7 +1308,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Blurred headers** — Blur effect on transparent headers.  
   <sub>CE `website`; [M]</sub>
 - ✅ **Breadcrumbs on static pages** — Breadcrumbs on static pages.  
-  <sub>CE `website`; [M]</sub>
+  <sub>CE `website`; 😉 déjà vu: OCA [`website_breadcrumb`](https://github.com/OCA/website/tree/18.0/website_breadcrumb) since 8.0; [M]</sub>
 - ✅ **Card and column anchors** — Anchors on cards and columns.  
   <sub>CE `website`; [M]</sub>
 - ✅ **Card enhancements** — Card animation on hover; whole card clickable.  
@@ -1326,7 +1350,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **General shadow options** — Global shadow styles for sections and cards.  
   <sub>CE `website`; [M]</sub>
 - ✅ **Google Tag Manager (GTM)** — One identifier field for Google Analytics or Google Tag Manager.  
-  <sub>CE `website`; [M]</sub>
+  <sub>CE `website`; 😉 déjà vu: OCA [`website_google_tag_manager`](https://github.com/OCA/website/tree/19.0/website_google_tag_manager) since 9.0; [M]</sub>
 - ✅ **Inner content blocks: icons and Instagram** — Icon and Instagram inner blocks.  
   <sub>CE `website`; [M]</sub>
 - ✅ **Job and eLearning course building blocks** — Dynamic blocks for jobs and courses (developer mode).  
@@ -1336,7 +1360,7 @@ Diff of the CE module list (odoo/odoo 19.0 vs 20.0 (addons/), GitHub, 2026-09-25
 - ✅ **Link tracker: QR codes** — Turn tracked links into QR codes.  
   <sub>CE `website`; [M]</sub>
 - ✅ **llms.txt** — Create an llms.txt file from website settings.  
-  <sub>CE `website`; [H]</sub>
+  <sub>CE `website`; 😉 déjà vu: OCA [`website_llms`](https://github.com/OCA/website/tree/18.0/website_llms) since 16.0; [H]</sub>
 - ✅ **Mega menu** — Mega menus accept blocks; new empty template.  
   <sub>CE `website`; [M]</sub>
 - ✅ **Module-specific search** — Site search limited to all content or one module.  

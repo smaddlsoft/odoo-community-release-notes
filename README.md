@@ -1,14 +1,18 @@
-# Odoo Community release notes
+# Odoo Community Edition Release Notes [Unofficial]
 
-Release notes for **Odoo Community (CE)**: which new features are available in Community, partly available, or
-Enterprise-only, with evidence and our own summaries, informed by Odoo's official release notes. They also cover what
-integrators and module maintainers need to know before migrating.
+### 👉 [Open the Odoo 20 release notes](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html)
 
-| Version | Filterable page | Readable notes | Data |
-|---|---|---|---|
-| 20.0 (draft) | [**Open the filterable page**](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html) | [v20/odoo-20-community-release-notes.md](v20/odoo-20-community-release-notes.md) | [v20/data/](v20/data/) |
+Which new Odoo features you get in **Community (CE)**, which are partly available, and which are **Enterprise-only (EE)**,
+with screenshots, evidence and what integrators and module maintainers need to know before migrating. Filter by
+edition, app and topic, or search.
 
-Method, confidence levels and how to correct an item: [v20/README.md](v20/README.md).
+| Version | Release notes | Also available as |
+|---|---|---|
+| 20.0 (draft) | [**Open the release notes**](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html) | [Markdown](v20/odoo-20-community-release-notes.md) (for diffs and offline reading) · [evidence per item](v20/odoo-20-evidence.md) · [raw data](v20/data/) |
+
+**Found an error?** Use "Suggest a correction on GitHub" under any item's evidence on the page, or
+[open an issue](https://github.com/smaddlsoft/odoo-community-release-notes/issues/new). How items are classified and how to
+edit the data: [v20/README.md](v20/README.md).
 
 Independent work, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA). Item titles come
 from Odoo's release notes; summaries, classifications and evidence are our own. No Enterprise source code is included;
