@@ -25,8 +25,6 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   ![Simplified access rights in Odoo 20 Community](img/general__simplified-access-rights.png)
   <sub>Screenshot (CE test database): Access right form in developer mode — one record holds model, group, the Create/Read/Update/Delete operations and a domain.</sub>
 
-- **Material Symbols** (General) — the web client's icons move from Font Awesome to Material Symbols, part of the refreshed Odoo 20 look.
-- **Dialog design** (General) — redesigned dialogs across the web client.
 - **Tax included/excluded on orders and invoices** (General) — switch tax-included/excluded prices per sales order, purchase order and invoice.
 
   ![Tax included/excluded on orders and invoices in Odoo 20 Community](img/general__tax-included-excluded-on-orders-and-invoices.png)

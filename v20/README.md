@@ -19,7 +19,7 @@ module maintainers need to know before migrating.
 | [data/technical-changes-20.0.yaml](data/technical-changes-20.0.yaml) | Developer-facing changes (`ir.access`, OWL 3, `upgrade_code` scripts…) |
 | [data/oca-alternatives.yaml](data/oca-alternatives.yaml) | Pointers to OCA modules for Enterprise-only areas |
 | [data/highlights.yaml](data/highlights.yaml) | Editorial pick of CE highlights, with screenshot captions |
-| [SCREENSHOTS.md](SCREENSHOTS.md) + `img/` | Screenshot list (CE test database only) and open visual checks |
+| `img/` | Screenshots of Odoo Community (20.0 test database), cropped and marked; named after the highlight's id |
 | [tools/](tools/) | `render.py` (Markdown), `site.py` + `site_template.html` (page), `bootstrap/` (first-draft pipeline) |
 
 ## Method
@@ -68,5 +68,10 @@ only by module name), and only publish screenshots of Community.
 
 - 57 items still need review (mostly localizations) and 382 are module-level only.
 - "Partly" is coarse. The note says which part is Enterprise, but may be incomplete.
-- UI behaviour was verified through the API, source code and a few screenshots, not by testing each feature.
+- UI behaviour was verified through the API, source code and 10 screenshots, not by testing each feature.
 - OCA alternatives are pointers, not parity claims; none of the listed repositories had a 20.0 branch yet.
+- Open checks that need a look at the Community and Enterprise user interface (all marked *needs review*):
+  `calendar/manage-and-share-availabilities` (no "Share availabilities" button seen in CE Calendar),
+  `dashboards/private-dashboards` and `dashboards/frozen-share-links` (CE Dashboards has "My Dashboard" and a Share
+  button), `ecommerce/simplified-inventory-management`, `accounting/valuation-without-inventory`,
+  `accounting/split-items-on-invoices`, `accounting/bank-consistency`.
