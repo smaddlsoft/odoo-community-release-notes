@@ -33,9 +33,17 @@
 - id: general/pin-messages-in-the-chatter
   why: pin, filter and CC in the chatter; activities can be assigned to roles.
   caption: Chatter — the new filter (All / Messages / Notes / Activities / Changes) and the pinned-messages button (pin icon).
+- id: discuss/polls
+  why: run quick polls inside any Discuss conversation, with emoji options, single or multiple answers and a time limit.
+  caption: 'Discuss on a German user interface — the new “Create Poll” dialog: question, options (with emoji), “allow multiple options” and a
+    duration.'
 - id: calendar/multiple-calendars-in-one-place
   why: several calendars per user, shared team calendars, colleagues' calendars and pending activities in one view.
   caption: Calendar — “+ Add a calendar” in the side panel for extra or shared calendars, and pending activities in the all-day row.
+- id: crm/lead-distribution
+  why: 'per salesperson, choose how automatic lead assignment treats them: always in rotation, in rotation with a limit, or out of rotation.'
+  caption: 'CRM → Configuration → Sales Teams → team member — the new “Auto-Assignment Rules”: Always in rotation, In rotation with a limit, Out
+    of rotation.'
 - id: accounting/parent-accounts
   why: parent accounts replace account groups and account codes become optional — structural change for charts of accounts and reporting modules.
   caption: Chart of accounts — the new “Parent Account” column (optional, shown via the column selector). The panel on the left is the existing
@@ -57,6 +65,8 @@
   caption: 'Sales order PDF — the product image is printed next to the order line (here: Screw Driver).'
 - id: sales/description-only-sales-order-lines
   why: sales order lines no longer need a product (optional "Mandatory Product" setting).
+  caption: New quotation on a German user interface — an order line with only a description (“Auftragszeile ohne Produkt…”) and no product; above
+    it the tax excluded/included switch (“exkl. Steuern / inkl. Steuern”).
 - id: manufacturing/manufacturing-order-kanban-view
   why: MO Kanban grouped by week with component availability, deadlines and remaining time.
   caption: Manufacturing orders Kanban — grouped by week with a workload bar, component availability and remaining time per order.

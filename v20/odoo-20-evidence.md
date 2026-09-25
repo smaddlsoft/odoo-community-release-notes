@@ -1061,6 +1061,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - UI string "Always in" -> CE: crm, base | EE: knowledge
   - code /Always in rotation/ -> CE: crm | EE-only: -
   - module license (CE runbot): crm=LGPL-3
+  - CE screenshot (20.0 test database): 'Auto-Assignment Rules' on a sales team member (Always in rotation / In rotation, with a limit / Out of rotation)
 
 **✅ Lead generation** `crm/lead-generation` — confidence M (module-level)  
   - UI string "Dun & Bradstreet" -> CE: base
@@ -1123,6 +1124,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Polls** `discuss/polls` — confidence H (verified)  
   - code /discuss\.poll|mail\.poll|_name = .*poll/ -> CE: mail | EE-only: -
   - module license (CE runbot): mail=LGPL-3
+  - CE screenshot (20.0 test database): 'Create Poll' dialog in Discuss
 
 ## Documents
 
@@ -2081,6 +2083,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - runbot CE (API): sale.order.line.product_id required=False
   - UI string "Mandatory Product" -> CE: sale
   - module license (CE runbot): sale=LGPL-3
+  - CE screenshot (20.0 test database): quotation line with only a description, no product
 
 **✅ Editable product variant price** `sales/editable-product-variant-price` — confidence M (module-level)  
   - module license (CE runbot): sale=LGPL-3

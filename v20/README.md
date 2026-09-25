@@ -69,7 +69,7 @@ only by module name), and only publish screenshots of Community.
 
 - 58 items still need review (mostly localizations) and 362 are module-level only.
 - "Partly" is coarse. The note says which part is Enterprise, but may be incomplete.
-- UI behaviour was verified through the API, source code and 21 screenshots, not by testing each feature.
+- UI behaviour was verified through the API, source code and 24 screenshots, not by testing each feature.
 - OCA alternatives are pointers, not parity claims; none of the listed repositories had a 20.0 branch yet.
 - Open checks that need a look at the Community and Enterprise user interface (all marked *needs review*):
   `calendar/manage-and-share-availabilities` (no "Share availabilities" button seen in CE Calendar),
