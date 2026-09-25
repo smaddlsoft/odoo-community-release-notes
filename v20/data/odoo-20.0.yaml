@@ -4502,6 +4502,8 @@
   - 'UI string "Always in" -> CE: crm, base | EE: knowledge'
   - 'code /Always in rotation/ -> CE: crm | EE-only: -'
   - 'module license (CE runbot): crm=LGPL-3'
+  - 'CE screenshot (20.0 test database): ''Auto-Assignment Rules'' on a sales team member (Always in rotation / In rotation, with a limit / Out
+    of rotation)'
   notes: ''
   flags: []
   tags: []
@@ -4740,6 +4742,7 @@
   evidence:
   - 'code /discuss\.poll|mail\.poll|_name = .*poll/ -> CE: mail | EE-only: -'
   - 'module license (CE runbot): mail=LGPL-3'
+  - 'CE screenshot (20.0 test database): ''Create Poll'' dialog in Discuss'
   notes: ''
   flags: []
   tags: []
@@ -8524,6 +8527,7 @@
   - 'runbot CE (API): sale.order.line.product_id required=False'
   - 'UI string "Mandatory Product" -> CE: sale'
   - 'module license (CE runbot): sale=LGPL-3'
+  - 'CE screenshot (20.0 test database): quotation line with only a description, no product'
   notes: '`sale.order.line.product_id` is optional unless the ''Mandatory Product'' setting is on'
   flags: []
   tags:

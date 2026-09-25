@@ -65,10 +65,20 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   ![Pin messages in the chatter in Odoo 20 Community](img/general__pin-messages-in-the-chatter.png)
   <sub>Screenshot (CE test database): Chatter — the new filter (All / Messages / Notes / Activities / Changes) and the pinned-messages button (pin icon).</sub>
 
+- **Polls** (Discuss) — run quick polls inside any Discuss conversation, with emoji options, single or multiple answers and a time limit.
+
+  ![Polls in Odoo 20 Community](img/discuss__polls.png)
+  <sub>Screenshot (CE test database): Discuss on a German user interface — the new “Create Poll” dialog: question, options (with emoji), “allow multiple options” and a duration.</sub>
+
 - **Multiple calendars in one place** (Calendar) — several calendars per user, shared team calendars, colleagues' calendars and pending activities in one view.
 
   ![Multiple calendars in one place in Odoo 20 Community](img/calendar__multiple-calendars-in-one-place.png)
   <sub>Screenshot (CE test database): Calendar — “+ Add a calendar” in the side panel for extra or shared calendars, and pending activities in the all-day row.</sub>
+
+- **Lead distribution** (CRM) — per salesperson, choose how automatic lead assignment treats them: always in rotation, in rotation with a limit, or out of rotation.
+
+  ![Lead distribution in Odoo 20 Community](img/crm__lead-distribution.png)
+  <sub>Screenshot (CE test database): CRM → Configuration → Sales Teams → team member — the new “Auto-Assignment Rules”: Always in rotation, In rotation with a limit, Out of rotation.</sub>
 
 - **Parent accounts** (Accounting) — parent accounts replace account groups and account codes become optional — structural change for charts of accounts and reporting modules.
 
@@ -97,6 +107,10 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   <sub>Screenshot (CE test database): Sales order PDF — the product image is printed next to the order line (here: Screw Driver).</sub>
 
 - **Description-only sales order lines** (Sales) — sales order lines no longer need a product (optional "Mandatory Product" setting).
+
+  ![Description-only sales order lines in Odoo 20 Community](img/sales__description-only-sales-order-lines.png)
+  <sub>Screenshot (CE test database): New quotation on a German user interface — an order line with only a description (“Auftragszeile ohne Produkt…”) and no product; above it the tax excluded/included switch (“exkl. Steuern / inkl. Steuern”).</sub>
+
 - **Manufacturing order Kanban view** (Manufacturing) — MO Kanban grouped by week with component availability, deadlines and remaining time.
 
   ![Manufacturing order Kanban view in Odoo 20 Community](img/manufacturing__manufacturing-order-kanban-view.png)
