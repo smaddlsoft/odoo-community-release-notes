@@ -6,7 +6,7 @@ and module maintainers need to know before migrating.
 
 | Version | Filterable page | Readable notes | Data |
 |---|---|---|---|
-| 20.0 (draft) | [v20/index.html](v20/index.html) | [v20/odoo-20-community-release-notes.md](v20/odoo-20-community-release-notes.md) | [v20/data/](v20/data/) |
+| 20.0 (draft) | [**Open the filterable page**](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html) | [v20/odoo-20-community-release-notes.md](v20/odoo-20-community-release-notes.md) | [v20/data/](v20/data/) |
 
 Method, confidence levels and how to correct an item: [v20/README.md](v20/README.md).
 
