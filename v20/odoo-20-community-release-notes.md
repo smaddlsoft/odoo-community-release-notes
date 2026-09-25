@@ -1,4 +1,4 @@
-# Odoo 20 — Community Edition release notes (DRAFT)
+# Odoo 20 Community Edition Release Notes [Unofficial] (draft)
 
 > **Independent draft, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA).**  
 > Informed by Odoo's official [Odoo 20 release notes](https://www.odoo.com/odoo-20-release-notes) (September 2026, 687 items). Each item was classified as available in Odoo Community (CE), partly available, or Enterprise-only (EE), and checked against the CE source ([odoo/odoo@20.0](https://github.com/odoo/odoo/tree/20.0)), the EE 20.0 source (licensed copy, used locally only — no EE code is reproduced here) and CE/EE 20.0 runbot databases.  
