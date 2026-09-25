@@ -46,7 +46,11 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
   ![Multiple partner identifiers in Odoo 20 Community](img/general__multiple-partner-identifiers.png)
   <sub>Screenshot (CE test database): Contact form — the “+” next to the tax ID adds further typed identifiers (multi-ID); the chatter logs the routing identifiers used for e-invoicing.</sub>
 
-- **Translation** (General) — in-context "Translation Mode", plus import/export of translatable fields via CSV/Excel.
+- **Translation** (General) — an in-context translation mode (module “Translation Mode”) shows every text on the screen with its translation and links to Weblate; translatable fields can also be imported/exported via CSV/Excel.
+
+  ![Translation in Odoo 20 Community](img/general__translation.png)
+  <sub>Screenshot (CE test database): Translation Mode on a German user interface — the side panel lists the texts of the screen (English source, German translation); the highlighted entry is the app title marked on the left, and “Translate” opens the term in Odoo’s Weblate project.</sub>
+
 - **Multi-record drag and drop** (General) — reorder or move several records at once in list and Kanban views.
 - **Pin messages in the chatter** (General) — pin, filter and CC in the chatter; activities can be assigned to roles.
 
@@ -66,7 +70,7 @@ Legend: ✅ in Community · 🟡 partly (details in the note) · 🔒 Enterprise
 - **Intuitive payment status** (Accounting) — payment states renamed (In Process → Paid → Reconciled); check custom reports and filters.
 
   ![Intuitive payment status in Odoo 20 Community](img/accounting__intuitive-payment-status.png)
-  <sub>Screenshot (CE test database): Customer payments — matched payments now show the status “Reconciled” (formerly “Paid”).</sub>
+  <sub>Screenshot (CE test database): Customer payments — the status column uses the renamed statuses: matched payments show “Reconciled” (formerly “Paid”); payments not yet matched show “Paid” (formerly “In Process”).</sub>
 
 - **Employee Expenses menu item** (Accounting) — the separate Employee Expenses menu is gone: approved expenses become draft vendor bills and are handled with the other bills.
 

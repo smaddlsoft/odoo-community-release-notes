@@ -20,7 +20,10 @@
   caption: Contact form — the “+” next to the tax ID adds further typed identifiers (multi-ID); the chatter logs the routing identifiers used
     for e-invoicing.
 - id: general/translation
-  why: in-context "Translation Mode", plus import/export of translatable fields via CSV/Excel.
+  why: an in-context translation mode (module “Translation Mode”) shows every text on the screen with its translation and links to Weblate; translatable
+    fields can also be imported/exported via CSV/Excel.
+  caption: Translation Mode on a German user interface — the side panel lists the texts of the screen (English source, German translation); the
+    highlighted entry is the app title marked on the left, and “Translate” opens the term in Odoo’s Weblate project.
 - id: general/multi-record-drag-and-drop
   why: reorder or move several records at once in list and Kanban views.
 - id: general/pin-messages-in-the-chatter
@@ -35,7 +38,8 @@
     grouping by code prefix, not the parent accounts.
 - id: accounting/intuitive-payment-status
   why: payment states renamed (In Process → Paid → Reconciled); check custom reports and filters.
-  caption: Customer payments — matched payments now show the status “Reconciled” (formerly “Paid”).
+  caption: 'Customer payments — the status column uses the renamed statuses: matched payments show “Reconciled” (formerly “Paid”); payments not
+    yet matched show “Paid” (formerly “In Process”).'
 - id: accounting/employee-expenses-menu-item
   why: 'the separate Employee Expenses menu is gone: approved expenses become draft vendor bills and are handled with the other bills.'
   caption: Invoicing dashboard — approved expenses show up with the vendor bills in the Purchases card (“1 Expense”).
