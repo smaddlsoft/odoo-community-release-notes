@@ -103,12 +103,14 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
 **✅ Multi-record drag and drop** `general/multi-record-drag-and-drop` — confidence H (verified)  
   - module license (CE runbot): web=LGPL-3
   - CE source: addons/web/static/src/views/multi_drag.js (used by list and kanban renderers)
+  - CE screenshot (20.0 test database): two selected CRM opportunities dragged together ('Move 2 records')
 
 **✅ Multiple partner identifiers** `general/multiple-partner-identifiers` — confidence H (verified)  
   - code /partner.*identifier|identifier_type/ -> CE: account_edi_ubl_cii, l10n_dk, account_peppol, l10n_fr_pdp, account, l10n_ar (+40) | EE-only: l10n_co_edi, l10n_ec_edi, sale_shopee, whatsapp, account_saft, l10n_ar_edi (+38)
   - module license (CE runbot): base=LGPL-3, account=LGPL-3
   - CE screenshot (20.0 test database): '+' next to the tax ID on the contact form; routing identifiers logged in the chatter
   - CE source: odoo/addons/base/views/res_partner_views.xml — field additional_identifiers (widgets additional_identifiers_button / _list); odoo/tools/partner_identifiers; identifier schemes incl. DUNS (0060) in account_edi_ubl_cii
+  - CE screenshot (20.0 test database): '+' next to the tax ID opens identifier types (DUNS, company ID)
 
 **✅ My Subscription page** `general/my-subscription-page` — confidence M (module-level)  
   - UI string "My Subscription" -> CE: mysubscription | EE: sale_subscription
@@ -118,6 +120,7 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - code /offline/ -> CE: web, mail, point_of_sale, website_event_track, bus, hr (+31) | EE-only: obox, iot, l10n_ec_edi, social_youtube, voip, product_unspsc (+3)
   - module license (CE runbot): web=LGPL-3
   - CE source: addons/web/static/src/core/offline/ (offline plugin, disabled-offline styles)
+  - CE screenshot (20.0 test database): 'Working offline' indicator in the top bar with the record still open
 
 **✅ Partner autocomplete** `general/partner-autocomplete` — confidence M (module-level)  
   - UI string "Partner autocomplete" -> CE: base_setup, partner_autocomplete, pos_partner_autocomplete
