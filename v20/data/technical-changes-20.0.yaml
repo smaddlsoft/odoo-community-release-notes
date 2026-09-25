@@ -1,0 +1,85 @@
+# Technical changes in Odoo 20.0 Community that affect module developers (mostly NOT in the official release notes).
+# Sources: odoo/odoo 20.0 (commit c7f74297, 2026-09-25) and the CE 20.0 runbot. Descriptions are our own wording.
+# "script" = Odoo ships an automatic source rewrite in odoo/upgrade_code/, run with:
+#   odoo-bin upgrade_code --addons-path=<your repo> --from 19.0 [--dry-run]
+base: https://github.com/odoo/odoo/blob/20.0/
+items:
+- title: "Access rights: ir.access replaces ir.model.access and ir.rule"
+  impact: every module with security files
+  what: >-
+    The models ir.model.access and ir.rule no longer exist. A single ir.access model holds model, group, operation
+    (e.g. "r", "cru") and an optional domain. Modules ship security/ir.access.csv with columns
+    id,name,model_id,group_id/id,operation,domain instead of ir.model.access.csv + record-rule XML.
+  script: odoo/upgrade_code/19.4-00-ir-access.py
+  evidence:
+  - "source: odoo/addons/base/models/ir_access.py (_name = 'ir.access')"
+  - "source: 226 CE modules ship security/ir.access.csv, none ships ir.model.access.csv"
+  - "runbot CE (API): model ir.model.access does not exist; ir.access exists (base)"
+  release_note: general/simplified-access-rights
+- title: "Web client moves to OWL 3"
+  impact: every module with JS/OWL components or QWeb client templates
+  what: >-
+    web ships OWL 3.0.0-alpha.49 plus an OWL 2 compatibility layer (web/static/src/owl2/). A large automatic
+    rewrite of JS and templates is provided.
+  script: odoo/upgrade_code/owl3-migration.py
+  evidence:
+  - "source: addons/web/static/lib/owl/owl.js version = \"3.0.0-alpha.49\""
+  - "source: addons/web/static/src/owl2/owl3_compatibility_layer.js"
+- title: "QWeb t-call: parameters passed as attributes"
+  impact: server-side QWeb templates and inheriting xpaths on t-call bodies
+  what: >-
+    t-set nodes inside t-call bodies are converted into attributes of the t-call (or moved before it when
+    still needed). Xpaths that target t-set inside a t-call may need adapting.
+  script: odoo/upgrade_code/19.1-00-t-call.py
+- title: "Account groups replaced by parent accounts"
+  impact: chart-of-accounts templates (l10n modules), reports on account.group
+  what: >-
+    account.group is gone; account.account has parent_id and code is optional. The script converts account
+    group templates of charts of accounts.
+  script: odoo/upgrade_code/19.3-00-account-groups.py
+  evidence:
+  - "runbot CE (API): model account.group absent; account.account.parent_id exists; account.account.code not required"
+  release_note: accounting/parent-accounts
+- title: "Account report XML: foldable lines and shorthand formula engines"
+  impact: modules defining account.report data (tax reports in l10n modules)
+  what: Report-line XML is rewritten (foldable handling, shorthand engine names such as domain/aggregation/tax_tags).
+  script: odoo/upgrade_code/19.3-00-account-report-foldable.py
+- title: "XML data: type=\"base64\" file fields become type=\"bytes\""
+  impact: data files loading binary files
+  what: <field type="base64" file="..."/> is rewritten to type="bytes".
+  script: odoo/upgrade_code/19.3-00-base64-in-xml.py
+- title: "Cache invalidation: registry.clear_cache → transaction.invalidate_ormcache"
+  impact: Python code clearing ormcaches
+  what: Calls to registry.clear_cache(...) are replaced by transaction.invalidate_ormcache(...).
+  script: odoo/upgrade_code/19.4-00-ormcache-on-transaction.py
+- title: "_rec_names_search must be a tuple"
+  impact: models defining _rec_names_search
+  what: "_rec_names_search = ['name'] becomes _rec_names_search = ('name',)."
+  script: odoo/upgrade_code/19.5-00-tuple-rec_names_search.py
+- title: "Mail tracking values moved to the optional module mail_tracking"
+  impact: modules reading mail.tracking.value; OCA/mail modules with the same names
+  what: >-
+    Tracking messages are generated on the fly; mail.tracking.value now comes from the new CE module mail_tracking
+    (not auto-installed). OCA's mail_tracking and mail_tracking_mass_mailing (OCA/mail) clash with the new CE names.
+  evidence:
+  - "runbot CE (API): model mail.tracking.value provided by module mail_tracking"
+  release_note: technical/mail-in-body-tracking
+- title: "Font Awesome replaced by Material Symbols"
+  impact: views, templates and snippets using fa fa-* icon classes
+  what: The web client no longer uses Font Awesome classes in its own templates.
+  evidence:
+  - "source: no 'fa fa-' left in addons/web/static/src/**/*.xml"
+  release_note: general/material-symbols
+- title: "PDF report engine becomes pluggable (Paper Muncher / wkhtmltopdf)"
+  impact: deployment (Docker images, wkhtmltopdf installs), report customisations
+  what: >-
+    New modules base_report_paper_muncher (new "Paper Muncher" engine, not auto-installed) and
+    base_report_wkhtmltox (wkhtmltopdf/wkhtmltoimage engine, auto-installed).
+  evidence:
+  - "source: addons/base_report_paper_muncher/__manifest__.py, addons/base_report_wkhtmltox/__manifest__.py"
+- title: "Modules merged into core modules"
+  impact: depends lists of community modules (e.g. OCA)
+  what: >-
+    e.g. base_vat → base (+ l10n_eu_account_vies for VIES), stock_picking_batch → stock, website_sale_wishlist /
+    website_sale_comparison → website_sale, hr_org_chart / hr_hourly_cost / hr_homeworking → hr,
+    purchase_requisition_sale → purchase_alternative_sale. Full list in module-changes-20.0.yaml.
