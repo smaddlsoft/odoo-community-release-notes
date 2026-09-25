@@ -2,6 +2,13 @@
 
 ### 👉 [Open the Odoo 20 release notes](https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html)
 
+> [!WARNING]
+> **Early draft — please read with care.** The Community/Enterprise classification was produced with automated checks and
+> hand review, but only part of it is verified in detail, so there are certainly errors and gaps. Each item shows its
+> confidence level and evidence.
+> **Corrections and contributions are very welcome:** use "Suggest a correction on GitHub" on the page,
+> [open an issue](https://github.com/smaddlsoft/odoo-community-release-notes/issues/new) or send a pull request.
+
 Which new Odoo features you get in **Community (CE)**, which are partly available, and which are **Enterprise-only (EE)**,
 with screenshots, evidence and what integrators and module maintainers need to know before migrating. Filter by
 edition, app and topic, or search.

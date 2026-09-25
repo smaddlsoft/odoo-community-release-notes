@@ -1,5 +1,5 @@
 # "Déjà vu": Odoo 20 Community features that OCA modules have offered for years.
-# No claim that anything was copied — good ideas travel. Practical point: if you run the OCA module today,
+# Good ideas travel. Practical point: if you run the OCA module today,
 # check whether you still need it in 20.0 (functional overlap is not the same as full parity).
 # since = oldest Odoo version with the module in the OCA (checked on GitHub, 2026-09-26; modules moved between
 # repositories count from their first repository). link = current home of the module.

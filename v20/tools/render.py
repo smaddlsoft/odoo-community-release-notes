@@ -16,6 +16,7 @@ import yaml
 VERSION = "20.0"
 OFFICIAL = "https://www.odoo.com/odoo-20-release-notes"
 PAGES_URL = "https://smaddlsoft.github.io/odoo-community-release-notes/v20/index.html"  # update if the repository moves
+REPO_URL = "https://github.com/smaddlsoft/odoo-community-release-notes"
 ICON = {"ce": "✅", "partial": "🟡", "ee": "🔒"}
 LABEL = {"ce": "Community", "partial": "Partly Community", "ee": "Enterprise only"}
 CONF = {"H": "verified", "M": "module-level", "L": "needs review"}
@@ -91,6 +92,10 @@ L = []
 w = L.append
 w(f"# Odoo 20 Community Edition Release Notes [Unofficial] (draft)\n")
 w(f"**👉 This is the Markdown copy. The main version, with screenshots, filters and search, is here: [{PAGES_URL}]({PAGES_URL})**\n")
+w("> [!WARNING]\n> **Early draft — please read with care.** The Community/Enterprise classification was produced with automated "
+  "checks and hand review, but only part of it is verified in detail, so there are certainly errors and gaps. Each item "
+  "shows its confidence level and evidence.  \n> **Corrections and contributions are very welcome:** open an issue or send a "
+  f"pull request to {REPO_URL}.\n")
 w("> **Independent draft, not affiliated with or endorsed by Odoo S.A. or the Odoo Community Association (OCA).**  ")
 w(f"> Informed by Odoo's official [Odoo 20 release notes]({OFFICIAL}) (September 2026, {len(recs)} items). Each item was "
   "classified as available in Odoo Community (CE), partly available, or Enterprise-only (EE), and checked against the CE source "
@@ -125,8 +130,8 @@ if highlights:
 
 if PRECURSORS:
     w("## Déjà vu 😉\n")
-    w("Good ideas travel. These Odoo 20 Community features have been around as OCA modules for a while. No claim that "
-      "anything was copied — but if you run one of these modules today, check whether you still need it in 20.0 "
+    w("Good ideas travel. These Odoo 20 Community features have been around as OCA modules for a while. If you run one "
+      "of these modules today, check whether you still need it in 20.0 "
       "(overlap is not the same as full parity).\n")
     w("| Odoo 20 feature | OCA module | Since | |\n|---|---|---|---|")
     for p in PRECURSORS:
