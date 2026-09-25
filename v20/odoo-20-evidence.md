@@ -169,6 +169,8 @@ Machine-generated from `data/odoo-20.0.yaml`. *UI string* = the phrase occurs in
   - UI string "Translation Mode" -> CE: website, test_translation
   - code /Translation Mode/ -> CE: website, test_translation_mode, web, test_translation | EE-only: -
   - module license (CE runbot): test_translation_mode=LGPL-3, web=LGPL-3
+  - CE screenshot (20.0 test database): Translation Mode side panel with source/translation pairs and 'Translate' links
+  - CE source: addons/test_translation_mode/__manifest__.py — 'Translate' redirects to Odoo's official Weblate project; a custom Weblate URL can be set in the settings
 
 **✅ Translation wizard** `general/translation-wizard` — confidence M (module-level)  
   - module license (CE runbot): web=LGPL-3
