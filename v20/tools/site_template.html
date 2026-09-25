@@ -135,7 +135,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
 
 <div class="wrap">
   <header class="top">
-    <div class="eyebrow">Independent draft · built from the official Odoo 20 release notes</div>
+    <div class="eyebrow">Independent draft · Odoo 20</div>
     <h1>Odoo 20 for Community users <span class="draft">Draft</span></h1>
     <p class="lede" id="lede"></p>
     <div class="overview">
@@ -170,7 +170,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
 
   <section class="method" id="method">
     <h2>How items were classified</h2>
-    <p>Every item of the official page was read and assigned by hand to the module(s) it belongs to. Each module’s edition comes from the module lists of a Community and an Enterprise 20.0 test database: LGPL-3 means Community, OEEL-1 means Enterprise. Evidence was then collected per item and conflicts were reviewed:</p>
+    <p>The feature list follows the items of Odoo’s official release notes. Each item was read and assigned by hand to the module(s) it belongs to. Each module’s edition comes from the module lists of a Community and an Enterprise 20.0 test database: LGPL-3 means Community, OEEL-1 means Enterprise. Evidence was then collected per item and conflicts were reviewed:</p>
     <ul>
       <li><b>UI text:</b> distinctive phrases of the item (its title, quoted labels) looked up in each module’s translation template, which holds all user-visible texts of the module;</li>
       <li><b>Code:</b> a search pattern written for the item, run over the public Community source and over a licensed Enterprise copy searched locally (only module names are reported);</li>
@@ -212,7 +212,7 @@ footer{margin-top:36px;font-size:13px;color:var(--muted);display:grid;gap:6px;ma
 
   // header
   var all = count(D.items), N = D.items.length;
-  document.getElementById('lede').innerHTML = 'Every item of Odoo’s official <a href="' + esc(D.meta.official) + '" target="_blank" rel="noopener">Odoo 20 release notes</a>, marked by where it lives: Community, partly Community, or Enterprise only. Checked against the Community source, the Enterprise source (module names only) and 20.0 test databases. Summaries are our own wording.';
+  document.getElementById('lede').innerHTML = 'What Odoo 20 brings to Community users: each feature marked as Community, partly Community or Enterprise only. Informed by Odoo’s <a href="' + esc(D.meta.official) + '" target="_blank" rel="noopener">official release notes</a> and checked against the Community source code, Enterprise module names and 20.0 test databases. Summaries and classifications are our own.';
   var barEl = document.getElementById('bar');
   barEl.innerHTML = bar(all, N);
   barEl.setAttribute('aria-label', all.ce + ' Community, ' + all.partial + ' partly, ' + all.ee + ' Enterprise-only of ' + N + ' items');

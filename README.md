@@ -1,8 +1,8 @@
 # Odoo Community release notes
 
-Release notes for **Odoo Community (CE)**: for each item of Odoo's official release notes, whether it is available in
-Community, partly available, or Enterprise-only, with evidence and our own summaries. They also cover what integrators
-and module maintainers need to know before migrating.
+Release notes for **Odoo Community (CE)**: which new features are available in Community, partly available, or
+Enterprise-only, with evidence and our own summaries, informed by Odoo's official release notes. They also cover what
+integrators and module maintainers need to know before migrating.
 
 | Version | Filterable page | Readable notes | Data |
 |---|---|---|---|
