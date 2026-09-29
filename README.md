@@ -25,6 +25,14 @@ Independent work, not affiliated with or endorsed by Odoo S.A. or the Odoo Commu
 from Odoo's release notes; summaries, classifications and evidence are our own. No Enterprise source code is included;
 Enterprise modules are referenced by name only.
 
+## AI assistance
+
+This draft was prepared with AI assistance (Claude Opus 5.5), directed and reviewed by the repository maintainer, who
+takes full responsibility for its content. Following the
+[OCA Generative AI policy](https://github.com/OCA/.github/blob/master/AI_POLICY.md), commits disclose this with an
+`Assisted-by:` trailer; AI tools are never listed as authors or co-authors. Contributions are welcome with or without AI
+help — please disclose AI use the same way.
+
 ## License
 
 | Part | License |
